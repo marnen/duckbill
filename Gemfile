@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do
   gem 'guard-rspec', require: false
+  gem 'guard-cucumber', require: false
 end
 
 group :development, :test do
