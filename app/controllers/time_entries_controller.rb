@@ -2,7 +2,7 @@ class TimeEntriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @time_entries = TimeEntry.all
+    @time_entries = current_user.time_entries
   end
 
   def new

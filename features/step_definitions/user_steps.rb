@@ -1,3 +1,7 @@
+Given /^a user exists with email: "(.*?)"$/ do |email|
+  FactoryGirl.create :user, email: email
+end
+
 Given 'I am logged in' do
   @current_user = FactoryGirl.create :user
   visit new_user_session_path
