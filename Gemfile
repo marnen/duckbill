@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'gettext_i18n_rails'
 gem 'haml'
 
 # Use ActiveModel has_secure_password
@@ -36,8 +37,10 @@ gem 'haml'
 # gem 'capistrano-rails', group: :development
 
 group :development do
+  gem 'gettext', '>= 3.0.2', require: false
   gem 'guard-rspec', require: false
   gem 'guard-cucumber', require: false
+  gem 'ruby_parser', require: false
 end
 
 group :development, :test do
