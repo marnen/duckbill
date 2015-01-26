@@ -5,3 +5,11 @@ Given 'I am logged in' do
   fill_in 'Password', with: @current_user.password
   click_on 'Log in'
 end
+
+Given 'I am not logged in' do
+  visit destroy_user_session_path
+end
+
+Given 'no users exist' do
+  User.destroy_all
+end

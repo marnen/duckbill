@@ -12,6 +12,14 @@ When 'I fill in the following:' do |table|
   end
 end
 
+When /^I go to (.+)$/ do |page_name|
+  visit path_to page_name
+end
+
 Then /^I should be on (.+)$/ do |page_name|
   expect(current_path).to be == path_to(page_name)
+end
+
+Then /^I should see "(.*?)"$/ do |content|
+  expect(page).to have_text content
 end
