@@ -1,0 +1,9 @@
+%tr[time_entry]
+  %td
+    = link_to _('edit'), edit_time_entry_path(time_entry)
+    %br
+    = link_to _('delete'), time_entry_path(time_entry), method: :delete
+  %td.date= time_entry.date
+  %td.description= time_entry.description
+  %td.hours= time_entry.hours
+  %td.notes= time_entry.notes

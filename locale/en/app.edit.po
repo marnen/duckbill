@@ -1,0 +1,43 @@
+# Localizable strings for Duckbill.
+# Copyright (C) 2015 Marnen E. Laibow-Koser
+# This file is distributed under the same license as the app package.
+# Marnen E. Laibow-Koser <marnen@marnen.org>, 2015
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-26 21:56-0500\n"
+"PO-Revision-Date: 2015-01-26 15:24-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+msgid "Date"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Hours"
+msgstr ""
+
+msgid "New time entry"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "edit"
+msgstr ""

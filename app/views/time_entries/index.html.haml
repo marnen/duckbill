@@ -1,0 +1,11 @@
+%p= link_to _("New time entry"), new_time_entry_path
+
+%table
+  %tr
+    %th
+      -# action links
+    %th= _ 'Date'
+    %th= _ 'Description'
+    %th= _ 'Hours'
+    %th= _ 'Notes'
+  = render @time_entries

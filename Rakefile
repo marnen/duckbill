@@ -4,3 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+require 'gettext_i18n_rails/tasks'

@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'cancancan'
+gem 'devise'
+gem 'gettext_i18n_rails'
+gem 'haml'
+gem 'responders'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -33,8 +39,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development do
+  gem 'gettext', '>= 3.0.2', require: false
   gem 'guard-rspec', require: false
   gem 'guard-cucumber', require: false
+  gem 'ruby_parser', require: false
 end
 
 group :development, :test do
@@ -53,5 +61,9 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'launchy'
+  gem 'shoulda-matchers', require: false
 end
 
