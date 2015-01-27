@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'cancancan'
 gem 'devise'
+gem 'foundation-rails'
 gem 'gettext_i18n_rails'
 gem 'haml'
 gem 'responders'
