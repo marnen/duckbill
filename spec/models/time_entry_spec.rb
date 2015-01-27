@@ -25,4 +25,12 @@ RSpec.describe TimeEntry, :type => :model do
       end
     end
   end
+
+  describe '.resource_params' do
+    subject { TimeEntry.resource_params }
+
+    [:date, :hours, :description, :notes].each do |field|
+      it { should include field }
+    end
+  end
 end

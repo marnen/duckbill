@@ -29,6 +29,6 @@ class TimeEntriesController < ApplicationController
   end
 
   def update_params
-    params.require(:time_entry).permit(:date, :hours, :description, :notes)
+    params.require(:time_entry).permit *TimeEntry.resource_params
   end
 end
