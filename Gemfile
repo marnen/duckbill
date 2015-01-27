@@ -29,6 +29,7 @@ gem 'foundation-rails'
 gem 'gettext_i18n_rails'
 gem 'haml'
 gem 'responders'
+gem 'simple-navigation'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
