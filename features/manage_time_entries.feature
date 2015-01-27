@@ -1,9 +1,11 @@
-Feature: Create time entries
+Feature: Manage time entries
   As a User
-  I can create time entries
+  I can manage time entries
   So I have a record of my billable time
 
-Scenario Outline: Create time entries
+Background:
+
+Scenario Outline: Create and view time entries
   Given I am logged in
   And I have no time entries
   And I am on the work log page
