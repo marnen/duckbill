@@ -31,9 +31,9 @@ Feature: Edit time entries
       | Hours       | <old_hours>       |
       | Notes       | <old_notes>       |
 
-      Examples:
-        | user        | old_date   | new_date   | old_description | new_description | old_hours | new_hours | old_notes  | new_notes  |
-        | joe@aol.com | 2020-01-21 | 2021-02-22 | Old description | New description | 1         | 2         | Old notes. | New notes. |
+    Examples:
+      | user        | old_date   | new_date   | old_description | new_description | old_hours | new_hours | old_notes  | new_notes  |
+      | joe@aol.com | 2020-01-21 | 2021-02-22 | Old description | New description | 1         | 2         | Old notes. | New notes. |
 
   Scenario Outline: Can't edit other users' time entries
     Given I am logged in as "jsmith@gmail.com"
