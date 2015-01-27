@@ -1,7 +1,7 @@
-# English translations for app package.
-# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# Localizable strings for Duckbill.
+# Copyright (C) 2015 Marnen E. Laibow-Koser
 # This file is distributed under the same license as the app package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# Marnen E. Laibow-Koser <marnen@marnen.org>, 2015
 #
 msgid ""
 msgstr ""
@@ -16,3 +16,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
+
+msgid "Date"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Hours"
+msgstr ""
+
+msgid "New time entry"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "edit"
+msgstr ""
