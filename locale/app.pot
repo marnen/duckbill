@@ -1,7 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Localizable strings for Duckbill.
+# Copyright (C) 2015 Marnen E. Laibow-Koser
 # This file is distributed under the same license as the app package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Marnen E. Laibow-Koser <marnen@marnen.org>, 2015
 #
 #, fuzzy
 msgid ""
