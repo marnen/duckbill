@@ -22,6 +22,11 @@ class TimeEntriesController < ApplicationController
     redirect_to action: 'index' and return
   end
 
+  def destroy
+    @time_entry.destroy
+    redirect_to action: 'index' and return
+  end
+
   private
 
   def create_params
