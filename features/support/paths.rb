@@ -3,6 +3,8 @@ module PathHelpers
     case page_name
     when 'the user registration page'
       new_user_registration_path
+    when "the time entry's edit page"
+      edit_time_entry_path @time_entry
     when 'the work log page'
       time_entries_path
     else

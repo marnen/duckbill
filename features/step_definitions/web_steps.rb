@@ -20,6 +20,10 @@ Then /^I should be on (.+)$/ do |page_name|
   expect(current_path).to be == path_to(page_name)
 end
 
+Then /^I should not be allowed to go to (.+)$/ do |page_name|
+  expect { visit path_to page_name }.to raise_error CanCan::AccessDenied
+end
+
 Then /^I should (not )?see "(.*?)"$/ do |negation, content|
   expect(page.has_text? content).to be == !negation
 end
