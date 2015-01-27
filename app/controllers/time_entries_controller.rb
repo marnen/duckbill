@@ -12,7 +12,7 @@ class TimeEntriesController < ApplicationController
 
   def create
     @time_entry.save
-    respond_with @time_entry, location: time_entries_path
+    standard_response
   end
 
   def edit
@@ -20,18 +20,22 @@ class TimeEntriesController < ApplicationController
 
   def update
     @time_entry.update_attributes update_params
-    respond_with @time_entry, location: time_entries_path
+    standard_response
   end
 
   def destroy
     @time_entry.destroy
-    respond_with @time_entry, location: time_entries_path
+    standard_response
   end
 
   private
 
   def create_params
     update_params.merge user: current_user
+  end
+
+  def standard_response
+    respond_with @time_entry, location: time_entries_path
   end
 
   def update_params
