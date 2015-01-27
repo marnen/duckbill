@@ -25,7 +25,7 @@ class TimeEntriesController < ApplicationController
   private
 
   def create_params
-    params.require(:time_entry).permit(:date, :hours, :description, :notes).merge user: current_user
+    update_params.merge user: current_user
   end
 
   def update_params
