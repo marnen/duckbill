@@ -1,6 +1,7 @@
 class TimeEntriesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
+  respond_to :html
 
   def index
     @time_entries = current_user.time_entries
@@ -10,8 +11,8 @@ class TimeEntriesController < ApplicationController
   end
 
   def create
-    @time_entry.save!
-    redirect_to action: 'index' and return
+    @time_entry.save
+    respond_with @time_entry, location: time_entries_path
   end
 
   def edit
@@ -19,12 +20,12 @@ class TimeEntriesController < ApplicationController
 
   def update
     @time_entry.update_attributes update_params
-    redirect_to action: 'index' and return
+    respond_with @time_entry, location: time_entries_path
   end
 
   def destroy
     @time_entry.destroy
-    redirect_to action: 'index' and return
+    respond_with @time_entry, location: time_entries_path
   end
 
   private

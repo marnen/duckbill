@@ -27,6 +27,7 @@ gem 'cancancan'
 gem 'devise'
 gem 'gettext_i18n_rails'
 gem 'haml'
+gem 'responders'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

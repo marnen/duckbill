@@ -296,6 +296,7 @@ DEPENDENCIES
   launchy
   pg
   rails (= 4.2.0)
+  responders
   rspec-rails (~> 3.0)
   ruby_parser
   sass-rails (~> 5.0)
