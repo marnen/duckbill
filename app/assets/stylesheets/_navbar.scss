@@ -1,8 +1,8 @@
-$duck_yellow: rgb(255, 217, 119);
-$base_duck_orange: rgb(229, 84, 71);
-$duck_orange: lighten($base_duck_orange, 5%);
-
 .top-bar .name h1 {
+  $duck_yellow: rgb(255, 217, 119);
+  $base_duck_orange: rgb(229, 84, 71);
+  $duck_orange: lighten($base_duck_orange, 5%);
+
   background: {
     image: image-url('logo-24px.png');
     repeat: no-repeat;
