@@ -1,0 +1,24 @@
+$duck_yellow: rgb(255, 217, 119);
+$base_duck_orange: rgb(229, 84, 71);
+$duck_orange: lighten($base_duck_orange, 5%);
+
+.top-bar .name h1 {
+  background: {
+    image: image-url('logo-24px.png');
+    repeat: no-repeat;
+    position: 0% 50%;
+  }
+  padding-left: 1em;
+
+  a {
+    font: {
+      size: 150%;
+      weight: bolder;
+    }
+    color: $duck_yellow;
+
+    span {
+      color: $duck_orange;
+    }
+  }
+}
