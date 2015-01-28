@@ -14,8 +14,15 @@
 
   %body
     = render 'shared/navbar'
-    %p.notice= notice
-    %p.alert= alert
+    #flash
+      - if alert
+        %p.alert
+          %span
+          = alert
+      - if notice
+        %p.notice
+          %span
+          = notice
 
     %section#content
       %h1= content_for :title

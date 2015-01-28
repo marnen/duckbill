@@ -1,0 +1,25 @@
+#flash {
+  $flash-alert-color: lighten($duck-orange, 15%);
+  $flash-alert-icon-color: darken($duck-orange, 5%);
+
+  $flash-notice-color: lighten($duck-yellow, 15%);
+  $flash-notice-icon-color: darken($duck-yellow, 25%);
+
+  .alert {
+    @include panel($bg: $flash-alert-color);
+
+    span {
+      @extend .fi-alert;
+      color: $flash-alert-icon-color;
+    }
+  }
+
+  .notice {
+    @include panel($bg: $flash-notice-color);
+
+    span {
+      @extend .fi-info;
+      color: $flash-notice-icon-color;
+    }
+  }
+}
