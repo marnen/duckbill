@@ -1,18 +1,18 @@
-= form_for time_entry do |f|
+= form_for time_entry, html: {class: :time_entry} do |f|
   .row
-    .small-3.columns
+    .date
       = f.label :date
       = f.date_field :date
-    .small-6.columns.end
+    .description
       = f.label :description
       = f.text_field :description
   .row
-    .small-2.large-1.column
+    .hours
       = f.label :hours
       = f.text_field :hours
-    .small-7.large-8.columns.end
+    .notes
       = f.label :notes
       = f.text_area :notes
 
   .row.collapse
-    = f.submit _('Save'), class: [:'small-3', :columns, :'small-offset-3']
+    = f.submit _('Save')
