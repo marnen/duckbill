@@ -5,3 +5,7 @@
 body > * {
   padding-left: $padding-left;
 }
+
+input[type='submit'] {
+  @include button();
+}
