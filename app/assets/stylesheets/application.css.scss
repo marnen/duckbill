@@ -1,2 +1,7 @@
 @import 'foundation_and_overrides';
+@import 'globals';
 @import 'navbar';
+
+body > * {
+  padding-left: $padding-left;
+}
