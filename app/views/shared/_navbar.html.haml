@@ -1,14 +1,16 @@
 %nav.top-bar(data-topbar role="navigation")
   %ul.title-area
     %li.name
-      %h1= link_to _("Duckbill"), root_path
+      %h1
+        = link_to root_path do
+          - _("Duck<span>bill</span>").html_safe
     -# Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     %li.toggle-topbar.menu-icon
       %a(href="#")
         %span Menu
   %section.top-bar-section
     /
-      Right Nav Section -- we're not using this at the moment.
+      Right Nav Section: we're not using this at the moment.
       %ul.right
         %li.active
           %a(href="#") Right Button Active
