@@ -1,6 +1,8 @@
 module SelectorHelpers
   def selector_for(selector)
     case selector
+    when 'the navigation bar'
+      'nav.top-bar'
     when 'the signup form'
       'form.new_user'
     else

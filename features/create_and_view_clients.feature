@@ -44,3 +44,7 @@ Scenario Outline: Can't see other users' clients
   Examples:
     | other_user       | other_name            |
     | someone@else.org | Someone else's client |
+
+Scenario: Navigation bar link
+  When I click "Clients" within the navigation bar
+  Then I should be on the clients page

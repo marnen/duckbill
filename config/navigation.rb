@@ -75,6 +75,7 @@ SimpleNavigation::Configuration.run do |navigation|
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false
 =end
+    primary.item :clients, _('Clients'), clients_path, selected_class: 'active', highlights_on: :subpath
     primary.item :time_entries, _('Time Entries'), time_entries_path, selected_class: 'active', highlights_on: :subpath
     primary.dom_attributes = {class: 'left'}
   end
