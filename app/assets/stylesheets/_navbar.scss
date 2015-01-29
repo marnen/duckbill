@@ -1,0 +1,20 @@
+.top-bar .name h1 {
+  background: {
+    image: image-url('logo-24px.png');
+    repeat: no-repeat;
+    position: 0% 50%;
+  }
+  padding-left: 1em;
+
+  a {
+    font: {
+      size: 150%;
+      weight: bolder;
+    }
+    color: $duck_yellow;
+
+    span {
+      color: $duck_orange;
+    }
+  }
+}

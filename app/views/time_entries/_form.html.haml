@@ -1,16 +1,18 @@
-= form_for time_entry do |f|
-  %table
-    %tr
-      %th= f.label :date
-      %td= f.date_field :date
-    %tr
-      %th= f.label :description
-      %td= f.text_field :description
-    %tr
-      %th= f.label :hours
-      %td= f.text_field :hours
-    %tr
-      %th= f.label :notes
-      %td= f.text_area :notes
+= form_for time_entry, html: {class: :time_entry} do |f|
+  .row
+    .date
+      = f.label :date
+      = f.date_field :date
+    .description
+      = f.label :description
+      = f.text_field :description
+  .row
+    .hours
+      = f.label :hours
+      = f.text_field :hours
+    .notes
+      = f.label :notes
+      = f.text_area :notes
 
-  = f.submit _('Save')
+  .row.collapse
+    = f.submit _('Save')

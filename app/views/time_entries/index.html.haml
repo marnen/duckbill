@@ -1,4 +1,10 @@
-%p= link_to _("New time entry"), new_time_entry_path
+- content_for :title do
+  = _ 'Time Entries'
+
+%p
+  = link_to new_time_entry_path, class: :button do
+    %span.fi-clock
+    = _("New time entry")
 
 %table
   %tr

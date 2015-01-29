@@ -1,0 +1,32 @@
+%nav.top-bar(data-topbar role="navigation")
+  %ul.title-area
+    %li.name
+      %h1
+        = link_to root_path do
+          - _("Duck<span>bill</span>").html_safe
+    -# Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    %li.toggle-topbar.menu-icon
+      %a(href="#")
+        %span Menu
+  %section.top-bar-section
+    -# Right Nav Section
+    %ul.right
+      - if current_user
+        %li
+          %a(name='current-user')= current_user.email
+          -# TODO: The <a name> is an awful hack, but I can't figure out how to style the text correctly without it.
+        %li.has-form= link_to _('Log out'), destroy_user_session_path, class: [:button, :alert]
+      - else
+        %li= link_to _('Log in'), new_user_session_path
+        %li.has-form= link_to _('Sign up'), new_user_registration_path, class: :button
+      -# %li.active
+      -#   %a(href="#") Right Button Active
+      -# %li.has-dropdown
+      -#   %a(href="#") Right Button Dropdown
+      -#   %ul.dropdown
+      -#     %li(a href="#") First link in dropdown
+      -#     %li.active
+      -#       %a(href="#") Active link in dropdown
+
+    -# Left Nav Section
+    = render_navigation
