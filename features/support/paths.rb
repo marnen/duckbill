@@ -11,7 +11,7 @@ module PathHelpers
       begin
         self.send page_name.gsub(/\bpage$/, 'path').gsub(/^the /, '').gsub(' ', '_')
       rescue NoMethodError
-        raise ArgumentError, "'#{page_name}' is not defined. Please add a mapping in #{__FILE__}."
+        raise ArgumentError, "Path to '#{page_name}' is not defined. Please add a mapping in #{__FILE__}."
       end
     end
   end
