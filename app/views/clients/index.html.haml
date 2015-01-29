@@ -1,0 +1,24 @@
+- content_for :title do
+  = _ 'My Clients'
+
+%p
+  = link_to new_client_path, class: :button do
+    %span.fi-torsos-male-female
+    = _("New client")
+
+%table
+  %thead
+    %tr
+      %th= _ 'Name'
+      %th= _ 'Company'
+      %th= _ 'E-mail address'
+      %th= _ 'Street'
+      %th= _ 'City'
+      %th= _ 'State'
+      %th= _ 'ZIP code'
+  %tbody
+    - @clients.each do |client|
+      %tr[client]
+        - [:name, :company, :email, :street, :city, :state, :zip].each do |field|
+          %td{class: field}= client[field]
+

@@ -1,6 +1,8 @@
 module PathHelpers
   def path_to(page_name)
     case page_name
+    when 'the clients page'
+      clients_path
     when 'the user registration page'
       new_user_registration_path
     when "the time entry's edit page"
