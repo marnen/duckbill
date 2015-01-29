@@ -1,6 +1,6 @@
-Feature: Manage time entries
+Feature: Create and view time entries
   As a User
-  I can manage time entries
+  I can create and view time entries
   So I have a record of my billable time
 
 Background:
