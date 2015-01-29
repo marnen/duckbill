@@ -9,7 +9,9 @@ module PathHelpers
       time_entries_path
     else
       begin
-        self.send page_name.gsub(/\bpage$/, 'path').gsub(/^the /, '').gsub(' ', '_')
+        path_helper = page_name.gsub(/\bpage$/, 'path').gsub(/^the /, '').gsub(' ', '_')
+        warn "Automatically parsing '#{page_name}' as #{path_helper}. You may want to add an explicit mapping in #{__FILE__} instead."
+        self.send path_helper
       rescue NoMethodError
         raise ArgumentError, "Path to '#{page_name}' is not defined. Please add a mapping in #{__FILE__}."
       end
