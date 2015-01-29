@@ -5,8 +5,14 @@
   $flash-notice-color: lighten($duck-yellow, 15%);
   $flash-notice-icon-color: darken($duck-yellow, 25%);
 
+  $flash-padding: rem-calc(2);
+
+  @mixin flash($bg, $padding: $flash-padding) {
+    @include panel($bg: $bg, $padding: $padding);
+  }
+
   .alert {
-    @include panel($bg: $flash-alert-color);
+    @include flash($bg: $flash-alert-color);
 
     span {
       @extend .fi-alert;
@@ -15,7 +21,7 @@
   }
 
   .notice {
-    @include panel($bg: $flash-notice-color);
+    @include flash($bg: $flash-notice-color);
 
     span {
       @extend .fi-info;
