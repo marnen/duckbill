@@ -9,10 +9,10 @@ Given 'the following client exists:' do |table|
 end
 
 
-Then /^I should see the following client:$/ do |table|
+Then /^I should (not )?see the following client:$/ do |negation, table|
   within '.client' do
     table.rows_hash.each do |field, value|
-      expect(page).to have_selector ".#{field.delete(' ').underscore}", text: value
+      expect(page.has_selector? ".#{field.delete(' ').underscore}", text: value).to be == !negation
     end
   end
 end

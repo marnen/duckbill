@@ -3,6 +3,8 @@ module PathHelpers
     case page_name
     when 'the clients page'
       clients_path
+    when "the client's edit page"
+      edit_client_path @client
     when 'the user registration page'
       new_user_registration_path
     when "the time entry's edit page"

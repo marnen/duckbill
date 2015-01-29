@@ -9,6 +9,8 @@
 %table
   %thead
     %tr
+      %th
+        -# actions
       %th= _ 'Name'
       %th= _ 'Company'
       %th= _ 'E-mail address'
@@ -19,6 +21,10 @@
   %tbody
     - @clients.each do |client|
       %tr[client]
+        %td
+          = link_to edit_client_path(client), class: :edit do
+            %span.fi-pencil
+            = _('edit')
         - [:name, :company, :email, :street, :city, :state, :zip].each do |field|
           %td{class: field}= client[field]
 
