@@ -11,7 +11,7 @@ Feature: User registration
       | Email                 | <email>    |
       | Password              | <password> |
       | Password confirmation | <password> |
-    And I click "Sign up"
+    And I click "Sign up" within the signup form
     Then I should be on the root page
     And I should see "You have signed up successfully"
 
