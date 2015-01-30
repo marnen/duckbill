@@ -33,6 +33,14 @@ Scenario Outline: Create and view clients
     | name       | company   | email           | street          | city    | state | zip   |
     | John Smith | Acme Inc. | jsmith@acme.com | 123 Main Street | Anytown | NY    | 12345 |
 
+Scenario: Show message when there are no clients
+  Given I have no clients
+  When I go to the clients page
+  Then I should not see the clients table
+  But I should see "You have no clients yet. Why not add some?"
+  When I click "add some"
+  Then I should be on the new client page
+
 Scenario Outline: Can't see other users' clients
   Given a user exists with email: "<other_user>"
   And the following client exists:

@@ -6,25 +6,27 @@
     %span.fi-torsos-male-female
     = _("New client")
 
-%table
-  %thead
-    %tr
-      %th
-        -# actions
-      %th= _ 'Name'
-      %th= _ 'Company'
-      %th= _ 'E-mail address'
-      %th= _ 'Street'
-      %th= _ 'City'
-      %th= _ 'State'
-      %th= _ 'ZIP code'
-  %tbody
-    - @clients.each do |client|
-      %tr[client]
-        %td
-          = link_to edit_client_path(client), class: :edit do
-            %span.fi-pencil
-            = _('edit')
-        - [:name, :company, :email, :street, :city, :state, :zip].each do |field|
-          %td{class: field}= client[field]
-
+- if @clients.present?
+  %table
+    %thead
+      %tr
+        %th
+          -# actions
+        %th= _ 'Name'
+        %th= _ 'Company'
+        %th= _ 'E-mail address'
+        %th= _ 'Street'
+        %th= _ 'City'
+        %th= _ 'State'
+        %th= _ 'ZIP code'
+    %tbody
+      - @clients.each do |client|
+        %tr[client]
+          %td
+            = link_to edit_client_path(client), class: :edit do
+              %span.fi-pencil
+              = _('edit')
+          - [:name, :company, :email, :street, :city, :state, :zip].each do |field|
+            %td{class: field}= client[field]
+- else
+  %p!= _ 'You have no clients yet. Why not %{a}add some%{/a}?' % {a: "<a href='#{new_client_path}'>".html_safe, '/a': '</a>'.html_safe}
