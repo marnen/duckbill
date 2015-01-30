@@ -38,3 +38,7 @@ Scenario Outline: Can't see other users' time entries
   Examples:
     | other_user       | other_description    |
     | someone@else.org | Someone else's entry |
+
+Scenario: Navigation bar link
+  When I click "Time Entries" within the navigation bar
+  Then I should be on the time entries page
