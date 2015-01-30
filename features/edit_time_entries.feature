@@ -11,7 +11,7 @@ Feature: Edit time entries
       | description | <old_description> |
       | hours       | <old_hours>       |
       | notes       | <old_notes>       |
-    And I am on the work log page
+    And I am on the time entries page
     When I click "edit"
     And I fill in the following:
       | Date        | <new_date>        |
@@ -19,7 +19,7 @@ Feature: Edit time entries
       | Hours       | <new_hours>       |
       | Notes       | <new_notes>       |
     And I click "Save"
-    Then I should be on the work log page
+    Then I should be on the time entries page
     And I should see a time entry for:
       | Date        | <new_date>        |
       | Description | <new_description> |

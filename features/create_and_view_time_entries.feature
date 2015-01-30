@@ -8,7 +8,7 @@ Background:
 
 Scenario Outline: Create and view time entries
   Given I have no time entries
-  And I am on the work log page
+  And I am on the time entries page
   When I click "New time entry"
   And I fill in the following:
     | Date        | <date>        |
@@ -16,7 +16,7 @@ Scenario Outline: Create and view time entries
     | Hours       | <hours>       |
     | Notes       | <notes>       |
   And I click "Save"
-  Then I should be on the work log page
+  Then I should be on the time entries page
   And I should see a time entry for:
     | Date        | <date>        |
     | Description | <description> |
@@ -32,7 +32,7 @@ Scenario Outline: Can't see other users' time entries
   And the following time entry exists:
     | User        | <other_user>        |
     | Description | <other_description> |
-  When I go to the work log page
+  When I go to the time entries page
   Then I should not see "<other_description>"
 
   Examples:
