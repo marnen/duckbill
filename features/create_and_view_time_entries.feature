@@ -27,6 +27,14 @@ Scenario Outline: Create and view time entries
     | description          | hours | date       | notes                   |
     | Duckbill development | 1.5   | 2020-01-21 | This is a sample entry. |
 
+Scenario: Show message when there are no time entries
+  Given I have no time entries
+  When I go to the time entries page
+  Then I should not see the time entries table
+  But I should see "You have no time entries yet. Why not add some?"
+  When I click "add some"
+  Then I should be on the new time entry page
+
 Scenario Outline: Can't see other users' time entries
   Given a user exists with email: "<other_user>"
   And the following time entry exists:

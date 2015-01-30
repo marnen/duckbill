@@ -15,7 +15,3 @@ Then /^I should (not )?see a time entry for:$/ do |negation, table|
     end
   end
 end
-
-Then 'I should not see any time entries' do
-  expect(page).not_to have_selector '.time_entry'
-end
