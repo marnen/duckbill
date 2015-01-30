@@ -8,7 +8,7 @@
 
 - if @time_entries.present?
   %table.time_entries
-    = render 'header'
-    = render @time_entries
+    %thead= render 'header'
+    %tbody= render @time_entries
 - else
   %p!= _ 'You have no time entries yet. Why not %{a}add some%{/a}?' % {a: "<a href='#{new_time_entry_path}'>".html_safe, '/a': '</a>'.html_safe}
