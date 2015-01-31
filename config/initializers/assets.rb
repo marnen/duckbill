@@ -12,5 +12,5 @@ Rails.application.config.assets.version = '1.0'
 controller_dir = File.join Rails.root, 'app', 'controllers'
 controller_path = Pathname.new controller_dir
 Rails.application.config.assets.precompile += Dir[File.join controller_dir, '**', '*_controller.rb'].collect do |filename|
-  "#{(Pathname.new(filename).relative_path_from controller_path).to_s.chomp '_controller.rb'}.css"
+  File.join 'controllers', "#{(Pathname.new(filename).relative_path_from controller_path).to_s.chomp '_controller.rb'}.css"
 end
