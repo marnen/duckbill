@@ -68,6 +68,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'launchy'
+  gem 'rspec-html-matchers'
   gem 'shoulda-matchers', require: false
 end
 
