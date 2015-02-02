@@ -9,7 +9,6 @@ module PathHelpers
     else
       begin
         path_helper = page_name.gsub(/\bpage$/, 'path').gsub(/^the /, '').gsub(' ', '_')
-        warn "Automatically parsing '#{page_name}' as #{path_helper}. If this is not what you want, then add an explicit mapping in #{__FILE__} instead."
         self.send path_helper
       rescue NoMethodError
         raise ArgumentError, "Path to '#{page_name}' is not defined. Please add a mapping in #{__FILE__}."
