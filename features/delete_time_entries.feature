@@ -7,9 +7,9 @@ Feature: Delete time entries
     Given I am logged in as "<user>"
     And the following time entry exists:
       | user | <user> |
-    And I am on the work log page
+    And I am on the time entries page
     When I click "delete"
-    Then I should be on the work log page
+    Then I should be on the time entries page
     And I should not see any time entries
 
     Examples:

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 21:56-0500\n"
+"POT-Creation-Date: 2015-02-01 19:16-0500\n"
 "PO-Revision-Date: 2015-01-26 15:24-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English\n"
@@ -18,22 +18,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
+msgid "City"
+msgstr ""
+
+msgid "Clients"
+msgstr ""
+
+msgid "Company"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
 msgid "Description"
 msgstr ""
 
+msgid "Duck<span>bill</span>"
+msgstr ""
+
+msgid "E-mail address"
+msgstr ""
+
+msgid "Edit Client"
+msgstr ""
+
+msgid "Edit Time Entry"
+msgstr ""
+
 msgid "Hours"
 msgstr ""
 
-msgid "New time entry"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "New Client"
+msgstr ""
+
+msgid "New Time Entry"
 msgstr ""
 
 msgid "Notes"
 msgstr ""
 
 msgid "Save"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "Street"
+msgstr ""
+
+msgid "Time Entries"
+msgstr ""
+
+msgid "ZIP code"
 msgstr ""
 
 msgid "delete"

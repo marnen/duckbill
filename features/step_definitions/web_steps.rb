@@ -16,8 +16,8 @@ When /^I go to (.+)$/ do |page_name|
   visit path_to page_name
 end
 
-When /^(.+) within (.+)$/ do |step_text, selector|
-  within selector_for(selector) do
+When /^(.+) within (.+)$/ do |step_text, element|
+  within selector_for(element) do
     step step_text
   end
 end
@@ -32,4 +32,8 @@ end
 
 Then /^I should (not )?see "(.*?)"$/ do |negation, content|
   expect(page.has_text? content).to be == !negation
+end
+
+Then /^I should not see ([^"].*[^:])$/ do |element|
+  expect(page).not_to have_selector selector_for(element)
 end

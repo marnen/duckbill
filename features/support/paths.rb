@@ -3,13 +3,13 @@ module PathHelpers
     case page_name
     when 'the user registration page'
       new_user_registration_path
-    when "the time entry's edit page"
-      edit_time_entry_path @time_entry
-    when 'the work log page'
-      time_entries_path
+    when /^the (.+)'s edit page$/
+      model = $1.gsub(' ', '_')
+      self.send "edit_#{model}_path", instance_variable_get("@#{model}")
     else
       begin
-        self.send page_name.gsub(/\bpage$/, 'path').gsub(/^the /, '').gsub(' ', '_')
+        path_helper = page_name.gsub(/\bpage$/, 'path').gsub(/^the /, '').gsub(' ', '_')
+        self.send path_helper
       rescue NoMethodError
         raise ArgumentError, "Path to '#{page_name}' is not defined. Please add a mapping in #{__FILE__}."
       end

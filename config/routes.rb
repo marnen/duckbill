@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  resources :clients, except: [:show, :delete]
   resources :time_entries, except: :show
 
   # Example of regular route:

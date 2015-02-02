@@ -17,22 +17,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
+msgid "City"
+msgstr ""
+
+msgid "Clients"
+msgstr ""
+
+msgid "Company"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
 msgid "Description"
 msgstr ""
 
+msgid "Duck<span>bill</span>"
+msgstr ""
+
+msgid "E-mail address"
+msgstr ""
+
+msgid "Edit Client"
+msgstr ""
+
+msgid "Edit Time Entry"
+msgstr ""
+
 msgid "Hours"
 msgstr ""
 
-msgid "New time entry"
+msgid "Log in"
+msgstr ""
+
+msgid "Log out"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "New Client"
+msgstr ""
+
+msgid "New Time Entry"
 msgstr ""
 
 msgid "Notes"
 msgstr ""
 
 msgid "Save"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "Street"
+msgstr ""
+
+msgid "Time Entries"
+msgstr ""
+
+msgid "ZIP code"
 msgstr ""
 
 msgid "delete"

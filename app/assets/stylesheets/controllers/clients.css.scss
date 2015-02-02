@@ -1,0 +1,27 @@
+@import 'globals';
+@import 'foundation_and_overrides';
+@import 'foundation/components/grid';
+
+form.client {
+  .name, .company, .email {
+    @include grid-column(4);
+  }
+  .street {
+    @include grid-column(5);
+    @media #{$large-up} {
+      @include grid-column(6);
+    }
+  }
+  .city {
+    @include grid-column(3);
+  }
+  .state {
+    @include grid-column(2);
+    @media #{$large-up} {
+      @include grid-column(1);
+    }
+  }
+  .zip {
+    @include grid-column(2);
+  }
+}

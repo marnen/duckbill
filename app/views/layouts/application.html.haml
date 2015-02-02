@@ -8,6 +8,8 @@
 
     = favicon_link_tag
     = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track': true
+    - controller_stylesheet = File.join('controllers', params[:controller])
+    = stylesheet_link_tag controller_stylesheet if !Rails.env.production? || File.exists?(stylesheet_path controller_stylesheet)
     = javascript_include_tag "vendor/modernizr" # must be in head element
     = javascript_include_tag "application", 'data-turbolinks-track': true
     = csrf_meta_tags

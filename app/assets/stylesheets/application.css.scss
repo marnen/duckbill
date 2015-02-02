@@ -1,6 +1,4 @@
-@import 'foundation_and_overrides';
-@import 'foundation-icons';
-@import 'globals';
+@import 'common';
 @import 'flash';
 @import 'navbar';
 
@@ -14,29 +12,4 @@ input[type='submit'] {
 
 .row {
   margin-left: 0;
-}
-
-form.time_entry {
-  .date {
-    @include grid-column(3);
-  }
-  .description {
-    @include grid-column(6, $last-column: true);
-  }
-  .hours {
-    @include grid-column(2);
-    @media #{$large-up} {
-      @include grid-column(1);
-    }
-  }
-  .notes {
-    @include grid-column(7, $last-column: true);
-    @media #{$large-up} {
-      @include grid-column(8, $last-column: true);
-    }
-  }
-
-  input[type='submit'] {
-    @include grid-column(3, $offset: 3)
-  }
 }

@@ -6,12 +6,9 @@
     %span.fi-clock
     = _("New time entry")
 
-%table
-  %tr
-    %th
-      -# action links
-    %th= _ 'Date'
-    %th= _ 'Description'
-    %th= _ 'Hours'
-    %th= _ 'Notes'
-  = render @time_entries
+- if @time_entries.present?
+  %table.time_entries
+    %thead= render 'header'
+    %tbody= render @time_entries
+- else
+  %p!= _ 'You have no time entries yet. Why not %{a}add some%{/a}?' % {a: "<a href='#{new_time_entry_path}'>".html_safe, '/a': '</a>'.html_safe}
