@@ -11,7 +11,11 @@ class TimeEntriesController < ApplicationController
   end
 
   def create
-    @time_entry.save
+    if @time_entry.save
+      flash[:notice] = _ 'Your time entry was successfully created!'
+    else
+      flash[:alert] = (_ 'Your time entry could not be saved.')
+    end
     standard_response
   end
 

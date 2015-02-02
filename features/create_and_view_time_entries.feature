@@ -27,6 +27,17 @@ Scenario Outline: Create and view time entries
     | description          | hours | date       | notes                   |
     | Duckbill development | 1.5   | 2020-01-21 | This is a sample entry. |
 
+Scenario: Handle invalid submissions correctly
+  Given I have no time entries
+  And I am on the new time entry page
+  When I fill in the following:
+    | Hours | |
+  And I click "Save"
+  Then I should be on the new time entry page
+  When I go to the time entries page
+  Then I should not see any time entries
+
+
 Scenario: Show message when there are no time entries
   Given I have no time entries
   When I go to the time entries page
