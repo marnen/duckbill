@@ -53,6 +53,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cells (3.11.3)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
+      uber (~> 0.0.8)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
@@ -272,6 +276,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.13)
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -291,6 +296,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   cancancan
+  cells
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner

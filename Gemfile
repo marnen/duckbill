@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'cancancan'
+gem 'cells'
 gem 'devise'
 gem 'foundation-icons-sass-rails'
 gem 'foundation-rails'
