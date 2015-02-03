@@ -24,4 +24,8 @@ form.client {
   .zip {
     @include grid-column(2);
   }
+
+  input[type='submit'] {
+    @include grid-column(2, $offset: 5);
+  }
 }
