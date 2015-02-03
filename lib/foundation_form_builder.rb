@@ -12,13 +12,18 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   private
 
   def error_div(field_name)
-    if error_message_on(field_name).present? # TODO: do we really need dynamic_form just for this?
+    error_messages = errors[field_name]
+    if error_messages.present?
       @template.content_tag :div, class: :error do
-        error_message_on field_name
+        error_messages.join(@template.tag :br).html_safe
       end
     else
       nil
     end
+  end
+
+  def errors
+    @errors ||= @object.errors
   end
 
   def input_for(field_name, type)

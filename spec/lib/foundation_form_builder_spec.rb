@@ -30,14 +30,20 @@ describe FoundationFormBuilder, type: :view do
       end
 
       context 'present' do
-        let(:error_message) { Faker::Lorem.sentence }
+        RSpec::Matchers.define :indifferent do |field_name|
+          match {|actual| actual.to_s == field_name.to_s }
+        end
+
+        let(:error_messages) { Faker::Lorem.sentences(3) }
+        let(:errors) { instance_double ActiveModel::Errors }
 
         before(:each) do
-          allow(builder).to receive(:error_message_on).with(field_name).and_return error_message
+          allow(errors).to receive(:[]).with(indifferent field_name).and_return error_messages
+          allow(object).to receive(:errors).and_return errors
         end
 
         it 'renders an error element' do
-          expect(input_div).to have_tag "#{wrapper} .error", text: error_message
+          expect(input_div).to have_tag "#{wrapper} .error", text: %r{#{error_messages.join '.*'}}m
         end
       end
     end
