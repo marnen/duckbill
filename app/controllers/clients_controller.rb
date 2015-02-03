@@ -10,6 +10,7 @@ class ClientsController < ApplicationController
 
   def create
     @client.save
+    flash[:notice] = _ 'Client was successfully created!'
     standard_response
   end
 
@@ -18,6 +19,7 @@ class ClientsController < ApplicationController
 
   def update
     @client.update_attributes update_params
+    flash[:notice] = _ 'Client was successfully updated.'
     standard_response
   end
 

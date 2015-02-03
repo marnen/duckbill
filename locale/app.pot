@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 19:16-0500\n"
-"PO-Revision-Date: 2015-02-01 19:16-0500\n"
+"POT-Creation-Date: 2015-02-02 21:48-0500\n"
+"PO-Revision-Date: 2015-02-02 21:48-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,6 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid "City"
+msgstr ""
+
+msgid "Client was successfully created!"
+msgstr ""
+
+msgid "Client was successfully updated."
 msgstr ""
 
 msgid "Clients"
@@ -79,6 +85,18 @@ msgid "Street"
 msgstr ""
 
 msgid "Time Entries"
+msgstr ""
+
+msgid "Your time entry could not be saved."
+msgstr ""
+
+msgid "Your time entry was successfully created!"
+msgstr ""
+
+msgid "Your time entry was successfully deleted."
+msgstr ""
+
+msgid "Your time entry was successfully updated."
 msgstr ""
 
 msgid "ZIP code"

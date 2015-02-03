@@ -1,13 +1,10 @@
 @import 'common';
 @import 'flash';
+@import 'forms';
 @import 'navbar';
 
 body > * {
   padding-left: $padding-left;
-}
-
-input[type='submit'] {
-  @include button();
 }
 
 .row {

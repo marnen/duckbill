@@ -10,6 +10,7 @@ Feature: Delete time entries
     And I am on the time entries page
     When I click "delete"
     Then I should be on the time entries page
+    And I should see "Your time entry was successfully deleted."
     And I should not see any time entries
 
     Examples:
