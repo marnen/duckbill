@@ -60,45 +60,57 @@ describe FoundationFormBuilder, type: :view do
     end
 
     describe 'field type' do
-      let(:column) { instance_double ActiveRecord::ConnectionAdapters::Column }
+      context 'specified' do
+        context ':textarea' do
+          let(:options) { {type: :textarea} }
 
-      before(:each) do
-        allow(column).to receive(:type).and_return type
-        allow(object).to receive(:column_for_attribute).with(field_name).and_return column
-      end
-
-      context 'date' do
-        let(:type) { :date }
-
-        it 'renders a date field' do
-          expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='date']"
-        end
-      end
-
-      context 'string' do
-        let(:type) { :string }
-
-        context 'field name is "email"' do
-          let(:field_name) { :email }
-
-          it 'renders an email field' do
-            expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='email']"
-          end
-        end
-
-
-        context 'otherwise' do
-          it 'renders a text field' do
-            expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='text']"
+          it 'renders a text area' do
+            expect(input_div).to have_tag "#{wrapper} textarea##{input_id}"
           end
         end
       end
 
-      context 'text' do
-        let(:type) { :text }
+      context 'inferred' do
+        let(:column) { instance_double ActiveRecord::ConnectionAdapters::Column }
 
-        it 'renders a text area' do
-          expect(input_div).to have_tag "#{wrapper} textarea##{input_id}"
+        before(:each) do
+          allow(column).to receive(:type).and_return type
+          allow(object).to receive(:column_for_attribute).with(field_name).and_return column
+        end
+
+        context 'date' do
+          let(:type) { :date }
+
+          it 'renders a date field' do
+            expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='date']"
+          end
+        end
+
+        context 'string' do
+          let(:type) { :string }
+
+          context 'field name is "email"' do
+            let(:field_name) { :email }
+
+            it 'renders an email field' do
+              expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='email']"
+            end
+          end
+
+
+          context 'otherwise' do
+            it 'renders a text field' do
+              expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='text']"
+            end
+          end
+        end
+
+        context 'text' do
+          let(:type) { :text }
+
+          it 'renders a text area' do
+            expect(input_div).to have_tag "#{wrapper} textarea##{input_id}"
+          end
         end
       end
     end
