@@ -27,9 +27,3 @@ Then /^I should (not )?see the following client:$/ do |negation, table|
     end
   end
 end
-
-private
-
-def params_from(table)
-  table.rows_hash.transform_keys &:downcase
-end
