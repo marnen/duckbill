@@ -1,0 +1,7 @@
+= form_for project do |f|
+  .row
+    = f.label :client_id
+    = f.collection_select :client_id, clients, :id, :name, include_blank: true
+    = f.input_div :name
+  .row
+    = f.submit _ 'Save'

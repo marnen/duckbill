@@ -1,7 +1,7 @@
 Feature: Edit clients
   As a user
   I can edit my clients
-  So I can maintain an accurate list
+  So I can maintain an accurate list of clients
 
   Scenario Outline: Edit clients
     Given I am logged in as "<user>"

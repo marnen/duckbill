@@ -8,10 +8,10 @@ Given 'the following project exists:' do |table|
   @project = FactoryGirl.create :project, params
 end
 
-Then(/^I should see the following project:$/) do |table|
+Then(/^I should (not )?see the following project:$/) do |negation, table|
   within '.project' do
     table.rows_hash.each do |field, value|
-      expect(page).to have_selector ".#{field.delete(' ').underscore}", text: value
+      expect(page.has_selector? ".#{field.delete(' ').underscore}", text: value).to be == !negation
     end
   end
 end

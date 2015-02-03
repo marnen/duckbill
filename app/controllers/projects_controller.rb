@@ -1,13 +1,13 @@
 class ProjectsController < AuthenticatedController
   respond_to :html
   skip_authorize_resource only: :new
+  before_action :load_clients, only: [:new, :edit]
 
   def index
     @has_clients = current_user.clients.first.present?
   end
 
   def new
-    @clients = current_user.clients.order :name
   end
 
   def create
@@ -16,12 +16,32 @@ class ProjectsController < AuthenticatedController
     else
       flash[:error] = _ 'Your project could not be saved.'
     end
-    respond_with @project, location: projects_path
+    standard_response
+  end
+
+  def edit
+  end
+
+  def update
+    if @project.update_attributes resource_params
+      flash[:notice] = _ 'Your project was successfully updated.'
+    else
+      flash[:error] = _ 'Your project could not be saved.'
+    end
+    standard_response
   end
 
   private
 
+  def load_clients
+    @clients = current_user.clients.order :name
+  end
+
   def resource_params
     params.require(:project).permit(:client_id, :name)
+  end
+
+  def standard_response
+    respond_with @project, location: projects_path
   end
 end
