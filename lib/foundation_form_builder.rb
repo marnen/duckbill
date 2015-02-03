@@ -28,7 +28,11 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     when :text
       text_area field_name
     else
-      text_field field_name
+      if field_name == :email
+        email_field(field_name)
+      else
+        text_field field_name
+      end
     end
   end
 end
