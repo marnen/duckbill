@@ -3,7 +3,7 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     @template.content_tag :div, class: field_name do
       [
         label(field_name),
-        text_field(field_name),
+        input_for(field_name),
         error_div(field_name)
       ].compact.join("\n").html_safe
     end
@@ -18,6 +18,17 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
       end
     else
       nil
+    end
+  end
+
+  def input_for(field_name)
+    case @object.column_for_attribute(field_name).type
+    when :date
+      date_field field_name
+    when :text
+      text_area field_name
+    else
+      text_field field_name
     end
   end
 end

@@ -3,7 +3,8 @@ require 'foundation_form_builder'
 
 describe FoundationFormBuilder, type: :view do
   let(:object_name) { Faker::Lorem.words(rand 1..3).join('_') }
-  subject(:builder) { FoundationFormBuilder.new object_name, double(object_name.camelize).as_null_object, view, {} }
+  let(:object) { double(object_name.camelize).as_null_object }
+  subject(:builder) { FoundationFormBuilder.new object_name, object, view, {} }
 
   it { should be_a_kind_of ActionView::Helpers::FormBuilder }
 
@@ -44,6 +45,31 @@ describe FoundationFormBuilder, type: :view do
 
         it 'renders an error element' do
           expect(input_div).to have_tag "#{wrapper} .error", text: error_message
+        end
+      end
+    end
+
+    describe 'field type' do
+      let(:column) { instance_double ActiveRecord::ConnectionAdapters::Column }
+
+      before(:each) do
+        allow(column).to receive(:type).and_return type
+        allow(object).to receive(:column_for_attribute).with(field_name).and_return column
+      end
+
+      context 'text' do
+        let(:type) { :text }
+
+        it 'renders a text area' do
+          expect(input_div).to have_tag "#{wrapper} textarea##{input_id}"
+        end
+      end
+
+      context 'date' do
+        let(:type) { :date }
+
+        it 'renders a date field' do
+          expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='date']"
         end
       end
     end
