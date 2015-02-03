@@ -1,26 +1,10 @@
 = form_for time_entry, html: {class: :time_entry} do |f|
   .row
-    .date
-      = f.label :date
-      = f.date_field :date
-      - if f.error_message_on(:date).present?
-        .error= f.error_message_on :date
-    .description
-      = f.label :description
-      = f.text_field :description
-      - if f.error_message_on(:description).present?
-        .error= f.error_message_on :description
+    = f.input_div :date
+    = f.input_div :description
   .row
-    .hours
-      = f.label :hours
-      = f.text_field :hours
-      - if f.error_message_on(:hours).present?
-        .error= f.error_message_on :hours
-    .notes
-      = f.label :notes
-      = f.text_area :notes
-      - if f.error_message_on(:notes).present?
-        .error= f.error_message_on :notes
+    = f.input_div :hours
+    = f.input_div :notes
 
   .row.collapse
     = f.submit _('Save')
