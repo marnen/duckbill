@@ -3,6 +3,7 @@ class ProjectsController < AuthenticatedController
   skip_authorize_resource only: :new
 
   def index
+    @has_clients = current_user.clients.first.present?
   end
 
   def new

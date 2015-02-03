@@ -34,3 +34,10 @@ Scenario: Show message when there are clients but no projects
   When I click "add some"
   Then I should be on the new project page
 
+Scenario: Show message when there are no clients
+  Given I have no clients
+  When I go to the projects page
+  Then I should not see the projects table
+  But I should see "You have no clients yet. Please add some and then come back here to create your first project."
+  When I click "add some"
+  Then I should be on the new client page

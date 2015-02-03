@@ -6,7 +6,9 @@
     %span.fi-clipboard-notes
     = _("New project")
 
-- if @projects.present?
+- if !@has_clients
+  %p!= _ 'You have no clients yet. Please %{a}add some%{/a} and then come back here to create your first project.' % {a: "<a href='#{new_client_path}'>".html_safe, '/a': '</a>'.html_safe}
+- elsif @projects.present?
   %table
     %thead= render 'header'
     %tbody= render @projects
