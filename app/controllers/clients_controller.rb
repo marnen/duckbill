@@ -1,5 +1,4 @@
-class ClientsController < ApplicationController
-  load_and_authorize_resource
+class ClientsController < AuthenticatedController
   respond_to :html
 
   def index
