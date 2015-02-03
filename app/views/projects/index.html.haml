@@ -6,6 +6,9 @@
     %span.fi-clipboard-notes
     = _("New project")
 
-%table
-  %thead= render 'header'
-  %tbody= render @projects
+- if @projects.present?
+  %table
+    %thead= render 'header'
+    %tbody= render @projects
+- else
+  %p!= _ 'You have no projects yet. Why not %{a}add some%{/a}?' % {a: "<a href='#{new_project_path}'>".html_safe, '/a': '</a>'.html_safe}
