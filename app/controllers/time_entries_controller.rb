@@ -14,7 +14,7 @@ class TimeEntriesController < ApplicationController
     if @time_entry.save
       flash[:notice] = _ 'Your time entry was successfully created!'
     else
-      flash[:alert] = (_ 'Your time entry could not be saved.')
+      flash[:alert] = _ 'Your time entry could not be saved.'
     end
     standard_response
   end
@@ -23,12 +23,17 @@ class TimeEntriesController < ApplicationController
   end
 
   def update
-    @time_entry.update_attributes update_params
+    if @time_entry.update_attributes update_params
+      flash[:notice] = _ 'Your time entry was successfully updated.'
+    else
+      flash[:alert] = _ 'Your time entry could not be saved.'
+    end
     standard_response
   end
 
   def destroy
     @time_entry.destroy
+    flash[:notice] = _ 'Your time entry was successfully deleted.'
     standard_response
   end
 

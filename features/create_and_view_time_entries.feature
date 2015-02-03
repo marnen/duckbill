@@ -17,6 +17,7 @@ Scenario Outline: Create and view time entries
     | Notes       | <notes>       |
   And I click "Save"
   Then I should be on the time entries page
+  And I should see "Your time entry was successfully created!"
   And I should see a time entry for:
     | Date        | <date>        |
     | Description | <description> |
@@ -33,10 +34,9 @@ Scenario: Handle invalid submissions correctly
   When I fill in the following:
     | Hours | |
   And I click "Save"
-  Then I should be on the new time entry page
+  Then I should see "Your time entry could not be saved"
   When I go to the time entries page
   Then I should not see any time entries
-
 
 Scenario: Show message when there are no time entries
   Given I have no time entries

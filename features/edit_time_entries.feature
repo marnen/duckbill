@@ -20,6 +20,7 @@ Feature: Edit time entries
       | Notes       | <new_notes>       |
     And I click "Save"
     Then I should be on the time entries page
+    And I should see "Your time entry was successfully updated."
     And I should see a time entry for:
       | Date        | <new_date>        |
       | Description | <new_description> |
