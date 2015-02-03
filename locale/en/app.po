@@ -20,6 +20,12 @@ msgstr ""
 msgid "City"
 msgstr ""
 
+msgid "Client was successfully created!"
+msgstr ""
+
+msgid "Client was successfully updated."
+msgstr ""
+
 msgid "Clients"
 msgstr ""
 
@@ -78,6 +84,18 @@ msgid "Street"
 msgstr ""
 
 msgid "Time Entries"
+msgstr ""
+
+msgid "Your time entry could not be saved."
+msgstr ""
+
+msgid "Your time entry was successfully created!"
+msgstr ""
+
+msgid "Your time entry was successfully deleted."
+msgstr ""
+
+msgid "Your time entry was successfully updated."
 msgstr ""
 
 msgid "ZIP code"
