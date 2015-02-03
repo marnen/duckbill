@@ -8,7 +8,11 @@ end
 
 When 'I fill in the following:' do |table|
   table.rows_hash.each do |field, value|
-    fill_in field, with: value
+    begin
+      fill_in field, with: value
+    rescue Capybara::ElementNotFound
+      select value, from: field
+    end
   end
 end
 

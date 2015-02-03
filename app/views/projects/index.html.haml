@@ -1,0 +1,11 @@
+- content_for :title do
+  = _ 'My Projects'
+
+%p
+  = link_to new_project_path, class: :button do
+    %span.fi-clipboard-notes
+    = _("New project")
+
+%table
+  %thead= render 'header'
+  %tbody= render @projects

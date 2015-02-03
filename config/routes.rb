@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :clients, except: [:show, :delete]
+  resources :projects, only: [:index, :new, :create]
   resources :time_entries, except: :show
 
   # Example of regular route:
