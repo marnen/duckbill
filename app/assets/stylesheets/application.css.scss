@@ -1,26 +1,13 @@
 @import 'common';
 @import 'flash';
+@import 'forms';
 @import 'navbar';
 
 body > * {
   padding-left: $padding-left;
 }
 
-input[type='submit'] {
-  @include button();
-}
-
 .row {
   @include grid-row();
   margin-left: 0;
-}
-
-.field_with_errors {
-  input, label {
-    @extend .error;
-  }
-}
-
-form div.error {
-  @extend small.error;
 }

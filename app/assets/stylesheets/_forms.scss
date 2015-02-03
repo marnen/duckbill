@@ -1,0 +1,13 @@
+input[type='submit'] {
+  @include button();
+}
+
+.field_with_errors {
+  input, label {
+    @extend .error;
+  }
+}
+
+form div.error {
+  @extend small.error;
+}
