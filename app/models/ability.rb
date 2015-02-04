@@ -31,6 +31,6 @@ class Ability
 
     can :manage, Client, user_id: user.id
     can :manage, Project, client: {user_id: user.id}
-    can :manage, TimeEntry, user_id: user.id
+    can :manage, TimeEntry, project: {client: {user_id: user.id}}
   end
 end
