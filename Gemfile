@@ -33,6 +33,7 @@ gem 'haml'
 gem 'paper_trail', '~> 4.0.0.beta2'
 gem 'responders'
 gem 'simple-navigation'
+gem 'squeel', github: 'danielrhodes/squeel', ref: 'e7f016834eba7f31ed94cb59ed5d41ee80739dd2' # TODO: waiting for https://github.com/activerecord-hackery/squeel/pull/354
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
