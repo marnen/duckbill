@@ -33,6 +33,6 @@ class ClientsController < AuthenticatedController
   end
 
   def update_params
-    params.require(:client).permit(:name, :company, :email, :street, :city, :state, :zip)
+    params.require(:client).permit *Client.resource_params
   end
 end

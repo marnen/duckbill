@@ -27,4 +27,12 @@ RSpec.describe Project, :type => :model do
       end
     end
   end
+
+  describe '.resource_params' do
+    subject { Project.resource_params }
+
+    [:client_id, :name].each do |field|
+      it { should include field }
+    end
+  end
 end

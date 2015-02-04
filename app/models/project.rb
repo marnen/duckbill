@@ -6,4 +6,8 @@ class Project < ActiveRecord::Base
   [:client_id, :name].each do |field|
     validates field, presence: true
   end
+
+  def self.resource_params
+    [:client_id, :name]
+  end
 end

@@ -24,4 +24,11 @@ RSpec.describe Client, :type => :model do
     end
   end
 
+  describe '.resource_params' do
+    subject { Client.resource_params }
+
+    [:name, :company, :email, :street, :city, :state, :zip].each do |field|
+      it { should include field }
+    end
+  end
 end
