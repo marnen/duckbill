@@ -1,6 +1,4 @@
-class TimeEntriesController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
+class TimeEntriesController < AuthenticatedController
   respond_to :html
 
   def index

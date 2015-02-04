@@ -1,6 +1,6 @@
 Feature: Create and view clients
   As a User
-  I can create and view time entries
+  I can create and view clients
   So I can keep track of whom I'm working for
 
 Background:
@@ -20,6 +20,7 @@ Scenario Outline: Create and view clients
     | ZIP     | <zip>     |
   And I click "Save"
   Then I should be on the clients page
+  And I should see "Client was successfully created!"
   And I should see the following client:
     | Name    | <name>    |
     | Company | <company> |

@@ -1,0 +1,7 @@
+%tr[project]
+  %td
+    = link_to edit_project_path(project), class: :edit do
+      %span.fi-pencil
+      = _('edit')
+  %td.client= project.client.name
+  %td.name= project.name
