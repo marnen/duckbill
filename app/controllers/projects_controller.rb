@@ -33,7 +33,7 @@ class ProjectsController < AuthenticatedController
   private
 
   def resource_params
-    params.require(:project).permit(:client_id, :name)
+    params.require(:project).permit *Project.resource_params
   end
 
   def standard_response

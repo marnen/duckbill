@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :clients
   has_many :projects, through: :clients
-  has_many :time_entries
+  has_many :time_entries, through: :projects
 end

@@ -1,8 +1,9 @@
 class TimeEntriesController < AuthenticatedController
   respond_to :html
+  skip_authorize_resource only: :new
 
   def index
-    @time_entries = current_user.time_entries
+    @time_entries = current_user.time_entries.includes(:project)
   end
 
   def new
@@ -21,7 +22,7 @@ class TimeEntriesController < AuthenticatedController
   end
 
   def update
-    if @time_entry.update_attributes update_params
+    if @time_entry.update_attributes resource_params
       flash[:notice] = _ 'Your time entry was successfully updated.'
     else
       flash[:alert] = _ 'Your time entry could not be saved.'
@@ -37,15 +38,11 @@ class TimeEntriesController < AuthenticatedController
 
   private
 
-  def create_params
-    update_params.merge user: current_user
+  def resource_params
+    params.require(:time_entry).permit *TimeEntry.resource_params
   end
 
   def standard_response
     respond_with @time_entry, location: time_entries_path
-  end
-
-  def update_params
-    params.require(:time_entry).permit *TimeEntry.resource_params
   end
 end

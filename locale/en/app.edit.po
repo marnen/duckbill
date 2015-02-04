@@ -20,6 +20,9 @@ msgstr ""
 msgid "City"
 msgstr ""
 
+msgid "Client"
+msgstr ""
+
 msgid "Client was successfully created!"
 msgstr ""
 
@@ -47,6 +50,9 @@ msgstr ""
 msgid "Edit Client"
 msgstr ""
 
+msgid "Edit Project"
+msgstr ""
+
 msgid "Edit Time Entry"
 msgstr ""
 
@@ -65,10 +71,16 @@ msgstr ""
 msgid "New Client"
 msgstr ""
 
+msgid "New Project"
+msgstr ""
+
 msgid "New Time Entry"
 msgstr ""
 
 msgid "Notes"
+msgstr ""
+
+msgid "Project"
 msgstr ""
 
 msgid "Save"
@@ -84,6 +96,15 @@ msgid "Street"
 msgstr ""
 
 msgid "Time Entries"
+msgstr ""
+
+msgid "Your project could not be saved."
+msgstr ""
+
+msgid "Your project was successfully created!"
+msgstr ""
+
+msgid "Your project was successfully updated."
 msgstr ""
 
 msgid "Your time entry could not be saved."

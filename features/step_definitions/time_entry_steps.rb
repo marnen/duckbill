@@ -2,6 +2,12 @@ Given 'I have no time entries' do
   @current_user.time_entries.destroy_all
 end
 
+Given /^I have (\d+) time entr(?:y|ies)$/ do |count|
+  count.times do
+    FactoryGirl.create :time_entry, user: @current_user
+  end
+end
+
 Given 'the following time entry exists:' do |table|
   params = table.rows_hash.transform_keys &:downcase
   params['user'] = User.find_by_email(params['user']) if params.include? 'user'
