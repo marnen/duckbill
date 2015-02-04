@@ -5,6 +5,8 @@ RSpec.describe Client, :type => :model do
   it { should belong_to :user }
   it { should validate_presence_of :user_id }
 
+  it { should be_versioned }
+
   describe 'permissions' do
     subject(:ability) { Ability.new user }
     let(:client) { FactoryGirl.create :client }

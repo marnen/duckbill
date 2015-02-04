@@ -5,6 +5,8 @@ RSpec.describe Project, :type => :model do
   it { should have_many :time_entries }
   it { should have_one(:user).through :client }
 
+  it { should be_versioned }
+
   [:client_id, :name].each do |field|
     it { should validate_presence_of field }
   end
