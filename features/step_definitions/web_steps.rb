@@ -20,6 +20,10 @@ When /^I go to (.+)$/ do |page_name|
   visit path_to page_name
 end
 
+When /^I select "(.*?)" from "(.*?)"$/ do |value, field|
+  select value, from: field
+end
+
 When /^(.+) within (.+)$/ do |step_text, element|
   within selector_for(element) do
     step step_text
@@ -27,7 +31,7 @@ When /^(.+) within (.+)$/ do |step_text, element|
 end
 
 Then /^I should be on (.+)$/ do |page_name|
-  expect(current_path).to be == path_to(page_name)
+  expect(path_to page_name).to be === current_path
 end
 
 Then /^I should not be allowed to go to (.+)$/ do |page_name|

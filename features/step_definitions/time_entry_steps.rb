@@ -8,6 +8,13 @@ Given /^I have (\d+) time entr(?:y|ies)$/ do |count|
   end
 end
 
+Given 'I have the following time entries:' do |table|
+  table.hashes.each do |hash|
+    hash['project'] = @current_user.projects.find_by_name hash['project']
+    FactoryGirl.create :time_entry, hash
+  end
+end
+
 Given 'the following time entry exists:' do |table|
   params = table.rows_hash.transform_keys &:downcase
   params['user'] = User.find_by_email(params['user']) if params.include? 'user'

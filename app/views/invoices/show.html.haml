@@ -1,0 +1,26 @@
+.client
+  %p= _ 'Client'
+  %p= @client.name
+  %p= @client.company
+  %p= @client.email
+  %p= @client.street
+  %p= @client.city
+  %p= @client.state
+  %p= @client.zip
+
+.project= _ 'Project: %{project}' % {project: @project.name}
+
+%table.time_entries
+  %thead
+    %tr
+      %th= _ 'Date'
+      %th= _ 'Description'
+      %th= _ 'Hours'
+      %th= _ 'Notes'
+  %tbody
+    - @time_entries.each do |time_entry|
+      %tr
+        %td.date= time_entry.date
+        %td.description= time_entry.description
+        %td.hours= time_entry.hours
+        %td.notes= time_entry.notes

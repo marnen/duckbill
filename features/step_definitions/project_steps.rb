@@ -7,6 +7,13 @@ Given 'I have the following project:' do |table|
   @project = FactoryGirl.create :project, params.merge(user: @current_user)
 end
 
+Given 'I have the following projects:' do |table|
+  table.hashes.each do |hash|
+    client = hash['client'] ? Client.find_by_name(hash['client']) : FactoryGirl.create(:client, user: @current_user)
+    FactoryGirl.create :project, hash.merge('client' => client)
+  end
+end
+
 Given 'the following project exists:' do |table|
   params = params_from table
   params['client'] = Client.find_by_name(params['client']) if params.include? 'client'

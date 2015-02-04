@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TimeEntry, :type => :model do
+  it { should belong_to :invoice }
   it { should belong_to :project }
   it { should have_one(:user).through :project }
 

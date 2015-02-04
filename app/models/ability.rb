@@ -30,6 +30,7 @@ class Ability
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
     can :manage, Client, user_id: user.id
+    can :manage, Invoice
     can :manage, Project, client: {user_id: user.id}
     can :manage, TimeEntry, project: {client: {user_id: user.id}}
   end
