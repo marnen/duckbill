@@ -30,6 +30,7 @@ gem 'foundation-icons-sass-rails'
 gem 'foundation-rails'
 gem 'gettext_i18n_rails'
 gem 'haml'
+gem 'paper_trail'
 gem 'responders'
 gem 'simple-navigation'
 
