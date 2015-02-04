@@ -28,6 +28,14 @@ RSpec.describe Project, :type => :model do
     end
   end
 
+  describe 'versions' do
+    it 'is versioned, but not automatically' do
+      expect(subject).to be_versioned
+      pending 'https://github.com/airblade/paper_trail/issues/481'
+      expect(subject.paper_trail_options).to include on: []
+    end
+  end
+
   describe '.resource_params' do
     subject { Project.resource_params }
 
