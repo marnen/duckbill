@@ -1,5 +1,6 @@
 class InvoicesController < AuthenticatedController
   respond_to :html
+  skip_authorize_resource only: :new
 
   def index
   end
