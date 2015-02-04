@@ -1,7 +1,6 @@
 class ProjectsController < AuthenticatedController
   respond_to :html
   skip_authorize_resource only: :new
-  before_action :load_clients, only: [:new, :edit]
 
   def index
     @has_clients = current_user.clients.first.present?
@@ -32,10 +31,6 @@ class ProjectsController < AuthenticatedController
   end
 
   private
-
-  def load_clients
-    @clients = current_user.clients.order :name
-  end
 
   def resource_params
     params.require(:project).permit(:client_id, :name)
