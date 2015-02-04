@@ -5,6 +5,8 @@ Feature: Create and view time entries
 
 Background:
   Given I am logged in
+  And I have the following project:
+    | name | My Project |
 
 Scenario Outline: Create and view time entries
   Given I have no time entries
@@ -12,6 +14,7 @@ Scenario Outline: Create and view time entries
   When I click "New time entry"
   And I fill in the following:
     | Date        | <date>        |
+    | Project     | My Project    |
     | Description | <description> |
     | Hours       | <hours>       |
     | Notes       | <notes>       |
@@ -20,6 +23,7 @@ Scenario Outline: Create and view time entries
   And I should see "Your time entry was successfully created!"
   And I should see a time entry for:
     | Date        | <date>        |
+    | Project     | My Project    |
     | Description | <description> |
     | Hours       | <hours>       |
     | Notes       | <notes>       |
@@ -32,7 +36,8 @@ Scenario: Handle invalid submissions correctly
   Given I have no time entries
   And I am on the new time entry page
   When I fill in the following:
-    | Hours | |
+    | Project | My Project |
+    | Hours   |            |
   And I click "Save"
   Then I should see "Your time entry could not be saved"
   When I go to the time entries page
