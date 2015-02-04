@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   has_many :time_entries
   has_one :user, through: :client
 
-  has_paper_trail
+  has_paper_trail on: []
 
   [:client_id, :name].each do |field|
     validates field, presence: true

@@ -5,8 +5,6 @@ RSpec.describe Project, :type => :model do
   it { should have_many :time_entries }
   it { should have_one(:user).through :client }
 
-  it { should be_versioned }
-
   [:client_id, :name].each do |field|
     it { should validate_presence_of field }
   end
@@ -27,6 +25,13 @@ RSpec.describe Project, :type => :model do
       [:create, :read, :update, :destroy].each do |action|
         it { should_not be_able_to action, project}
       end
+    end
+  end
+
+  describe 'versions' do
+    it 'is versioned, but not automatically' do
+      expect(subject).to be_versioned
+      expect(subject.paper_trail_options).to include on: []
     end
   end
 

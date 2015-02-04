@@ -2,7 +2,7 @@ class Client < ActiveRecord::Base
   has_many :projects
   belongs_to :user
 
-  has_paper_trail
+  has_paper_trail on: []
 
   validates :user_id, presence: true
 
