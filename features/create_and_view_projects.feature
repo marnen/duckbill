@@ -41,3 +41,7 @@ Scenario: Show message when there are no clients
   But I should see "You have no clients yet. Please add some and then come back here to create your first project."
   When I click "add some"
   Then I should be on the new client page
+
+Scenario: Navigation bar link
+  When I click "Projects" within the navigation bar
+  Then I should be on the projects page
