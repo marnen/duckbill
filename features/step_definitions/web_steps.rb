@@ -41,3 +41,9 @@ end
 Then /^I should not see ([^"].*[^:])$/ do |element|
   expect(page).not_to have_selector selector_for(element)
 end
+
+Then /^I should (not )?see the following form fields:$/ do |negation, table|
+  table.rows_hash.each do |field, value|
+    expect(page.has_field? field, with: value).to be == !negation
+  end
+end
