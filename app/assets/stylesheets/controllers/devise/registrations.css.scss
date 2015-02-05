@@ -1,0 +1,13 @@
+@import 'globals';
+@import 'foundation_and_overrides';
+@import 'foundation/components/grid';
+
+form.edit_user {
+  .password, .password_confirmation {
+    @include grid-column(6);
+  }
+
+  .current_password {
+    @include grid-column(6, $last-column: true);
+  }
+}
