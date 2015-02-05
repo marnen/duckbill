@@ -3,6 +3,8 @@ module PathHelpers
     case page_name
     when 'an invoice page'
       %r{^/invoices/[^/+]+$}
+    when 'the user profile edit page'
+      edit_user_registration_path
     when 'the user registration page'
       new_user_registration_path
     when /^the (.+)'s edit page$/

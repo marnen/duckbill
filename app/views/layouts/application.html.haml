@@ -7,11 +7,11 @@
     %title= [content_for?(:title) ? yield(:title) : nil, _('Duckbill')].compact.join ' | '
 
     = favicon_link_tag
-    = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track': true
+    = stylesheet_link_tag    "application", media: 'all' #, 'data-turbolinks-track': true # TODO: turbolinks are breaking the navbar dropdown.
     - controller_stylesheet = File.join('controllers', params[:controller])
     = stylesheet_link_tag controller_stylesheet, media: 'all' if !Rails.env.production? || File.exists?(stylesheet_path controller_stylesheet)
     = javascript_include_tag "vendor/modernizr" # must be in head element
-    = javascript_include_tag "application", 'data-turbolinks-track': true
+    = javascript_include_tag "application" #, 'data-turbolinks-track': true
     = csrf_meta_tags
 
   %body

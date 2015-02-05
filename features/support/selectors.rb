@@ -6,7 +6,7 @@ module SelectorHelpers
     when 'the navigation bar'
       'nav.top-bar'
     when 'the signup form'
-      'form.new_user'
+      'form.user'
     when /^the (.+) table$/
       "table.#{$1.gsub ' ', '_'}"
     else

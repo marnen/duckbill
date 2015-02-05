@@ -1,9 +1,9 @@
 class FoundationFormBuilder < ActionView::Helpers::FormBuilder
-  def input_div(field_name, label: nil, type: nil)
+  def input_div(field_name, label: nil, type: nil, field: {})
     @template.content_tag :div, class: field_name do
       [
         label(field_name, label),
-        input_for(field_name, type),
+        input_for(field_name, type, field),
         error_div(field_name)
       ].compact.join("\n").html_safe
     end
@@ -26,24 +26,27 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     @errors ||= @object.errors
   end
 
-  def input_for(field_name, type)
+  def input_for(field_name, type, field_options)
     type ||= infer_type field_name
 
-    case type
-    when :date
-      date_field field_name
-    when :email
-      email_field(field_name)
-    when :textarea
-      text_area field_name
-    else
-      text_field field_name
-    end
+    method_mappings = {
+      date: :date_field,
+      email: :email_field,
+      password: :password_field,
+      textarea: :text_area
+    }
+
+    field_method = method_mappings[type] || :text_field
+
+    self.send field_method, field_name, field_options
   end
 
   def infer_type(field_name)
-    if field_name == :email
+    case field_name
+    when :email
       :email
+    when %r{(\b|_)password(\b|_)}
+      :password
     else
       type_mappings = {text: :textarea}
 

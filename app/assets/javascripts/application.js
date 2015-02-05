@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
+// require turbolinks // TODO: turbolinks are breaking the navbar dropdown.
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

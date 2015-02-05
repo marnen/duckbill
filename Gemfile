@@ -48,6 +48,7 @@ group :development do
   gem 'gettext', '>= 3.0.2', require: false
   gem 'guard-rspec', require: false
   gem 'guard-cucumber', require: false
+  gem 'html2haml', require: false
   gem 'ruby_parser', require: false
 end
 

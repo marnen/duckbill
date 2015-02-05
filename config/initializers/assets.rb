@@ -14,3 +14,4 @@ controller_path = Pathname.new controller_dir
 Rails.application.config.assets.precompile += Dir[File.join controller_dir, '**', '*_controller.rb'].collect do |filename|
   File.join 'controllers', "#{(Pathname.new(filename).relative_path_from controller_path).to_s.chomp '_controller.rb'}.css"
 end
+Rails.application.config.assets.precompile += ['controllers/devise/registrations.css']
