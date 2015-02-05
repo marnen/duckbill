@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Invoice, :type => :model do
+  let(:invoice) { FactoryGirl.create :invoice }
+
   it { should belong_to :project }
   it { should have_one(:client).through :project }
   it { should have_one(:user).through :client }
@@ -10,7 +12,6 @@ RSpec.describe Invoice, :type => :model do
 
   describe 'permissions' do
     subject(:ability) { Ability.new user }
-    let(:invoice) { FactoryGirl.create :invoice }
 
     context 'creator' do
       let(:user) { invoice.user }
@@ -25,5 +26,14 @@ RSpec.describe Invoice, :type => :model do
         it { should_not be_able_to action, invoice}
       end
     end
+  end
+
+  describe '#number' do
+    it "returns the invoice's ID for now" do
+      expect(invoice.number).to be == invoice.id
+    end
+
+    # TODO
+    it "should eventually return a number separate from the invoice's ID"
   end
 end

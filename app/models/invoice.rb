@@ -5,4 +5,8 @@ class Invoice < ActiveRecord::Base
   has_many :time_entries
 
   validates :project_id, presence: true
+
+  def number
+    id
+  end
 end

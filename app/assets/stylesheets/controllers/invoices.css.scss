@@ -14,15 +14,7 @@
     font-weight: bolder;
   }
 
-  .user {
-    @include grid-column(6, $last-column: true);
-  }
-
-  .client {
-    @include grid-column(6);
-  }
-
-  .project {
+  .user, .number-and-date, .client, .project {
     @include grid-column(6);
   }
 
