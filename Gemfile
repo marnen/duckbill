@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'cancancan'
 gem 'cells'
 gem 'devise'
+gem 'draper'
 gem 'foundation-icons-sass-rails'
 gem 'foundation-rails'
 gem 'gettext_i18n_rails'

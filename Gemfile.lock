@@ -101,6 +101,11 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    draper (1.4.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
     erubis (2.7.0)
     execjs (2.2.2)
     factory_girl (4.5.0)
@@ -232,6 +237,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.0)
       json (~> 1.4)
+    request_store (1.1.0)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
     rspec (3.1.0)
@@ -321,6 +327,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  draper
   factory_girl_rails
   ffaker
   foundation-icons-sass-rails
