@@ -3,7 +3,7 @@ Feature: Edit user profile
   I can edit my profile
   So I can keep my information up to date
 
-Scenario Outline:
+Scenario Outline: Edit user profile
   Given I am logged in as the following user:
     | <field>  | <old_value> |
     | password | påssw0rð    |
@@ -28,3 +28,8 @@ Scenario Outline:
     | City    | New York        | Boston         |
     | State   | NY              | MA             |
     | ZIP     | 10001           | 02115          |
+
+Scenario: Navigation link
+  Given I am logged in
+  When I click "Edit profile" within the navigation bar
+  Then I should be on the user profile edit page
