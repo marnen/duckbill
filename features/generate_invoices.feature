@@ -3,7 +3,7 @@ Feature: Generate invoices
   I can generate invoices from the time entries I've created
   So I can bill clients
 
-Scenario Outline:
+Scenario Outline: Generate an invoice
   Given I am logged in
   And I have the following client:
     | name | <client> |
@@ -36,3 +36,8 @@ Scenario Outline:
   Examples:
     | client     | project_1 | project_2 | description_1 | description_2 | other_description |
     | Acme Corp. | Alpha     | Beta      | Task One      | Task Two      | Other Task        |
+
+Scenario: Navigation link
+  Given I am logged in
+  And I click "Invoices" within the navigation bar
+  Then I should be on the invoices page

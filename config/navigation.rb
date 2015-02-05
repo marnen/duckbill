@@ -78,6 +78,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :clients, _('Clients'), clients_path, selected_class: 'active', highlights_on: :subpath
     primary.item :projects, _('Projects'), projects_path, selected_class: 'active', highlights_on: :subpath
     primary.item :time_entries, _('Time entries'), time_entries_path, selected_class: 'active', highlights_on: :subpath
+    primary.item :invoices, _('Invoices'), invoices_path, selected_class: 'active', highlights_on: :subpath
     primary.dom_attributes = {class: 'left'}
   end
 end
