@@ -2,7 +2,7 @@
 @import 'foundation_and_overrides';
 @import 'foundation/components/grid';
 
-form.edit_user {
+form.user {
   .password, .password_confirmation {
     @include grid-column(6);
   }

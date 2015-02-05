@@ -8,7 +8,7 @@ Scenario Outline:
   And no users exist
   When I go to the user registration page
   And I fill in the following:
-    | Email                 | <email>    |
+    | E-mail address        | <email>    |
     | Password              | <password> |
     | Password confirmation | <password> |
     | Name                  | <name>     |
