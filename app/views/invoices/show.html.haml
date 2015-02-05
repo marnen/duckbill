@@ -1,23 +1,10 @@
 .user
   %p= _ 'From'
-  %p= @user.name
-  %p= @user.company
-  %p= @user.email
-  %p= @user.street
-  %p= @user.city
-  %p= @user.state
-  %p= @user.zip
-
+  = render 'address', person: @user
 
 .client
   %p= _ 'Client'
-  %p= @client.name
-  %p= @client.company
-  %p= @client.email
-  %p= @client.street
-  %p= @client.city
-  %p= @client.state
-  %p= @client.zip
+  = render 'address', person: @client
 
 .project= _ 'Project: %{project}' % {project: @project.name}
 
