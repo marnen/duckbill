@@ -1,24 +1,32 @@
-.user
-  %p= _ 'From'
-  %p= simple_format @user.name_and_address
+- content_for :title do
+  = _ 'Invoice'
 
-.client
-  %p= _ 'Client'
-  %p= simple_format @client.name_and_address
+%section.invoice
+  .row
+    .user
+      .header= _ 'From:'
+      %div= simple_format @user.name_and_address
 
-.project= _ 'Project: %{project}' % {project: @project.name}
+  .row
+    .client
+      .header= _ 'To:'
+      %div= simple_format @client.name_and_address
 
-%table.time_entries
-  %thead
-    %tr
-      %th= _ 'Date'
-      %th= _ 'Description'
-      %th= _ 'Hours'
-      %th= _ 'Notes'
-  %tbody
-    - @time_entries.each do |time_entry|
+    .project
+      %span.header= _ 'Project:'
+      = @project.name
+
+  %table.time_entries
+    %thead
       %tr
-        %td.date= time_entry.date
-        %td.description= time_entry.description
-        %td.hours= time_entry.hours
-        %td.notes= time_entry.notes
+        %th.date= _ 'Date'
+        %th.description= _ 'Description'
+        %th.hours= _ 'Hours'
+        %th.notes= _ 'Notes'
+    %tbody
+      - @time_entries.each do |time_entry|
+        %tr
+          %td.date= time_entry.date
+          %td.description= time_entry.description
+          %td.hours= time_entry.hours
+          %td.notes= time_entry.notes

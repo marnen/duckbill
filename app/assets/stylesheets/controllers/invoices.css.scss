@@ -1,0 +1,66 @@
+@import 'controller_header';
+
+@media print {
+  nav {
+    display: none;
+  }
+  body {
+    font-family: $font-family-serif;
+  }
+}
+
+.invoice {
+  .header {
+    font-weight: bolder;
+  }
+
+  .user {
+    @include grid-column(6, $last-column: true);
+  }
+
+  .client {
+    @include grid-column(6);
+  }
+
+  .project {
+    @include grid-column(6);
+  }
+
+  table {
+    // TODO: this duplicates application.css.scss.
+    @include grid-row();
+    margin-left: 0;
+
+    &.time_entries {
+      border-collapse: collapse;
+
+      tr {
+        border-bottom: rem-calc(1) solid black;
+      }
+      .date {
+        @include grid-column(3);
+        @media #{$large-up} {
+          @include grid-column(2);
+        }
+      }
+      .description {
+        @include grid-column(3);
+      }
+      .hours {
+        @include grid-column(2);
+        @media #{$large-up}, print {
+          @include grid-column(1);
+        }
+      }
+      .notes {
+        @include grid-column(4, $last-column: true);
+        @media #{$large-up} {
+          @include grid-column(6, $last-column: true);
+        }
+        @media print {
+          @include grid-column(5, $last-column:true)
+        }
+      }
+    }
+  }
+}
