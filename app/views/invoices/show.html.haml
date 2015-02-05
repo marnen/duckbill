@@ -7,6 +7,10 @@
       .header= _ 'From:'
       %div= simple_format @user.name_and_address
 
+    .invoice-date
+      %span.header= _'Invoice date:'
+      = @invoice.created_at.strftime Date::DATE_FORMATS[:db]
+
   .row
     .client
       .header= _ 'To:'

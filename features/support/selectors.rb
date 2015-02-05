@@ -3,6 +3,8 @@ module SelectorHelpers
     case element
     when 'any time entries'
       '.time_entry'
+    when 'the invoice date'
+      '.invoice-date'
     when 'the navigation bar'
       'nav.top-bar'
     when 'the signup form'

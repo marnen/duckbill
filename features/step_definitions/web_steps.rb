@@ -51,3 +51,7 @@ Then /^I should (not )?see the following form fields:$/ do |negation, table|
     expect(page.has_field? field, with: value).to be == !negation
   end
 end
+
+Then "I should see today's date" do
+  expect(page).to have_content Time.now.strftime(Date::DATE_FORMATS[:db])
+end
