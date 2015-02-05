@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-04 12:58-0500\n"
-"PO-Revision-Date: 2015-02-04 12:58-0500\n"
+"POT-Creation-Date: 2015-02-04 23:56-0500\n"
+"PO-Revision-Date: 2015-02-04 23:56-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "%{n} character minimum"
+msgid_plural "%{n} characters minimum"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "(this will be your username)"
+msgstr ""
 
 msgid "City"
 msgstr ""
@@ -45,7 +53,13 @@ msgstr ""
 msgid "Duck<span>bill</span>"
 msgstr ""
 
+msgid "Duckbill"
+msgstr ""
+
 msgid "E-mail address"
+msgstr ""
+
+msgid "E-mail address %{email_hint}"
 msgstr ""
 
 msgid "Edit Client"
@@ -55,6 +69,9 @@ msgid "Edit Project"
 msgstr ""
 
 msgid "Edit Time Entry"
+msgstr ""
+
+msgid "Edit profile"
 msgstr ""
 
 msgid "Hours"
@@ -84,7 +101,13 @@ msgstr ""
 msgid "Project"
 msgstr ""
 
+msgid "Projects"
+msgstr ""
+
 msgid "Save"
+msgstr ""
+
+msgid "Sign Up"
 msgstr ""
 
 msgid "Sign up"
@@ -96,7 +119,7 @@ msgstr ""
 msgid "Street"
 msgstr ""
 
-msgid "Time Entries"
+msgid "Time entries"
 msgstr ""
 
 msgid "Your project could not be saved."
