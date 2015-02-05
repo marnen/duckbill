@@ -4,7 +4,7 @@ end
 
 Given /^I am logged in(?: as "(.*?)")?$/ do |email|
   params = email ? {email: email} : {}
-  @current_user = FactoryGirl.create :user, params
+  @current_user = FactoryGirl.create :user, :with_name_and_address, params
   login_as @current_user
 end
 
@@ -19,4 +19,10 @@ end
 
 Given 'no users exist' do
   User.destroy_all
+end
+
+Then /^I should see my (.+)$/ do |field|
+  field.downcase!
+  field =~ /^e-mail\b/ ? field = 'email' : field.gsub!(/\s/, '_')
+  expect(page).to have_content @current_user[field]
 end

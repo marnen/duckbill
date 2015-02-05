@@ -21,6 +21,12 @@ Scenario Outline:
   And I select "<project_1>" from "Project"
   And I click "Create"
   Then I should be on an invoice page
+  And I should see my name
+  And I should see my e-mail address
+  And I should see my company
+  And I should see my street
+  And I should see my city
+  And I should see my ZIP
   And I should see "<client>"
   And I should see "<project_1>"
   And I should see "<description_1>"
