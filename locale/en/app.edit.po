@@ -17,6 +17,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
+msgid "%{n} character minimum"
+msgid_plural "%{n} characters minimum"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "(this will be your username)"
+msgstr ""
+
+msgid "Are you sure?"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Cancel my account"
+msgstr ""
+
 msgid "City"
 msgstr ""
 
@@ -35,6 +52,9 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
+msgid "Current password (required in order to confirm your changes)"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
@@ -44,16 +64,28 @@ msgstr ""
 msgid "Duck<span>bill</span>"
 msgstr ""
 
+msgid "Duckbill"
+msgstr ""
+
 msgid "E-mail address"
 msgstr ""
 
+msgid "E-mail address %{email_hint}"
+msgstr ""
+
 msgid "Edit Client"
+msgstr ""
+
+msgid "Edit Profile"
 msgstr ""
 
 msgid "Edit Project"
 msgstr ""
 
 msgid "Edit Time Entry"
+msgstr ""
+
+msgid "Edit profile"
 msgstr ""
 
 msgid "Hours"
@@ -80,10 +112,19 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
+msgid "Password (leave blank if you don't want to change it)"
+msgstr ""
+
 msgid "Project"
 msgstr ""
 
+msgid "Projects"
+msgstr ""
+
 msgid "Save"
+msgstr ""
+
+msgid "Sign Up"
 msgstr ""
 
 msgid "Sign up"
@@ -95,7 +136,10 @@ msgstr ""
 msgid "Street"
 msgstr ""
 
-msgid "Time Entries"
+msgid "Time entries"
+msgstr ""
+
+msgid "Unhappy?"
 msgstr ""
 
 msgid "Your project could not be saved."

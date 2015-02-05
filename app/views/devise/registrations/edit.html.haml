@@ -3,8 +3,7 @@
 
 = form_for resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, class: resource_name} do |f|
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
+    %div= _ 'Currently awaiting confirmation for: %{email}' % {email: resource.unconfirmed_email}
 
   = render 'shared/person_form', form: f
 
@@ -18,8 +17,9 @@
   .row
     = f.submit _ 'Save'
 
-%h3 Cancel my account
+%h3= _ 'Cancel my account'
 %p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+  = _ 'Unhappy?'
+  = button_to _("Cancel my account"), registration_path(resource_name), data: { confirm: _("Are you sure?") }, method: :delete
 
-= link_to "Back", :back
+= link_to _("Back"), :back
