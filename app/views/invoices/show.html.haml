@@ -1,10 +1,10 @@
 .user
   %p= _ 'From'
-  = render 'address', person: @user
+  %p= simple_format @user.name_and_address
 
 .client
   %p= _ 'Client'
-  = render 'address', person: @client
+  %p= simple_format @client.name_and_address
 
 .project= _ 'Project: %{project}' % {project: @project.name}
 

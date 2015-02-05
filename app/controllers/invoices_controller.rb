@@ -19,9 +19,9 @@ class InvoicesController < AuthenticatedController
 
   def show
     @invoice = Invoice.where(id: params[:id]).joins { time_entries.outer }.joins { project.client }.first
-    @client = @invoice.client
+    @client = @invoice.client.decorate
     @project = @invoice.project
-    @user = current_user
+    @user = current_user.decorate
     @time_entries = @invoice.time_entries
   end
 
