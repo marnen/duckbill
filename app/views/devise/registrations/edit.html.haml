@@ -19,7 +19,7 @@
 
 %h3= _ 'Cancel my account'
 %p
-  = 'Unhappy?'
-  = button_to _("Cancel my account"), registration_path(resource_name), data: { confirm: _("Are you sure?") }, method: :delete}
+  = _ 'Unhappy?'
+  = button_to _("Cancel my account"), registration_path(resource_name), data: { confirm: _("Are you sure?") }, method: :delete
 
 = link_to _("Back"), :back
