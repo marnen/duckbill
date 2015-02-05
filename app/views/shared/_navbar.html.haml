@@ -12,9 +12,11 @@
     -# Right Nav Section
     %ul.right
       - if current_user
-        %li
+        %li.has-dropdown
           %a(name='current-user')= current_user.email
           -# TODO: The <a name> is an awful hack, but I can't figure out how to style the text correctly without it.
+          %ul.dropdown
+            %li= link_to _('Edit profile'), edit_user_registration_path
         %li.has-form= link_to _('Log out'), destroy_user_session_path, class: [:button, :alert]
       - else
         %li= link_to _('Log in'), new_user_session_path

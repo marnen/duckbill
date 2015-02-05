@@ -11,3 +11,31 @@ input[type='submit'] {
 form div.error {
   @extend small.error;
 }
+
+form .person {
+  .name, .company, .email {
+    @include grid-column(4);
+  }
+  .street {
+    @include grid-column(5);
+    @media #{$large-up} {
+      @include grid-column(6);
+    }
+  }
+  .city {
+    @include grid-column(3);
+  }
+  .state {
+    @include grid-column(2);
+    @media #{$large-up} {
+      @include grid-column(1);
+    }
+  }
+  .zip {
+    @include grid-column(2);
+  }
+
+  input[type='submit'] {
+    @include grid-column(2, $offset: 5);
+  }
+}

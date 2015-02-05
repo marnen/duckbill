@@ -48,6 +48,16 @@ describe FoundationFormBuilder, type: :view do
       end
     end
 
+    describe 'field options' do
+      let(:key) { Faker::Lorem.words(1).first.to_s }
+      let(:value) { Faker::Lorem.sentence }
+      let(:options) { {field: {key => value}} }
+
+      it 'passes options through to the field' do
+        expect(input_div).to have_tag "#{wrapper} input##{input_id}[#{key}='#{value}']"
+      end
+    end
+
     describe 'label' do
       context 'label text specified' do
         let(:label_text) { Faker::Lorem.sentence }
@@ -100,6 +110,14 @@ describe FoundationFormBuilder, type: :view do
 
             it 'renders an email field' do
               expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='email']"
+            end
+          end
+
+          context 'field name contains "password"' do
+            let(:field_name) { :"#{Faker::Lorem.words(1).first}_password_#{Faker::Lorem.words(1).first}" }
+
+            it 'renders a password field' do
+              expect(input_div).to have_tag "#{wrapper} input##{input_id}[type='password']"
             end
           end
 

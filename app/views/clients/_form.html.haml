@@ -1,13 +1,5 @@
 = form_for @client, html: {class: :client} do |f|
-  .row
-    = f.input_div :name
-    = f.input_div :company
-    = f.input_div :email, label: _('E-mail address')
-  .row
-    = f.input_div :street, type: :textarea
-    = f.input_div :city
-    = f.input_div :state
-    = f.input_div :zip, label: _('ZIP code')
+  = render 'shared/person_form', form: f
   .row.collapse
     = f.submit _ 'Save'
 
