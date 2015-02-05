@@ -20,6 +20,8 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "off"
 
+  = render 'shared/person_form', form: f, email: false
+
   .actions
     = f.submit "Sign up"
 

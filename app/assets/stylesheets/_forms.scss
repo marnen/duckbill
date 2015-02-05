@@ -12,7 +12,7 @@ form div.error {
   @extend small.error;
 }
 
-form.person {
+form .person {
   .name, .company, .email {
     @include grid-column(4);
   }

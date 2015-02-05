@@ -1,1 +1,5 @@
-= render 'shared/person_form', person: @client
+= form_for @client, html: {class: :client} do |f|
+  = render 'shared/person_form', form: f
+  .row.collapse
+    = f.submit _ 'Save'
+
