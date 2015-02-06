@@ -7,8 +7,14 @@
   }
 }
 
-.pdf-controls .view {
+.pdf-controls{
+  @media print {
+    display: none;
+  }
+
+  .view {
     @include button();
+  }
 }
 
 .invoice {
