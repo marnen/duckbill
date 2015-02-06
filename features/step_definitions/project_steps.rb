@@ -9,7 +9,7 @@ end
 
 Given 'I have the following projects:' do |table|
   table.hashes.each do |hash|
-    client = hash['client'] ? Client.find_by_name(hash['client']) : FactoryGirl.create(:client, user: @current_user)
+    client = hash['client'] ? @current_user.clients.find_by_name(hash['client']) : FactoryGirl.create(:client, user: @current_user)
     FactoryGirl.create :project, hash.merge('client' => client)
   end
 end
