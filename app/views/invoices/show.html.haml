@@ -1,0 +1,40 @@
+- content_for :title do
+  = _ 'Invoice'
+
+%section.invoice
+  .row
+    .user
+      .header= _ 'From:'
+      %div= simple_format @user.name_and_address
+
+    .number-and-date
+      .invoice-number
+        %span.header= _ 'Invoice no.:'
+        = @invoice.number
+      .invoice-date
+        %span.header= _ 'Invoice date:'
+        = @invoice.created_at.strftime Date::DATE_FORMATS[:db]
+
+  .row
+    .client
+      .header= _ 'To:'
+      %div= simple_format @client.name_and_address
+
+    .project
+      %span.header= _ 'Project:'
+      = @project.name
+
+  %table.time_entries
+    %thead
+      %tr
+        %th.date= _ 'Date'
+        %th.description= _ 'Description'
+        %th.hours= _ 'Hours'
+        %th.notes= _ 'Notes'
+    %tbody
+      - @time_entries.each do |time_entry|
+        %tr
+          %td.date= time_entry.date
+          %td.description= time_entry.description
+          %td.hours= time_entry.hours
+          %td.notes= time_entry.notes

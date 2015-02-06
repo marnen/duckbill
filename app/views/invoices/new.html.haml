@@ -1,0 +1,10 @@
+- content_for :title do
+  = _ 'Create Invoice'
+
+%p= _ "Please choose the project you'd like to create an invoice for."
+
+= form_for @invoice do |f|
+  .project
+    = f.label :project_id
+    = render_cell :project_selector, :show, form: f, user: current_user
+  = f.submit 'Create'

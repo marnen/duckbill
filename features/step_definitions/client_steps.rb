@@ -16,7 +16,7 @@ end
 
 Given 'I have the following client:' do |table|
   params = params_from(table).merge user: @current_user
-  @client = FactoryGirl.create :client, params
+  @client = FactoryGirl.create :client, :with_name_and_address, params
 end
 
 

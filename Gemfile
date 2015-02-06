@@ -26,12 +26,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'cancancan'
 gem 'cells'
 gem 'devise'
+gem 'draper'
 gem 'foundation-icons-sass-rails'
 gem 'foundation-rails'
 gem 'gettext_i18n_rails'
 gem 'haml'
+gem 'paper_trail', '~> 4.0.0.beta2'
 gem 'responders'
 gem 'simple-navigation'
+gem 'squeel', '~> 1.2.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

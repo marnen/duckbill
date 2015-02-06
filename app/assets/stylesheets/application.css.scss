@@ -1,4 +1,5 @@
 @import 'common';
+@import 'custom_row';
 @import 'flash';
 @import 'forms';
 @import 'navbar';
@@ -8,6 +9,5 @@ body > * {
 }
 
 .row {
-  @include grid-row();
-  margin-left: 0;
+  @include custom-row();
 }
