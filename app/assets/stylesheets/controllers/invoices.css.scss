@@ -2,9 +2,6 @@
 @import 'custom_row';
 
 @media print {
-  nav {
-    display: none;
-  }
   body {
     font-family: $font-family-serif;
   }
