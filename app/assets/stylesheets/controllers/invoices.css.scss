@@ -1,4 +1,5 @@
 @import 'controller_header';
+@import 'custom_row';
 
 @media print {
   nav {
@@ -19,9 +20,7 @@
   }
 
   table {
-    // TODO: this duplicates application.css.scss.
-    @include grid-row();
-    margin-left: 0;
+    @include custom-row;
 
     &.time_entries {
       border-collapse: collapse;
