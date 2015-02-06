@@ -28,7 +28,7 @@ class InvoicesController < AuthenticatedController
       format.html
       format.pdf do
         Tempfile.open ["invoices-#{@invoice.id}", '.pdf'] do |file|
-          render pdf: file.path, template: 'invoices/show.html.haml', layout: 'application.pdf.haml' #, print_media_type: true
+          render pdf: file.path, template: 'invoices/show.html.haml', layout: 'application.pdf.haml', print_media_type: true
         end
       end
     end
