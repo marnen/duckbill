@@ -7,9 +7,10 @@ module PathHelpers
       edit_user_registration_path
     when 'the user registration page'
       new_user_registration_path
+    when /^the (.+)'s page$/
+      model_path $1
     when /^the (.+)'s edit page$/
-      model = $1.gsub(' ', '_')
-      self.send "edit_#{model}_path", instance_variable_get("@#{model}")
+      model_path $1, :edit
     else
       begin
         path_helper = page_name.gsub(/\bpage$/, 'path').gsub(/^the /, '').gsub(' ', '_')
@@ -18,6 +19,14 @@ module PathHelpers
         raise ArgumentError, "Path to '#{page_name}' is not defined. Please add a mapping in #{__FILE__}."
       end
     end
+  end
+
+  private
+
+  def model_path(model, action = nil)
+    model.gsub! ' ', '_'
+    path = [action, model, 'path'].compact.join '_'
+    self.send path, instance_variable_get("@#{model}")
   end
 end
 

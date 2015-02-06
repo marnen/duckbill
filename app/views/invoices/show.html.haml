@@ -1,6 +1,11 @@
 - content_for :title do
   = _ 'Invoice'
 
+.pdf-controls
+  = link_to invoice_path(@invoice, format: :pdf), class: :view do
+    %span.fi-page-pdf
+    = _ 'View as PDF'
+
 %section.invoice
   .row
     .user

@@ -55,3 +55,7 @@ end
 Then "I should see today's date" do
   expect(page).to have_content Time.now.strftime(Date::DATE_FORMATS[:db])
 end
+
+Then 'the response should be a PDF file' do
+  # do nothing, because we're rendering PDF files as HTML for ease of testing
+end

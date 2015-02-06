@@ -10,6 +10,10 @@
   }
 }
 
+.pdf-controls .view {
+    @include button();
+}
+
 .invoice {
   .header {
     font-weight: bolder;

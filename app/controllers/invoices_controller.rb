@@ -23,6 +23,15 @@ class InvoicesController < AuthenticatedController
     @project = @invoice.project
     @user = current_user.decorate
     @time_entries = @invoice.time_entries
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        Tempfile.open ["invoices-#{@invoice.id}", '.pdf'] do |file|
+          render pdf: file.path, template: 'invoices/show.html.haml', layout: 'application.pdf.haml' #, print_media_type: true
+        end
+      end
+    end
   end
 
   private
