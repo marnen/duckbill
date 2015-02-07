@@ -27,7 +27,15 @@
       border-collapse: collapse;
 
       tr {
-        border-bottom: rem-calc(1) solid black;
+        border-bottom: {
+          style: solid;
+          color: black;
+        }
+        border-bottom-width: rem-calc(1);
+        @media print {
+          border-bottom-width: rem-calc(0.5);
+        }
+
       }
       .date {
         @include grid-column(3);
