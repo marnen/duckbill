@@ -4,7 +4,8 @@
     %meta(charset="utf-8")
     %title= [content_for?(:title) ? yield(:title) : nil, _('Duckbill')].compact.join ' | '
 
-    = wicked_pdf_stylesheet_link_tag    "application", media: 'all'
+    = wicked_pdf_stylesheet_link_tag 'application', media: 'all'
+    = wicked_pdf_stylesheet_link_tag 'pdf', media: 'all'
     - controller_stylesheet = File.join('controllers', params[:controller])
     = wicked_pdf_stylesheet_link_tag controller_stylesheet, media: 'all' if !Rails.env.production? || File.exists?(stylesheet_path controller_stylesheet)
 

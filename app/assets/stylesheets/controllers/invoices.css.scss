@@ -1,12 +1,6 @@
 @import './header';
 @import 'custom_row';
 
-@media print {
-  body, h1, h2, h3, h4, h5, h6 {
-    font-family: $font-family-serif;
-  }
-}
-
 .pdf-controls{
   @media print {
     display: none;
