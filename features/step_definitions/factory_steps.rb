@@ -1,10 +1,10 @@
-Given 'I have no clients' do
-  @current_user.clients.destroy_all
+Given /^I have no (.+)$/ do |association|
+  @current_user.send(association.gsub(' ', '_')).destroy_all
 end
 
-Given /^I have (\d+) clients?$/ do |count|
+Given /^I have (\d+) (.+)/ do |count, association|
   count.times do
-    FactoryGirl.create :client, user: @current_user
+    FactoryGirl.create association.gsub(' ', '_').singularize, user: @current_user
   end
 end
 
@@ -19,10 +19,6 @@ Given 'I have the following client:' do |table|
   @client = FactoryGirl.create :client, :with_name_and_address, params
 end
 
-Given 'I have an invoice' do
-  @invoice = FactoryGirl.create :invoice, user: @current_user
-end
-
 Given 'I have the following invoice:' do |table|
   hash = table.hashes.first
   if hash['project']
@@ -33,13 +29,13 @@ Given 'I have the following invoice:' do |table|
   @invoice = FactoryGirl.create :invoice, hash
 end
 
-Given 'I have no projects' do
-  @current_user.projects.destroy_all
-end
-
 Given 'I have the following project:' do |table|
   params = params_from table
   @project = FactoryGirl.create :project, params.merge(user: @current_user)
+end
+
+Given 'I have an invoice' do
+  @invoice = FactoryGirl.create :invoice, user: @current_user
 end
 
 Given 'I have the following projects:' do |table|
@@ -53,16 +49,6 @@ Given 'the following project exists:' do |table|
   params = params_from table
   params['client'] = Client.find_by_name(params['client']) if params.include? 'client'
   @project = FactoryGirl.create :project, params
-end
-
-Given 'I have no time entries' do
-  @current_user.time_entries.destroy_all
-end
-
-Given /^I have (\d+) time entr(?:y|ies)$/ do |count|
-  count.times do
-    FactoryGirl.create :time_entry, user: @current_user
-  end
 end
 
 Given 'I have the following time entries:' do |table|
