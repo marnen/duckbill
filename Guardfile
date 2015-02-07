@@ -76,7 +76,7 @@ guard :rspec, cmd: "bundle exec rspec" do
   end
 end
 
-guard "cucumber" do
+guard "cucumber", cli: '-f progress -f html --out cucumber.html' do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { "features" }
 
