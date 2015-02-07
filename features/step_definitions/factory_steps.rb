@@ -20,16 +20,6 @@ Given 'I have the following client:' do |table|
   @client = FactoryGirl.create :client, :with_name_and_address, params
 end
 
-Given 'I have the following invoice:' do |table|
-  hash = table.hashes.first
-  if hash['project']
-    hash['project'] = @current_user.projects.find_by_name(hash['project']) || FactoryGirl.create(:project, user: @current_user, name: hash['project'])
-  else
-    hash['user'] = @current_user
-  end
-  @invoice = FactoryGirl.create :invoice, hash
-end
-
 Given 'I have the following project:' do |table|
   params = params_from table
   @project = FactoryGirl.create :project, params.merge(user: @current_user)
