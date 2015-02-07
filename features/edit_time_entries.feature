@@ -6,11 +6,8 @@ Feature: Edit time entries
   Scenario Outline: Edit time entries
     Given I am logged in as "<user>"
     And the following time entry exists:
-      | user        | <user>            |
-      | date        | <old_date>        |
-      | description | <old_description> |
-      | hours       | <old_hours>       |
-      | notes       | <old_notes>       |
+      | user   | date       | description       | hours       | notes       |
+      | <user> | <old_date> | <old_description> | <old_hours> | <old_notes> |
     And I am on the time entries page
     When I click "edit"
     And I fill in the following:
@@ -40,7 +37,8 @@ Feature: Edit time entries
     Given I am logged in as "jsmith@gmail.com"
     And a user exists with email: "<other_user>"
     And the following time entry exists:
-      | user | <other_user> |
+      | user         |
+      | <other_user> |
     Then I should not be allowed to go to the time entry's edit page
 
     Examples:

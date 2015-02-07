@@ -10,9 +10,21 @@ Given /^I have (\d+|an?) (.+)/ do |count, association|
 end
 
 Given 'the following client exists:' do |table|
-  params = params_from table
+  params = table.hashes.first
   params['user'] = User.find_by_email(params['user']) if params.include? 'user'
   @client = FactoryGirl.create :client, params
+end
+
+Given 'the following project exists:' do |table|
+  params = table.hashes.first
+  params['client'] = Client.find_by_name(params['client']) if params.include? 'client'
+  @project = FactoryGirl.create :project, params
+end
+
+Given 'the following time entry exists:' do |table|
+  params = table.hashes.first
+  params['user'] = User.find_by_email(params['user']) if params.include? 'user'
+  @time_entry = FactoryGirl.create :time_entry, params
 end
 
 Given 'I have the following client:' do |table|
@@ -32,22 +44,10 @@ Given 'I have the following projects:' do |table|
   end
 end
 
-Given 'the following project exists:' do |table|
-  params = params_from table
-  params['client'] = Client.find_by_name(params['client']) if params.include? 'client'
-  @project = FactoryGirl.create :project, params
-end
-
 Given 'I have the following time entries:' do |table|
   table.hashes.each do |hash|
     hash['project'] = @current_user.projects.find_by_name hash['project']
     FactoryGirl.create :time_entry, hash
   end
-end
-
-Given 'the following time entry exists:' do |table|
-  params = table.rows_hash.transform_keys &:downcase
-  params['user'] = User.find_by_email(params['user']) if params.include? 'user'
-  @time_entry = FactoryGirl.create :time_entry, params
 end
 

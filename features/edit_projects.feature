@@ -6,11 +6,11 @@ Feature: Edit projects
   Scenario Outline: Edit projects
     Given I am logged in as "<user>"
     And the following client exists:
-      | user | <user>   |
-      | name | <client> |
+      | user   | name     |
+      | <user> | <client> |
     And the following project exists:
-      | client | <client>   |
-      | name   | <old_name> |
+      | client   | name       |
+      | <client> | <old_name> |
     And I am on the projects page
     When I click "edit"
     And I fill in the following:
@@ -31,10 +31,11 @@ Feature: Edit projects
     Given I am logged in as "jsmith@gmail.com"
     And a user exists with email: "<other_user>"
     And the following client exists:
-      | user | <other_user> |
-      | name | <client>     |
+      | user         | name     |
+      | <other_user> | <client> |
     And the following project exists:
-      | client | <client> |
+      | client   |
+      | <client> |
     Then I should not be allowed to go to the project's edit page
 
     Examples:

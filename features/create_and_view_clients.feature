@@ -45,8 +45,8 @@ Scenario: Show message when there are no clients
 Scenario Outline: Can't see other users' clients
   Given a user exists with email: "<other_user>"
   And the following client exists:
-    | User | <other_user> |
-    | Name | <other_name> |
+    | user         | name         |
+    | <other_user> | <other_name> |
   When I go to the clients page
   Then I should not see "<other_name>"
 

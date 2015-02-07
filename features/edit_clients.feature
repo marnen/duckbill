@@ -6,8 +6,8 @@ Feature: Edit clients
   Scenario Outline: Edit clients
     Given I am logged in as "<user>"
     And the following client exists:
-      | user | <user>     |
-      | name | <old_name> |
+      | user   | name       |
+      | <user> | <old_name> |
     And I am on the clients page
     When I click "edit"
     And I fill in the following:
@@ -28,7 +28,8 @@ Feature: Edit clients
     Given I am logged in as "jsmith@gmail.com"
     And a user exists with email: "<other_user>"
     And the following client exists:
-      | user | <other_user> |
+      | user         |
+      | <other_user> |
     Then I should not be allowed to go to the client's edit page
 
     Examples:
