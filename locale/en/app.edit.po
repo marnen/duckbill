@@ -52,6 +52,9 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
+msgid "Create Invoice"
+msgstr ""
+
 msgid "Current password (required in order to confirm your changes)"
 msgstr ""
 
@@ -88,13 +91,31 @@ msgstr ""
 msgid "Edit profile"
 msgstr ""
 
+msgid "From:"
+msgstr ""
+
 msgid "Hours"
+msgstr ""
+
+msgid "Invoice"
+msgstr ""
+
+msgid "Invoice date:"
+msgstr ""
+
+msgid "Invoice no.:"
+msgstr ""
+
+msgid "Invoices"
 msgstr ""
 
 msgid "Log in"
 msgstr ""
 
 msgid "Log out"
+msgstr ""
+
+msgid "My Invoices"
 msgstr ""
 
 msgid "Name"
@@ -109,13 +130,22 @@ msgstr ""
 msgid "New Time Entry"
 msgstr ""
 
+msgid "New invoice"
+msgstr ""
+
 msgid "Notes"
 msgstr ""
 
 msgid "Password (leave blank if you don't want to change it)"
 msgstr ""
 
+msgid "Please choose the project you'd like to create an invoice for."
+msgstr ""
+
 msgid "Project"
+msgstr ""
+
+msgid "Project:"
 msgstr ""
 
 msgid "Projects"
@@ -139,7 +169,19 @@ msgstr ""
 msgid "Time entries"
 msgstr ""
 
+msgid "To:"
+msgstr ""
+
 msgid "Unhappy?"
+msgstr ""
+
+msgid "View as PDF"
+msgstr ""
+
+msgid "Your invoice could not be created."
+msgstr ""
+
+msgid "Your invoice was successfully created."
 msgstr ""
 
 msgid "Your project could not be saved."
