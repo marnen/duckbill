@@ -2,7 +2,8 @@ Given /^I have no (.+)$/ do |association|
   @current_user.send(association.gsub(' ', '_')).destroy_all
 end
 
-Given /^I have (\d+) (.+)/ do |count, association|
+Given /^I have (\d+|an?) (.+)/ do |count, association|
+  count = 1 if ['a', 'an'].include? count
   count.times do
     FactoryGirl.create association.gsub(' ', '_').singularize, user: @current_user
   end
@@ -32,10 +33,6 @@ end
 Given 'I have the following project:' do |table|
   params = params_from table
   @project = FactoryGirl.create :project, params.merge(user: @current_user)
-end
-
-Given 'I have an invoice' do
-  @invoice = FactoryGirl.create :invoice, user: @current_user
 end
 
 Given 'I have the following projects:' do |table|
