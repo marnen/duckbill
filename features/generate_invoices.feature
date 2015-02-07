@@ -21,7 +21,8 @@ Scenario Outline: Generate an invoice
   And I select "<project_1>" from "Project"
   And I click "Create"
   Then I should be on an invoice page
-  And I should see the invoice number
+  When <pdf_or_not>
+  Then I should see the invoice number
   And I should see today's date within the invoice date
   And I should see my name
   And I should see my e-mail address
@@ -36,8 +37,9 @@ Scenario Outline: Generate an invoice
   But I should not see "<other_description>"
 
   Examples:
-    | client     | project_1 | project_2 | description_1 | description_2 | other_description |
-    | Acme Corp. | Alpha     | Beta      | Task One      | Task Two      | Other Task        |
+    | client     | project_1 | project_2 | description_1 | description_2 | other_description | pdf_or_not            |
+    | Acme Corp. | Alpha     | Beta      | Task One      | Task Two      | Other Task        | I click "View as PDF" |
+    | XYZ Inc.   | Psi       | Omega     | Screwdriver   | Hammer        | Blowtorch         | I do nothing          |
 
 Scenario: Navigation link
   Given I am logged in
