@@ -6,7 +6,8 @@ Feature: Create and view time entries
 Background:
   Given I am logged in
   And I have the following project:
-    | name | My Project |
+    | name       |
+    | My Project |
 
 Scenario Outline: Create and view time entries
   Given I have no time entries
@@ -54,8 +55,8 @@ Scenario: Show message when there are no time entries
 Scenario Outline: Can't see other users' time entries
   Given a user exists with email: "<other_user>"
   And the following time entry exists:
-    | User        | <other_user>        |
-    | Description | <other_description> |
+    | user         | description         |
+    | <other_user> | <other_description> |
   When I go to the time entries page
   Then I should not see "<other_description>"
 

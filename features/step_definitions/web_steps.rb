@@ -46,9 +46,20 @@ Then /^I should not see ([^"].*[^:])$/ do |element|
   expect(page).not_to have_selector selector_for(element)
 end
 
-Then /^I should (not )?see the following form fields:$/ do |negation, table|
-  table.rows_hash.each do |field, value|
-    expect(page.has_field? field, with: value).to be == !negation
+Then /^I should (not )?see a time entry for:$/ do |negation, table|
+  step "I should #{negation}see the following time entry:", table
+end
+
+Then /^I should (not )?see the following (?:(form fields)|(.+)):$/ do |negation, form_fields, model, table|
+  if form_fields
+    check_rows(table, expected: !negation) {|field, value| page.has_field? field, with: value }
+  elsif model
+    model = normalize model
+    within ".#{model}" do
+      check_rows(table, expected: !negation) {|field, value| page.has_selector? ".#{remove_spaces field.downcase}", text: value }
+    end
+  else
+    raise ArgumentError, 'Either "form fields" or a model name is required.'
   end
 end
 
@@ -56,6 +67,10 @@ Then "I should see today's date" do
   expect(page).to have_content Time.now.strftime(Date::DATE_FORMATS[:db])
 end
 
-Then 'the response should be a PDF file' do
-  # do nothing, because we're rendering PDF files as HTML for ease of testing
+private
+
+def check_rows(table, expected: true, &predicate)
+  table.rows_hash.each do |field, value|
+    expect(predicate.call field, value).to be == expected
+  end
 end
