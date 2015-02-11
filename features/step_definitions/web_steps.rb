@@ -52,15 +52,11 @@ end
 
 Then /^I should (not )?see the following (?:(form fields)|(.+)):$/ do |negation, form_fields, model, table|
   if form_fields
-    table.rows_hash.each do |field, value|
-      expect(page.has_field? field, with: value).to be == !negation
-    end
+    check_rows(table, expected: !negation) {|field, value| page.has_field? field, with: value }
   elsif model
     model = normalize model
     within ".#{model}" do
-      table.rows_hash.each do |field, value|
-        expect(page.has_selector? ".#{remove_spaces field.downcase}", text: value).to be == !negation
-      end
+      check_rows(table, expected: !negation) {|field, value| page.has_selector? ".#{remove_spaces field.downcase}", text: value }
     end
   else
     raise ArgumentError, 'Either "form fields" or a model name is required.'
@@ -69,4 +65,12 @@ end
 
 Then "I should see today's date" do
   expect(page).to have_content Time.now.strftime(Date::DATE_FORMATS[:db])
+end
+
+private
+
+def check_rows(table, expected: true, &predicate)
+  table.rows_hash.each do |field, value|
+    expect(predicate.call field, value).to be == expected
+  end
 end
