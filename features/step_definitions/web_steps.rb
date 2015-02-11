@@ -46,6 +46,30 @@ Then /^I should not see ([^"].*[^:])$/ do |element|
   expect(page).not_to have_selector selector_for(element)
 end
 
+Then /^I should (not )?see the following client:$/ do |negation, table|
+  within '.client' do
+    table.rows_hash.each do |field, value|
+      expect(page.has_selector? ".#{field.delete(' ').underscore}", text: value).to be == !negation
+    end
+  end
+end
+
+Then(/^I should (not )?see the following project:$/) do |negation, table|
+  within '.project' do
+    table.rows_hash.each do |field, value|
+      expect(page.has_selector? ".#{field.delete(' ').underscore}", text: value).to be == !negation
+    end
+  end
+end
+
+Then /^I should (not )?see a time entry for:$/ do |negation, table|
+  within '.time_entry' do
+    table.rows_hash.each do |field, value|
+      expect(page.has_selector? ".#{field.delete(' ').underscore}", text: value).to be == !negation
+    end
+  end
+end
+
 Then /^I should (not )?see the following form fields:$/ do |negation, table|
   table.rows_hash.each do |field, value|
     expect(page.has_field? field, with: value).to be == !negation
