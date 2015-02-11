@@ -6,7 +6,8 @@ Feature: Create and view time entries
 Background:
   Given I am logged in
   And I have the following project:
-    | name | My Project |
+    | name       |
+    | My Project |
 
 Scenario Outline: Create and view time entries
   Given I have no time entries

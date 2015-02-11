@@ -8,7 +8,8 @@ Background:
 
 Scenario Outline: Create projects
   Given I have the following client:
-    | name | <client> |
+    | name     |
+    | <client> |
   And I am on the projects page
   When I click "New project"
   And I fill in the following:

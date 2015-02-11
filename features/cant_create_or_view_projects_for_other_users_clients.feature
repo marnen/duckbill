@@ -8,7 +8,8 @@ Background:
 
 Scenario Outline: Can't create projects for other users' clients
   Given I have the following client:
-    | name | <my_client> |
+    | name        |
+    | <my_client> |
   And a user exists with email: "<other_user>"
   And the following client exists:
     | user         | name           |
@@ -23,7 +24,8 @@ Scenario Outline: Can't create projects for other users' clients
 
 Scenario Outline: Can't view projects for other users' clients
   Given I have the following client:
-    | name | <my_client> |
+    | name        |
+    | <my_client> |
   And a user exists with email: "<other_user>"
   And the following client exists:
     | user         | name           |

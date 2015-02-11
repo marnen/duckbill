@@ -6,7 +6,8 @@ Feature: Generate invoices
 Scenario Outline: Generate an invoice
   Given I am logged in
   And I have the following client:
-    | name | <client> |
+    | name     |
+    | <client> |
   And I have the following projects:
     | client   | name        |
     | <client> | <project_1> |
