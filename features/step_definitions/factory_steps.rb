@@ -25,10 +25,6 @@ end
 
 private
 
-def class_for(string)
-  normalize(string).camelize.constantize
-end
-
 def create_for_current_user(model, params)
   model = normalize model
   parent_fields = {'time_entry' => 'project', 'project' => 'client'}
@@ -40,12 +36,4 @@ def create_for_current_user(model, params)
     params['user'] = @current_user
   end
   FactoryGirl.create *[model, additional_options[model], params].compact
-end
-
-def normalize(string)
-  remove_spaces(string).downcase.singularize
-end
-
-def remove_spaces(string)
-  string.gsub ' ', '_'
 end
