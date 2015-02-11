@@ -46,33 +46,24 @@ Then /^I should not see ([^"].*[^:])$/ do |element|
   expect(page).not_to have_selector selector_for(element)
 end
 
-Then /^I should (not )?see the following client:$/ do |negation, table|
-  within '.client' do
-    table.rows_hash.each do |field, value|
-      expect(page.has_selector? ".#{field.delete(' ').underscore}", text: value).to be == !negation
-    end
-  end
-end
-
-Then(/^I should (not )?see the following project:$/) do |negation, table|
-  within '.project' do
-    table.rows_hash.each do |field, value|
-      expect(page.has_selector? ".#{field.delete(' ').underscore}", text: value).to be == !negation
-    end
-  end
-end
-
 Then /^I should (not )?see a time entry for:$/ do |negation, table|
-  within '.time_entry' do
-    table.rows_hash.each do |field, value|
-      expect(page.has_selector? ".#{field.delete(' ').underscore}", text: value).to be == !negation
-    end
-  end
+  step "I should #{negation}see the following time entry:", table
 end
 
-Then /^I should (not )?see the following form fields:$/ do |negation, table|
-  table.rows_hash.each do |field, value|
-    expect(page.has_field? field, with: value).to be == !negation
+Then /^I should (not )?see the following (?:(form fields)|(.+)):$/ do |negation, form_fields, model, table|
+  if form_fields
+    table.rows_hash.each do |field, value|
+      expect(page.has_field? field, with: value).to be == !negation
+    end
+  elsif model
+    model = normalize model
+    within ".#{model}" do
+      table.rows_hash.each do |field, value|
+        expect(page.has_selector? ".#{remove_spaces field.downcase}", text: value).to be == !negation
+      end
+    end
+  else
+    raise ArgumentError, 'Either "form fields" or a model name is required.'
   end
 end
 
