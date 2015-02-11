@@ -18,30 +18,28 @@ Given /^the following (.+) exists:$/ do |model, table|
       params[association] = association_class.where(field => params[association]).first
     end
   end
-  underscored_model = remove_spaces model
-  self.instance_variable_set "@#{underscored_model}", FactoryGirl.create(underscored_model, params)
+  model = remove_spaces model
+  self.instance_variable_set "@#{model}", FactoryGirl.create(model, params)
 end
 
-Given 'I have the following client:' do |table|
-  params = table.hashes.first.merge user: @current_user
-  @client = FactoryGirl.create :client, :with_name_and_address, params
-end
-
-Given /^I have the following projects?:$/ do |table|
-  table.hashes.each do |hash|
-    client = hash['client'] ? @current_user.clients.find_by_name(hash['client']) : FactoryGirl.create(:client, user: @current_user)
-    FactoryGirl.create :project, hash.merge('client' => client)
-  end
-end
-
-Given 'I have the following time entries:' do |table|
-  table.hashes.each do |hash|
-    hash['project'] = @current_user.projects.find_by_name hash['project']
-    FactoryGirl.create :time_entry, hash
-  end
+Given /^I have the following (.+):$/ do |model, table|
+  table.hashes.each {|hash| create_for_current_user model, hash }
 end
 
 private
+
+def create_for_current_user(model, params)
+  model = remove_spaces(model).underscore.singularize
+  parent_fields = {'time_entry' => 'project', 'project' => 'client'}
+  additional_options = {'client' => :with_name_and_address}
+  parent = parent_fields[model]
+  if params.include? parent
+    params[parent] = @current_user.send(parent.pluralize).find_by_name params[parent]
+  else
+    params['user'] = @current_user
+  end
+  FactoryGirl.create *[model, additional_options[model], params].compact
+end
 
 def remove_spaces(string)
   string.gsub ' ', '_'
