@@ -1,11 +1,11 @@
 Given /^I have no (.+)$/ do |association|
-  @current_user.send(association.gsub(' ', '_')).destroy_all
+  @current_user.send(remove_spaces association).destroy_all
 end
 
 Given /^I have (\d+|an?) (.+)/ do |count, association|
   count = 1 if ['a', 'an'].include? count
   count.times do
-    FactoryGirl.create association.gsub(' ', '_').singularize, user: @current_user
+    FactoryGirl.create remove_spaces(association).singularize, user: @current_user
   end
 end
 
@@ -14,11 +14,11 @@ Given /^the following (.+) exists:$/ do |model, table|
   params = table.hashes.first
   association_fields.each do |association, field|
     if params.include? association
-      association_class = association.gsub(' ', '_').camelize.constantize
+      association_class = remove_spaces(association).camelize.constantize
       params[association] = association_class.where(field => params[association]).first
     end
   end
-  underscored_model = model.gsub(' ', '_')
+  underscored_model = remove_spaces model
   self.instance_variable_set "@#{underscored_model}", FactoryGirl.create(underscored_model, params)
 end
 
@@ -46,3 +46,8 @@ Given 'I have the following time entries:' do |table|
   end
 end
 
+private
+
+def remove_spaces(string)
+  string.gsub ' ', '_'
+end
