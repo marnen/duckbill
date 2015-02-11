@@ -27,12 +27,7 @@ Given 'I have the following client:' do |table|
   @client = FactoryGirl.create :client, :with_name_and_address, params
 end
 
-Given 'I have the following project:' do |table|
-  params = table.hashes.first.merge user: @current_user
-  @project = FactoryGirl.create :project, params
-end
-
-Given 'I have the following projects:' do |table|
+Given /^I have the following projects?:$/ do |table|
   table.hashes.each do |hash|
     client = hash['client'] ? @current_user.clients.find_by_name(hash['client']) : FactoryGirl.create(:client, user: @current_user)
     FactoryGirl.create :project, hash.merge('client' => client)
