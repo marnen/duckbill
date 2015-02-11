@@ -5,7 +5,7 @@ end
 Given /^I have (\d+|an?) (.+)/ do |count, association|
   count = 1 if ['a', 'an'].include? count
   count.times do
-    FactoryGirl.create remove_spaces(association).singularize, user: @current_user
+    FactoryGirl.create normalize(association), user: @current_user
   end
 end
 
@@ -13,12 +13,9 @@ Given /^the following (.+) exists:$/ do |model, table|
   association_fields = {'client' => :name, 'user' => :email}
   params = table.hashes.first
   association_fields.each do |association, field|
-    if params.include? association
-      association_class = remove_spaces(association).camelize.constantize
-      params[association] = association_class.where(field => params[association]).first
-    end
+    params[association] &&= class_for(association).where(field => params[association]).first
   end
-  model = remove_spaces model
+  model = normalize model
   self.instance_variable_set "@#{model}", FactoryGirl.create(model, params)
 end
 
@@ -28,8 +25,12 @@ end
 
 private
 
+def class_for(string)
+  normalize(string).camelize.constantize
+end
+
 def create_for_current_user(model, params)
-  model = remove_spaces(model).underscore.singularize
+  model = normalize model
   parent_fields = {'time_entry' => 'project', 'project' => 'client'}
   additional_options = {'client' => :with_name_and_address}
   parent = parent_fields[model]
@@ -39,6 +40,10 @@ def create_for_current_user(model, params)
     params['user'] = @current_user
   end
   FactoryGirl.create *[model, additional_options[model], params].compact
+end
+
+def normalize(string)
+  remove_spaces(string).downcase.singularize
 end
 
 def remove_spaces(string)
