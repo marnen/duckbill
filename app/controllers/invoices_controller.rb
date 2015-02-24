@@ -9,7 +9,7 @@ class InvoicesController < AuthenticatedController
   end
 
   def create
-    if create_invoice
+    if CreateInvoiceService.call @invoice
       flash[:notice] = _ 'Your invoice was successfully created.'
     else
       flash[:error] = _ 'Your invoice could not be created.'
@@ -33,10 +33,6 @@ class InvoicesController < AuthenticatedController
   end
 
   private
-
-  def create_invoice
-    @invoice.save && TimeEntry.where(project_id: @invoice.project_id, invoice_id: nil).update_all(invoice_id: @invoice.id)
-  end
 
   def resource_params
     params.require(:invoice).permit :project_id
