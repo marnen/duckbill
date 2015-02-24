@@ -75,6 +75,30 @@ describe FoundationFormBuilder, type: :view do
       end
     end
 
+    describe 'values' do
+      context 'not a select' do
+        let(:options) { {values: []} }
+
+        it 'raises an error if supplied' do
+          expect { input_div }.to raise_error ArgumentError
+        end
+      end
+
+      context 'explicit select' do
+        let(:values) { (1..3).collect { [Faker::Lorem.sentence, rand(100)] } }
+        let(:options) { {type: :select, values: values} }
+
+        it 'passes the values to the select' do
+          expect(input_div).to have_tag "#{wrapper} select##{input_id}" do
+            values.each do |value|
+              name, id = value
+              with_tag "option[value='#{id}']", text: name
+            end
+          end
+        end
+      end
+    end
+
     describe 'field type' do
       context 'specified' do
         context ':textarea' do
