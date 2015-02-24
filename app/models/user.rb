@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :projects, through: :clients
   has_many :time_entries, through: :projects
 
+  validates :date_format, presence: true
   validates :time_zone, presence: true
 
   def self.resource_parameters

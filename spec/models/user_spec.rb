@@ -5,7 +5,9 @@ RSpec.describe User, :type => :model do
   it { should have_many(:projects).through :clients }
   it { should have_many(:time_entries).through :projects }
 
-  it { should validate_presence_of :time_zone }
+  [:date_format, :time_zone].each do |field|
+    it { should validate_presence_of field }
+  end
 
   describe '.resource_parameters' do
     subject { User.resource_parameters }
