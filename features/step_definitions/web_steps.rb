@@ -63,10 +63,6 @@ Then /^I should (not )?see the following (?:(form fields)|(.+)):$/ do |negation,
   end
 end
 
-Then "I should see today's date" do
-  expect(page).to have_content Time.now.utc.strftime(Date::DATE_FORMATS[:db])
-end
-
 private
 
 def check_rows(table, expected: true, &predicate)
