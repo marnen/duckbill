@@ -121,6 +121,17 @@ describe FoundationFormBuilder, type: :view do
             end
           end
 
+          context 'field name is "time_zone"' do
+            let(:field_name) { :time_zone }
+
+            it 'renders a time zone selector' do
+              expect(input_div).to have_tag "#{wrapper} select##{input_id}" do
+                ActiveSupport::TimeZone.all.each do |zone|
+                  with_tag %Q{option[value="#{zone.name}"]}, text: zone
+                end
+              end
+            end
+          end
 
           context 'otherwise' do
             it 'renders a text field' do
