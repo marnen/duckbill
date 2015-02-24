@@ -2,7 +2,11 @@
 
 form.user {
   .time_zone {
-    @include grid-column(4, $last-column: true)
+    @include grid-column(4);
+  }
+
+  .date_format {
+    @include grid-column(4, $last-column: true);
   }
 
   .password, .password_confirmation {

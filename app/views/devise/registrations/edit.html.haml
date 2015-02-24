@@ -6,6 +6,7 @@
     %div= _ 'Currently awaiting confirmation for: %{email}' % {email: resource.unconfirmed_email}
 
   = render 'user_form', form: f
+  = f.input_div :date_format, type: :select, values: [['2010-02-15', 'db'], ['15 Feb 2010', '%d %b %Y']]
 
   .row
     = f.input_div :password, label: _("Password (leave blank if you don't want to change it)"), field: {autocomplete: :off}

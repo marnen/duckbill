@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   validates :time_zone, presence: true
 
   def self.resource_parameters
-    [:name, :company, :email, :time_zone, :street, :city, :state, :zip]
+    [:name, :company, :email, :time_zone, :date_format, :street, :city, :state, :zip]
   end
 end
