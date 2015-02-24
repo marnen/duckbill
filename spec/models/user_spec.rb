@@ -10,7 +10,7 @@ RSpec.describe User, :type => :model do
   describe '.resource_parameters' do
     subject { User.resource_parameters }
 
-    [:name, :company, :email, :street, :city, :state, :zip].each do |field|
+    [:name, :company, :email, :time_zone, :street, :city, :state, :zip].each do |field|
       it { should include field }
     end
   end

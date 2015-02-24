@@ -8,6 +8,9 @@
   = render 'shared/person_form', form: f
 
   .row
+    = f.input_div :time_zone
+
+  .row
     = f.input_div :password, label: _("Password (leave blank if you don't want to change it)"), field: {autocomplete: :off}
     = f.input_div :password_confirmation, field: {autocomplete: :off}
 
