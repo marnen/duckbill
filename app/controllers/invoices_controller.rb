@@ -35,7 +35,7 @@ class InvoicesController < AuthenticatedController
   private
 
   def create_invoice
-    @invoice.save && TimeEntry.where(project_id: @invoice.project_id).update_all(invoice_id: @invoice.id)
+    @invoice.save && TimeEntry.where(project_id: @invoice.project_id, invoice_id: nil).update_all(invoice_id: @invoice.id)
   end
 
   def resource_params
