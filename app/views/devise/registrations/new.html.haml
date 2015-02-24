@@ -3,11 +3,7 @@
 
 = form_for resource, as: resource_name, url: registration_path(resource_name), html: {class: resource_name} do |f|
 
-  = render 'shared/person_form', form: f, email_hint: true
-
-  .row
-    = f.input_div :time_zone
-
+  = render 'user_form', form: f, email_hint: true
 
   .row
     - placeholder = @validatable ? n_('%{n} character minimum', '%{n} characters minimum', @minimum_password_length) % {n: @minimum_password_length} : nil
