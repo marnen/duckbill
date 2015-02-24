@@ -6,6 +6,10 @@
   = render 'shared/person_form', form: f, email_hint: true
 
   .row
+    = f.input_div :time_zone
+
+
+  .row
     - placeholder = @validatable ? n_('%{n} character minimum', '%{n} characters minimum', @minimum_password_length) % {n: @minimum_password_length} : nil
     = f.input_div :password, field: {autocomplete: :off, placeholder: placeholder}
     = f.input_div :password_confirmation, field: {autocomplete: :off}
