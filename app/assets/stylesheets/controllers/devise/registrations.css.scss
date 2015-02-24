@@ -1,6 +1,10 @@
 @import '../header';
 
 form.user {
+  .time_zone {
+    @include grid-column(4, $last-column: true)
+  }
+
   .password, .password_confirmation {
     @include grid-column(6);
   }

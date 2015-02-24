@@ -5,7 +5,7 @@
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div= _ 'Currently awaiting confirmation for: %{email}' % {email: resource.unconfirmed_email}
 
-  = render 'shared/person_form', form: f
+  = render 'user_form', form: f
 
   .row
     = f.input_div :password, label: _("Password (leave blank if you don't want to change it)"), field: {autocomplete: :off}

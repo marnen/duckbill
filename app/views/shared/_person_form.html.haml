@@ -2,7 +2,7 @@
   .row
     = form.input_div :name
     = form.input_div :company
-    = form.input_div :email, label: _('E-mail address %{email_hint}') % {email_hint: defined?(email_hint) ? _('(this will be your username)') : nil}
+    = form.input_div :email, label: _('E-mail address %{email_hint}') % {email_hint: (defined?(email_hint) && email_hint) ? _('(this will be your username)') : nil}
   .row
     = form.input_div :street, type: :textarea
     = form.input_div :city

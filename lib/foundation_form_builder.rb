@@ -29,22 +29,27 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   def input_for(field_name, type, field_options)
     type ||= infer_type field_name
 
-    method_mappings = {
-      date: :date_field,
-      email: :email_field,
-      password: :password_field,
-      textarea: :text_area
-    }
+    if type == :time_zone
+      priority_zones = field_options.delete(:priority_zones)
+      time_zone_select field_name, priority_zones, field_options
+    else
+      method_mappings = {
+        date: :date_field,
+        email: :email_field,
+        password: :password_field,
+        textarea: :text_area,
+      }
 
-    field_method = method_mappings[type] || :text_field
+      field_method = method_mappings[type] || :text_field
 
-    self.send field_method, field_name, field_options
+      self.send field_method, field_name, field_options
+    end
   end
 
   def infer_type(field_name)
     case field_name
-    when :email
-      :email
+    when :email, :time_zone
+      field_name
     when %r{(\b|_)password(\b|_)}
       :password
     else
