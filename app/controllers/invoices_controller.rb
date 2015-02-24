@@ -27,9 +27,7 @@ class InvoicesController < AuthenticatedController
     respond_to do |format|
       format.html
       format.pdf do
-        Tempfile.open ["invoices-#{@invoice.id}", '.pdf'] do |file|
-          render pdf: file.path, template: 'invoices/show.html.haml'
-        end
+        render_pdf
       end
     end
   end
@@ -42,5 +40,12 @@ class InvoicesController < AuthenticatedController
 
   def resource_params
     params.require(:invoice).permit :project_id
+  end
+
+  # TODO: This probably shouldn't be in the controller, but I'm not sure where it *should* be.
+  def render_pdf
+    Tempfile.open ["invoices-#{@invoice.id}", '.pdf'] do |file|
+      render pdf: file.path, template: 'invoices/show.html.haml'
+    end
   end
 end
