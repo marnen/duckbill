@@ -62,15 +62,3 @@ Then /^I should (not )?see the following (?:(form fields)|(.+)):$/ do |negation,
     raise ArgumentError, 'Either "form fields" or a model name is required.'
   end
 end
-
-Then "I should see today's date" do
-  expect(page).to have_content Time.now.utc.strftime(Date::DATE_FORMATS[:db])
-end
-
-private
-
-def check_rows(table, expected: true, &predicate)
-  table.rows_hash.each do |field, value|
-    expect(predicate.call field, value).to be == expected
-  end
-end

@@ -76,5 +76,6 @@ group :test do
   gem 'launchy'
   gem 'rspec-html-matchers'
   gem 'shoulda-matchers', require: false
+  gem 'timecop'
 end
 
