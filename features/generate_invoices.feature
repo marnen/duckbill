@@ -43,8 +43,3 @@ Scenario Outline: Generate an invoice
     | client     | project_1 | project_2 | description_1 | description_2 | other_description | pdf_or_not            | date       |
     | Acme Corp. | Alpha     | Beta      | Task One      | Task Two      | Other Task        | I click "View as PDF" | 2015-02-15 |
     | XYZ Inc.   | Psi       | Omega     | Screwdriver   | Hammer        | Blowtorch         | I do nothing          | 2020-03-21 |
-
-Scenario: Navigation link
-  Given I am logged in
-  And I click "Invoices" within the navigation bar
-  Then I should be on the invoices page
