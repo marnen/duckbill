@@ -2,7 +2,7 @@ Given /^I have no (.+)$/ do |association|
   @current_user.send(remove_spaces association).destroy_all
 end
 
-Given /^I have (\d+|an?) (.+)/ do |count, association|
+Given /^I have (\d+|an?) (.*[^:])$/ do |count, association|
   count = 1 if ['a', 'an'].include? count
   count.times do
     FactoryGirl.create normalize(association), user: @current_user
@@ -16,7 +16,7 @@ Given /^the following (.+) exists:$/ do |model, table|
     params[association] &&= class_for(association).where(field => params[association]).first
   end
   model = normalize model
-  self.instance_variable_set "@#{model}", FactoryGirl.create(model, params)
+  memoize model, FactoryGirl.create(model, params)
 end
 
 Given /^I have the following (.+):$/ do |model, table|
@@ -35,5 +35,9 @@ def create_for_current_user(model, params)
   else
     params['user'] = @current_user
   end
-  FactoryGirl.create *[model, additional_options[model], params].compact
+  memoize model, FactoryGirl.create(*[model, additional_options[model], params].compact)
+end
+
+def memoize(name, value)
+  self.instance_variable_set "@#{name}", value
 end
