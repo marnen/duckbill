@@ -18,7 +18,7 @@
         = @invoice.number
       .invoice-date
         %span.header= _ 'Invoice date:'
-        = @invoice.created_at.strftime Date::DATE_FORMATS[:db]
+        = @invoice.created_at.in_time_zone(@time_zone).strftime Date::DATE_FORMATS[:db]
 
   .row
     .client
