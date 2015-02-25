@@ -24,11 +24,14 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'actionview', '>= 4.2.0'
+  spec.add_dependency 'activerecord', '>= 4.2.0'
+  spec.add_dependency 'activesupport', '>= 4.2.0'
 
   [
     ['bundler', '~> 1.8'],
     ['rake', '~> 10.0'],
     'ffaker',
-    'guard-rspec'
+    'guard-rspec',
+    'rspec-html-matchers'
   ].each {|gem| spec.add_development_dependency *gem }
 end

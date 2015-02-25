@@ -1,4 +1,6 @@
 require 'action_view'
+require 'active_record'
+require 'active_support/time_with_zone'
 
 class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   def input_div(field_name, label: nil, type: nil, values: nil, field: {})
