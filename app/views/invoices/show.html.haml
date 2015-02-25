@@ -18,7 +18,7 @@
         = @invoice.number
       .invoice-date
         %span.header= _ 'Invoice date:'
-        = render_cell :formatted_date, :show, date: @invoice.created_at
+        = cell(:formatted_date, date: @invoice.created_at).call
 
   .row
     .client
