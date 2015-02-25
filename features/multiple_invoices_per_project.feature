@@ -14,7 +14,6 @@ Scenario Outline:
   And I have the following time entry:
     | project   | description |
     | <project> | <new_entry> |
-  When I go to the invoice's page
   When I go to the new invoice page
   And I select "<project>" from "Project"
   And I click "Create"

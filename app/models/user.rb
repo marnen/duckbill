@@ -8,9 +8,12 @@ class User < ActiveRecord::Base
   has_many :projects, through: :clients
   has_many :time_entries, through: :projects
 
+  validates :date_format, presence: true
   validates :time_zone, presence: true
 
+  composed_of :date_format, mapping: %w(date_format key), allow_nil: true, converter: ->(key) { DateFormat.new key }
+
   def self.resource_parameters
-    [:name, :company, :email, :time_zone, :street, :city, :state, :zip]
+    [:name, :company, :email, :time_zone, :date_format, :street, :city, :state, :zip]
   end
 end

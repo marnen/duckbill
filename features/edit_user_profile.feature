@@ -20,15 +20,16 @@ Scenario Outline: Edit user profile
     | <field> | <new_value> |
 
   Examples:
-    | field     | old_value       | new_value      |
-    | Name      | Bernie Schwartz | Tony Curtis    |
-    | Time zone | Hawaii          | Alaska         |
-    | Company   | IBM             | Lenovo         |
-    | E-mail    | joe@aol.com     | joe@jsmith.org |
-    | Street    | 123 Old Road    | 456 New Street |
-    | City      | New York        | Boston         |
-    | State     | NY              | MA             |
-    | ZIP       | 10001           | 02115          |
+    | field       | old_value       | new_value      |
+    | Name        | Bernie Schwartz | Tony Curtis    |
+    | Time zone   | Hawaii          | Alaska         |
+    | Date format | 2010-02-15      | 15 Feb 2010    |
+    | Company     | IBM             | Lenovo         |
+    | E-mail      | joe@aol.com     | joe@jsmith.org |
+    | Street      | 123 Old Road    | 456 New Street |
+    | City        | New York        | Boston         |
+    | State       | NY              | MA             |
+    | ZIP         | 10001           | 02115          |
 
 Scenario: Navigation link
   Given I am logged in

@@ -52,7 +52,9 @@ end
 
 Then /^I should (not )?see the following (?:(form fields)|(.+)):$/ do |negation, form_fields, model, table|
   if form_fields
-    check_rows(table, expected: !negation) {|field, value| page.has_field? field, with: value }
+    check_rows(table, expected: !negation) do |field, value|
+      page.has_field?(field, with: value) || page.has_select?(field, selected: value)
+    end
   elsif model
     model = normalize model
     within ".#{model}" do

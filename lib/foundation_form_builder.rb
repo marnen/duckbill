@@ -1,9 +1,10 @@
 class FoundationFormBuilder < ActionView::Helpers::FormBuilder
-  def input_div(field_name, label: nil, type: nil, field: {})
+  def input_div(field_name, label: nil, type: nil, values: nil, field: {})
+    raise ArgumentError, ':values is only meaningful with type: :select' if values && type != :select
     @template.content_tag :div, class: field_name do
       [
         label(field_name, label),
-        input_for(field_name, type, field),
+        input_for(field_name, type, field, values: values),
         error_div(field_name)
       ].compact.join("\n").html_safe
     end
@@ -26,10 +27,13 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
     @errors ||= @object.errors
   end
 
-  def input_for(field_name, type, field_options)
+  def input_for(field_name, type, field_options, values: nil)
     type ||= infer_type field_name
 
-    if type == :time_zone
+    case type
+    when :select
+      select field_name, values, field_options
+    when :time_zone
       priority_zones = field_options.delete(:priority_zones)
       time_zone_select field_name, priority_zones, field_options
     else

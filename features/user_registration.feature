@@ -8,20 +8,21 @@ Scenario Outline:
   And no users exist
   When I go to the user registration page
   And I fill in the following:
-    | E-mail address        | <email>     |
-    | Password              | <password>  |
-    | Password confirmation | <password>  |
-    | Name                  | <name>      |
-    | Company               | <company>   |
-    | Street                | <street>    |
-    | City                  | <city>      |
-    | State                 | <state>     |
-    | ZIP code              | <zip>       |
-    | Time zone             | <time_zone> |
+    | E-mail address        | <email>       |
+    | Password              | <password>    |
+    | Password confirmation | <password>    |
+    | Name                  | <name>        |
+    | Company               | <company>     |
+    | Street                | <street>      |
+    | City                  | <city>        |
+    | State                 | <state>       |
+    | ZIP code              | <zip>         |
+    | Time zone             | <time_zone>   |
+    | Date format           | <date_format> |
   And I click "Sign up" within the signup form
   Then I should be on the root page
   And I should see "You have signed up successfully"
 
   Examples:
-    | email            | password | name     | street          | city    | state | zip   | time_zone |
-    | joe.user@aol.com | påssw0rð | Joe User | 123 Main Street | Anytown | NY    | 12345 | Eastern   |
+    | email            | password | name     | street          | city    | state | zip   | time_zone | date_format |
+    | joe.user@aol.com | påssw0rð | Joe User | 123 Main Street | Anytown | NY    | 12345 | Eastern   | 15 Feb 2010 |
