@@ -1,12 +1,13 @@
-class DateFormatSelectorCell < Cell::Rails
-  def show(args)
-    @form = args[:form]
-    @options = self.class.options
-
+class DateFormatSelectorCell < Cell::ViewModel
+  def show
     render
   end
 
   private
+
+  def options
+    self.class.options
+  end
 
   def self.options
     if @options
