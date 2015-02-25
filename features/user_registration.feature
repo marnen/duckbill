@@ -8,17 +8,17 @@ Scenario Outline:
   And no users exist
   When I go to the user registration page
   And I fill in the following:
-    | E-mail address        | <email>     |
-    | Password              | <password>  |
-    | Password confirmation | <password>  |
-    | Name                  | <name>      |
-    | Company               | <company>   |
-    | Street                | <street>    |
-    | City                  | <city>      |
-    | State                 | <state>     |
-    | ZIP code              | <zip>       |
-    | Time zone             | <time_zone> |
-    | Date format             | <date_format> |
+    | E-mail address        | <email>       |
+    | Password              | <password>    |
+    | Password confirmation | <password>    |
+    | Name                  | <name>        |
+    | Company               | <company>     |
+    | Street                | <street>      |
+    | City                  | <city>        |
+    | State                 | <state>       |
+    | ZIP code              | <zip>         |
+    | Time zone             | <time_zone>   |
+    | Date format           | <date_format> |
   And I click "Sign up" within the signup form
   Then I should be on the root page
   And I should see "You have signed up successfully"
