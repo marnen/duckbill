@@ -21,7 +21,6 @@ class InvoicesController < AuthenticatedController
     @invoice = Invoice.where(id: params[:id]).joins { time_entries.outer }.joins { project.client }.first
     @client = @invoice.client.decorate
     @project = @invoice.project
-    @date_format = current_user.date_format.to_s
     @user = current_user.decorate
     @time_entries = @invoice.time_entries
 
