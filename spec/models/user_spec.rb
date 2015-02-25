@@ -9,6 +9,14 @@ RSpec.describe User, :type => :model do
     it { should validate_presence_of field }
   end
 
+  describe 'aggregations' do
+    describe 'date_format' do
+      it 'does not instantiate on nil' do
+        expect(User.reflect_on_aggregation(:date_format).options[:allow_nil]).to be == true
+      end
+    end
+  end
+
   describe '.resource_parameters' do
     subject { User.resource_parameters }
 
