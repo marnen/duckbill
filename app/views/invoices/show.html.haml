@@ -18,7 +18,7 @@
         = @invoice.number
       .invoice-date
         %span.header= _ 'Invoice date:'
-        = @invoice.created_at.strftime Date::DATE_FORMATS[:db]
+        = @invoice.created_at.strftime @date_format
 
   .row
     .client
@@ -39,7 +39,7 @@
     %tbody
       - @time_entries.each do |time_entry|
         %tr
-          %td.date= time_entry.date
+          %td.date= time_entry.date.strftime @date_format
           %td.description= time_entry.description
           %td.hours= time_entry.hours
           %td.notes= time_entry.notes

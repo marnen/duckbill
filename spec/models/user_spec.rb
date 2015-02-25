@@ -11,8 +11,14 @@ RSpec.describe User, :type => :model do
 
   describe 'aggregations' do
     describe 'date_format' do
+      let(:date_format) { User.reflect_on_aggregation :date_format }
+
       it 'does not instantiate on nil' do
-        expect(User.reflect_on_aggregation(:date_format).options[:allow_nil]).to be == true
+        expect(date_format.options[:allow_nil]).to be == true
+      end
+
+      it 'has a converter' do
+        expect(date_format.options[:converter]).to be_present
       end
     end
   end
