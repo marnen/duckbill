@@ -1,5 +1,5 @@
 %tr
-  %td.date= render_cell :formatted_date, :show, date: time_entry.date
+  %td.date= cell(:formatted_date, date: time_entry.date).call
   %td.description= time_entry.description
   %td.hours= time_entry.hours
   %td.notes= time_entry.notes

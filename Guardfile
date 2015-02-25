@@ -89,4 +89,6 @@ guard "cucumber", cli: '-f progress -f html --out cucumber.html' do
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
     Dir[File.join("**/#{m[1]}.feature")][0] || "features"
   end
+
+  watch(%r{^app/cells}) { 'features' }
 end
