@@ -30,9 +30,10 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   def input_for(field_name, type, field_options, values: nil)
     type ||= infer_type field_name
 
-    if type == :select
+    case type
+    when :select
       select field_name, values, field_options
-    elsif type == :time_zone
+    when :time_zone
       priority_zones = field_options.delete(:priority_zones)
       time_zone_select field_name, priority_zones, field_options
     else
