@@ -3,6 +3,6 @@ class FormattedDateCell < Cell::ViewModel
   helper_method :current_user
 
   def show
-    date.strftime current_user.date_format.to_s
+    current_user.date_format.format date
   end
 end

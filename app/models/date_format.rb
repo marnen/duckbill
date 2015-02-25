@@ -5,7 +5,17 @@ class DateFormat
     @key = key
   end
 
+  def format(date)
+    date.strftime format_string
+  end
+
   def to_s
-    @to_s ||= Date::DATE_FORMATS[@key.to_sym] || @key
+    key
+  end
+
+  private
+
+  def format_string
+    @format_string ||= Date::DATE_FORMATS[key.to_sym] || key
   end
 end
