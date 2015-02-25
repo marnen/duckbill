@@ -36,10 +36,4 @@
         %th.description= _ 'Description'
         %th.hours= _ 'Hours'
         %th.notes= _ 'Notes'
-    %tbody
-      - @time_entries.each do |time_entry|
-        %tr
-          %td.date= render_cell :formatted_date, :show, date: time_entry.date
-          %td.description= time_entry.description
-          %td.hours= time_entry.hours
-          %td.notes= time_entry.notes
+    %tbody= render partial: 'time_entry', collection: @time_entries
