@@ -59,6 +59,8 @@ GEM
       uber (~> 0.0.8)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    codeclimate-test-reporter (0.4.6)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -91,6 +93,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     draper (1.4.0)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -271,6 +274,11 @@ GEM
       activesupport (>= 3.0.0)
     simple-navigation (3.14.0)
       activesupport (>= 2.3.2)
+    simplecov (0.9.2)
+      docile (~> 1.1.0)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.9.0)
+    simplecov-html (0.9.0)
     slop (3.6.0)
     spring (1.2.0)
     sprockets (2.12.3)
@@ -321,6 +329,7 @@ DEPENDENCIES
   byebug
   cancancan
   cells
+  codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
