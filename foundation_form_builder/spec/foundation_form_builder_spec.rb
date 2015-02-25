@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe FoundationFormBuilder, type: :view do
+  let(:view) { ActionView::Base.new }
   let(:object_name) { Faker::Lorem.words(rand 1..3).join('_') }
   let(:object) { double(object_name.camelize).as_null_object }
   subject(:builder) { FoundationFormBuilder.new object_name, object, view, {} }

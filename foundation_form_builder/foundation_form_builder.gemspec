@@ -23,6 +23,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency 'actionview', '>= 4.2.0'
+
   [
     ['bundler', '~> 1.8'],
     ['rake', '~> 10.0'],
