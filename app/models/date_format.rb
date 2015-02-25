@@ -6,6 +6,6 @@ class DateFormat
   end
 
   def to_s
-    Date::DATE_FORMATS[@key.to_sym] || @key
+    @to_s ||= Date::DATE_FORMATS[@key.to_sym] || @key
   end
 end
