@@ -1,3 +1,11 @@
+PATH
+  remote: foundation_form_builder
+  specs:
+    foundation_form_builder (0.1.0)
+      actionview (>= 4.2.0)
+      activerecord (>= 4.2.0)
+      activesupport (>= 4.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -339,6 +347,7 @@ DEPENDENCIES
   ffaker
   foundation-icons-sass-rails
   foundation-rails
+  foundation_form_builder!
   gettext (>= 3.0.2)
   gettext_i18n_rails
   guard-cucumber
