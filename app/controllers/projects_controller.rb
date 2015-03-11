@@ -1,5 +1,5 @@
 class ProjectsController < AuthenticatedController
-  responders :collection
+  responders :collection, :flash
   respond_to :html
   skip_authorize_resource only: :new
 
@@ -11,11 +11,7 @@ class ProjectsController < AuthenticatedController
   end
 
   def create
-    if @project.save
-      flash[:notice] = _ 'Your project was successfully created!'
-    else
-      flash[:error] = _ 'Your project could not be saved.'
-    end
+    @project.save
     standard_response
   end
 
@@ -23,11 +19,7 @@ class ProjectsController < AuthenticatedController
   end
 
   def update
-    if @project.update_attributes resource_params
-      flash[:notice] = _ 'Your project was successfully updated.'
-    else
-      flash[:error] = _ 'Your project could not be saved.'
-    end
+    @project.update_attributes resource_params
     standard_response
   end
 

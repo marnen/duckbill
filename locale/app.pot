@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-24 14:25-0500\n"
-"PO-Revision-Date: 2015-02-24 14:25-0500\n"
+"POT-Creation-Date: 2015-03-12 14:13-0400\n"
+"PO-Revision-Date: 2015-03-12 14:13-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -39,12 +39,6 @@ msgid "City"
 msgstr ""
 
 msgid "Client"
-msgstr ""
-
-msgid "Client was successfully created!"
-msgstr ""
-
-msgid "Client was successfully updated."
 msgstr ""
 
 msgid "Clients"
@@ -179,33 +173,6 @@ msgstr ""
 msgid "View as PDF"
 msgstr ""
 
-msgid "Your invoice could not be created."
-msgstr ""
-
-msgid "Your invoice was successfully created."
-msgstr ""
-
-msgid "Your project could not be saved."
-msgstr ""
-
-msgid "Your project was successfully created!"
-msgstr ""
-
-msgid "Your project was successfully updated."
-msgstr ""
-
-msgid "Your time entry could not be saved."
-msgstr ""
-
-msgid "Your time entry was successfully created!"
-msgstr ""
-
-msgid "Your time entry was successfully deleted."
-msgstr ""
-
-msgid "Your time entry was successfully updated."
-msgstr ""
-
 msgid "ZIP code"
 msgstr ""
 
@@ -214,3 +181,42 @@ msgstr ""
 
 msgid "edit"
 msgstr ""
+
+msgid "flash.clients.create.notice"
+msgstr "Client was successfully created!"
+
+msgid "flash.clients.update.notice"
+msgstr "Client was successfully updated."
+
+msgid "flash.invoices.create.alert"
+msgstr "Your invoice could not be created."
+
+msgid "flash.invoices.create.notice"
+msgstr "Your invoice was successfully created."
+
+msgid "flash.projects.create.alert"
+msgstr "Your project could not be saved."
+
+msgid "flash.projects.create.notice"
+msgstr "Your project was successfully created!"
+
+msgid "flash.projects.update.alert"
+msgstr "Your project could not be saved."
+
+msgid "flash.projects.update.notice"
+msgstr "Your project was successfully updated."
+
+msgid "flash.time_entries.create.alert"
+msgstr "Your time entry could not be saved."
+
+msgid "flash.time_entries.create.notice"
+msgstr "Your time entry was successfully created!"
+
+msgid "flash.time_entries.destroy.notice"
+msgstr "Your time entry was successfully deleted."
+
+msgid "flash.time_entries.update.alert"
+msgstr "Your time entry could not be saved."
+
+msgid "flash.time_entries.update.notice"
+msgstr "Your time entry was successfully updated."

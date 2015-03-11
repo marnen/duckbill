@@ -1,5 +1,5 @@
 class TimeEntriesController < AuthenticatedController
-  responders :collection
+  responders :collection, :flash
   respond_to :html
   skip_authorize_resource only: :new
 
@@ -11,11 +11,7 @@ class TimeEntriesController < AuthenticatedController
   end
 
   def create
-    if @time_entry.save
-      flash[:notice] = _ 'Your time entry was successfully created!'
-    else
-      flash[:alert] = _ 'Your time entry could not be saved.'
-    end
+    @time_entry.save
     standard_response
   end
 
@@ -23,17 +19,12 @@ class TimeEntriesController < AuthenticatedController
   end
 
   def update
-    if @time_entry.update_attributes resource_params
-      flash[:notice] = _ 'Your time entry was successfully updated.'
-    else
-      flash[:alert] = _ 'Your time entry could not be saved.'
-    end
+    @time_entry.update_attributes resource_params
     standard_response
   end
 
   def destroy
     @time_entry.destroy
-    flash[:notice] = _ 'Your time entry was successfully deleted.'
     standard_response
   end
 

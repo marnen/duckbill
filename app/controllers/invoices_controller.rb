@@ -1,4 +1,5 @@
 class InvoicesController < AuthenticatedController
+  responders :flash
   respond_to :html
   skip_authorize_resource only: :new
 
@@ -9,11 +10,7 @@ class InvoicesController < AuthenticatedController
   end
 
   def create
-    if CreateInvoiceService.call @invoice
-      flash[:notice] = _ 'Your invoice was successfully created.'
-    else
-      flash[:error] = _ 'Your invoice could not be created.'
-    end
+    CreateInvoiceService.call @invoice
     respond_with @invoice
   end
 

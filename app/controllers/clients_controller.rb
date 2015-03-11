@@ -1,5 +1,5 @@
 class ClientsController < AuthenticatedController
-  responders :collection
+  responders :collection, :flash
   respond_to :html
 
   def index
@@ -10,7 +10,6 @@ class ClientsController < AuthenticatedController
 
   def create
     @client.save
-    flash[:notice] = _ 'Client was successfully created!'
     standard_response
   end
 
@@ -19,7 +18,6 @@ class ClientsController < AuthenticatedController
 
   def update
     @client.update_attributes update_params
-    flash[:notice] = _ 'Client was successfully updated.'
     standard_response
   end
 
