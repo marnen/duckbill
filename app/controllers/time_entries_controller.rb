@@ -1,4 +1,5 @@
 class TimeEntriesController < AuthenticatedController
+  responders :collection
   respond_to :html
   skip_authorize_resource only: :new
 
@@ -43,6 +44,6 @@ class TimeEntriesController < AuthenticatedController
   end
 
   def standard_response
-    respond_with @time_entry, location: time_entries_path
+    respond_with @time_entry
   end
 end

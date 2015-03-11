@@ -1,4 +1,5 @@
 class ClientsController < AuthenticatedController
+  responders :collection
   respond_to :html
 
   def index
@@ -29,7 +30,7 @@ class ClientsController < AuthenticatedController
   end
 
   def standard_response
-    respond_with @client, location: clients_path
+    respond_with @client
   end
 
   def update_params

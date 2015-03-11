@@ -1,4 +1,5 @@
 class ProjectsController < AuthenticatedController
+  responders :collection
   respond_to :html
   skip_authorize_resource only: :new
 
@@ -37,6 +38,6 @@ class ProjectsController < AuthenticatedController
   end
 
   def standard_response
-    respond_with @project, location: projects_path
+    respond_with @project
   end
 end
