@@ -13,7 +13,7 @@ class InvoicesController < BaseController
   end
 
   def show
-    @invoice = Invoice.where(id: params[:id]).joins { time_entries.outer }.joins { project.client }.first
+    @invoice = Invoice.with_time_entries.where(id: params[:id]).first
     @client = @invoice.client.decorate
     @project = @invoice.project
     @user = current_user.decorate
