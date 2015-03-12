@@ -3,6 +3,9 @@ class BaseController < ApplicationController
   around_action :set_time_zone
   load_and_authorize_resource
 
+  responders :flash
+  respond_to :html
+
   private
 
   # Stolen right from the Rails docs. :)

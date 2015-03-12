@@ -1,6 +1,5 @@
 class ProjectsController < BaseController
-  responders :collection, :flash
-  respond_to :html
+  responders :collection
   skip_authorize_resource only: :new
 
   def index

@@ -1,6 +1,5 @@
 class ClientsController < BaseController
-  responders :collection, :flash
-  respond_to :html
+  responders :collection
 
   def index
   end

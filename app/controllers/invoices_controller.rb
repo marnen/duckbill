@@ -1,6 +1,4 @@
 class InvoicesController < BaseController
-  responders :flash
-  respond_to :html
   skip_authorize_resource only: :new
 
   def index
