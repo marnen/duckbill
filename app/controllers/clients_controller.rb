@@ -1,4 +1,4 @@
-class ClientsController < AuthenticatedController
+class ClientsController < BaseController
   responders :collection, :flash
   respond_to :html
 

@@ -1,4 +1,4 @@
-class AuthenticatedController < ApplicationController
+class BaseController < ApplicationController
   before_action :authenticate_user!
   around_action :set_time_zone
   load_and_authorize_resource

@@ -1,4 +1,4 @@
-class TimeEntriesController < AuthenticatedController
+class TimeEntriesController < BaseController
   responders :collection, :flash
   respond_to :html
   skip_authorize_resource only: :new
