@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-12 14:13-0400\n"
-"PO-Revision-Date: 2015-03-12 14:13-0400\n"
+"POT-Creation-Date: 2015-03-13 12:27-0400\n"
+"PO-Revision-Date: 2015-03-13 12:27-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -182,41 +182,17 @@ msgstr ""
 msgid "edit"
 msgstr ""
 
-msgid "flash.clients.create.notice"
-msgstr "Client was successfully created!"
+msgid "flash.actions.create.alert"
+msgstr "Your %{downcase_resource_name} could not be created."
 
-msgid "flash.clients.update.notice"
-msgstr "Client was successfully updated."
+msgid "flash.actions.create.notice"
+msgstr "Your %{downcase_resource_name} was successfully created!"
 
-msgid "flash.invoices.create.alert"
-msgstr "Your invoice could not be created."
+msgid "flash.actions.destroy.notice"
+msgstr "Your %{downcase_resource_name} was successfully deleted."
 
-msgid "flash.invoices.create.notice"
-msgstr "Your invoice was successfully created."
+msgid "flash.actions.update.alert"
+msgstr "Your %{downcase_resource_name} could not be saved."
 
-msgid "flash.projects.create.alert"
-msgstr "Your project could not be saved."
-
-msgid "flash.projects.create.notice"
-msgstr "Your project was successfully created!"
-
-msgid "flash.projects.update.alert"
-msgstr "Your project could not be saved."
-
-msgid "flash.projects.update.notice"
-msgstr "Your project was successfully updated."
-
-msgid "flash.time_entries.create.alert"
-msgstr "Your time entry could not be saved."
-
-msgid "flash.time_entries.create.notice"
-msgstr "Your time entry was successfully created!"
-
-msgid "flash.time_entries.destroy.notice"
-msgstr "Your time entry was successfully deleted."
-
-msgid "flash.time_entries.update.alert"
-msgstr "Your time entry could not be saved."
-
-msgid "flash.time_entries.update.notice"
-msgstr "Your time entry was successfully updated."
+msgid "flash.actions.update.notice"
+msgstr "Your %{downcase_resource_name} was successfully updated."

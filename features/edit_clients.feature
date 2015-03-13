@@ -14,7 +14,7 @@ Feature: Edit clients
       | Name | <new_name> |
     And I click "Save"
     Then I should be on the clients page
-    And I should see "Client was successfully updated."
+    And I should see "Your client was successfully updated."
     And I should see the following client:
       | Name | <new_name> |
     But I should not see the following client:

@@ -3,18 +3,10 @@
 
 module Dummy
   module FlashResponderKeys
-    _('flash.clients.create.notice')
-    _('flash.clients.update.notice')
-    _('flash.invoices.create.alert')
-    _('flash.invoices.create.notice')
-    _('flash.projects.create.alert')
-    _('flash.projects.create.notice')
-    _('flash.projects.update.alert')
-    _('flash.projects.update.notice')
-    _('flash.time_entries.create.alert')
-    _('flash.time_entries.create.notice')
-    _('flash.time_entries.destroy.notice')
-    _('flash.time_entries.update.alert')
-    _('flash.time_entries.update.notice')
+    _('flash.actions.create.alert')
+    _('flash.actions.create.notice')
+    _('flash.actions.destroy.notice')
+    _('flash.actions.update.alert')
+    _('flash.actions.update.notice')
   end
 end
