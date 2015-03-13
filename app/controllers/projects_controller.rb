@@ -1,5 +1,4 @@
-class ProjectsController < BaseController
-  responders :collection
+class ProjectsController < SimpleResourceController
   skip_authorize_resource only: :new
 
   def index
@@ -11,7 +10,7 @@ class ProjectsController < BaseController
 
   def create
     @project.save
-    standard_response
+    resource_response
   end
 
   def edit
@@ -19,16 +18,6 @@ class ProjectsController < BaseController
 
   def update
     @project.update_attributes resource_params
-    standard_response
-  end
-
-  private
-
-  def resource_params
-    params.require(:project).permit *Project.resource_params
-  end
-
-  def standard_response
-    respond_with @project
+    resource_response
   end
 end

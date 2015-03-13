@@ -1,5 +1,4 @@
-class TimeEntriesController < BaseController
-  responders :collection
+class TimeEntriesController < SimpleResourceController
   skip_authorize_resource only: :new
 
   def index
@@ -11,7 +10,7 @@ class TimeEntriesController < BaseController
 
   def create
     @time_entry.save
-    standard_response
+    resource_response
   end
 
   def edit
@@ -19,21 +18,11 @@ class TimeEntriesController < BaseController
 
   def update
     @time_entry.update_attributes resource_params
-    standard_response
+    resource_response
   end
 
   def destroy
     @time_entry.destroy
-    standard_response
-  end
-
-  private
-
-  def resource_params
-    params.require(:time_entry).permit *TimeEntry.resource_params
-  end
-
-  def standard_response
-    respond_with @time_entry
+    resource_response
   end
 end
