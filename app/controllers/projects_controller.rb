@@ -1,5 +1,4 @@
-class ProjectsController < AuthenticatedController
-  respond_to :html
+class ProjectsController < SimpleResourceController
   skip_authorize_resource only: :new
 
   def index
@@ -10,33 +9,15 @@ class ProjectsController < AuthenticatedController
   end
 
   def create
-    if @project.save
-      flash[:notice] = _ 'Your project was successfully created!'
-    else
-      flash[:error] = _ 'Your project could not be saved.'
-    end
-    standard_response
+    @project.save
+    resource_response
   end
 
   def edit
   end
 
   def update
-    if @project.update_attributes resource_params
-      flash[:notice] = _ 'Your project was successfully updated.'
-    else
-      flash[:error] = _ 'Your project could not be saved.'
-    end
-    standard_response
-  end
-
-  private
-
-  def resource_params
-    params.require(:project).permit *Project.resource_params
-  end
-
-  def standard_response
-    respond_with @project, location: projects_path
+    @project.update_attributes resource_params
+    resource_response
   end
 end

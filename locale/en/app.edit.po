@@ -7,15 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2015-01-26 15:24-0500\n"
+"PO-Revision-Date: 2015-03-12 14:13-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: English\n"
-"Language: en\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid "%{n} character minimum"
 msgid_plural "%{n} characters minimum"
@@ -38,12 +37,6 @@ msgid "City"
 msgstr ""
 
 msgid "Client"
-msgstr ""
-
-msgid "Client was successfully created!"
-msgstr ""
-
-msgid "Client was successfully updated."
 msgstr ""
 
 msgid "Clients"
@@ -178,33 +171,6 @@ msgstr ""
 msgid "View as PDF"
 msgstr ""
 
-msgid "Your invoice could not be created."
-msgstr ""
-
-msgid "Your invoice was successfully created."
-msgstr ""
-
-msgid "Your project could not be saved."
-msgstr ""
-
-msgid "Your project was successfully created!"
-msgstr ""
-
-msgid "Your project was successfully updated."
-msgstr ""
-
-msgid "Your time entry could not be saved."
-msgstr ""
-
-msgid "Your time entry was successfully created!"
-msgstr ""
-
-msgid "Your time entry was successfully deleted."
-msgstr ""
-
-msgid "Your time entry was successfully updated."
-msgstr ""
-
 msgid "ZIP code"
 msgstr ""
 
@@ -213,3 +179,18 @@ msgstr ""
 
 msgid "edit"
 msgstr ""
+
+msgid "flash.actions.create.alert"
+msgstr "Your %{downcase_resource_name} could not be created."
+
+msgid "flash.actions.create.notice"
+msgstr "Your %{downcase_resource_name} was successfully created!"
+
+msgid "flash.actions.destroy.notice"
+msgstr "Your %{downcase_resource_name} was successfully deleted."
+
+msgid "flash.actions.update.alert"
+msgstr "Your %{downcase_resource_name} could not be saved."
+
+msgid "flash.actions.update.notice"
+msgstr "Your %{downcase_resource_name} was successfully updated."

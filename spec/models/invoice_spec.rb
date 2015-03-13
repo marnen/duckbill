@@ -28,6 +28,20 @@ RSpec.describe Invoice, :type => :model do
     end
   end
 
+  describe '.with_time_entries' do
+    subject { Invoice.with_time_entries.where(id: invoice.id).to_sql }
+
+    it "fetches the invoice's time entries along with the invoice" do
+      expect(subject).to be =~ %r{\b(?i:left (outer )?join )#{Regexp::escape TimeEntry.quoted_table_name}}
+    end
+
+    it 'fetches the client along with the invoice' do
+      [Project, Client].each do |klass|
+        expect(subject).to be =~ %r{\b(?i:join )#{Regexp::escape klass.quoted_table_name}}
+      end
+    end
+  end
+
   describe '#number' do
     it "returns the invoice's ID for now" do
       expect(invoice.number).to be == invoice.id

@@ -1,5 +1,4 @@
-class InvoicesController < AuthenticatedController
-  respond_to :html
+class InvoicesController < BaseController
   skip_authorize_resource only: :new
 
   def index
@@ -9,16 +8,12 @@ class InvoicesController < AuthenticatedController
   end
 
   def create
-    if CreateInvoiceService.call @invoice
-      flash[:notice] = _ 'Your invoice was successfully created.'
-    else
-      flash[:error] = _ 'Your invoice could not be created.'
-    end
+    CreateInvoiceService.call @invoice
     respond_with @invoice
   end
 
   def show
-    @invoice = Invoice.where(id: params[:id]).joins { time_entries.outer }.joins { project.client }.first
+    @invoice = Invoice.with_time_entries.where(id: params[:id]).first
     @client = @invoice.client.decorate
     @project = @invoice.project
     @user = current_user.decorate

@@ -20,7 +20,7 @@ Scenario Outline: Create and view clients
     | ZIP     | <zip>     |
   And I click "Save"
   Then I should be on the clients page
-  And I should see "Client was successfully created!"
+  And I should see "Your client was successfully created!"
   And I should see the following client:
     | Name    | <name>    |
     | Company | <company> |

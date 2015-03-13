@@ -40,7 +40,7 @@ Scenario: Handle invalid submissions correctly
     | Project | My Project |
     | Hours   |            |
   And I click "Save"
-  Then I should see "Your time entry could not be saved"
+  Then I should see "Your time entry could not be created."
   When I go to the time entries page
   Then I should not see any time entries
 
