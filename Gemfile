@@ -41,6 +41,8 @@ gem 'squeel', '~> 1.2.3'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+gem 'rails_12factor', group: :production # may want to remove if not deploying on Heroku
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
