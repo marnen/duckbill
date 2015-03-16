@@ -32,6 +32,8 @@ class Ability
     can :manage, Client, user_id: user.id
     can :manage, Invoice, project: {client: {user_id: user.id}}
     can :manage, Project, client: {user_id: user.id}
+
     can :manage, TimeEntry, project: {client: {user_id: user.id}}
+    cannot(:update, TimeEntry) {|time_entry| time_entry.invoice_id.present? }
   end
 end
