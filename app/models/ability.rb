@@ -34,6 +34,6 @@ class Ability
     can :manage, Project, client: {user_id: user.id}
 
     can :manage, TimeEntry, project: {client: {user_id: user.id}}
-    cannot :update, TimeEntry, not: {invoice_id: nil}
+    cannot [:destroy, :update], TimeEntry, not: {invoice_id: nil}
   end
 end
