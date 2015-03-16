@@ -1,12 +1,14 @@
 %tr[time_entry]
   %td
-    = link_to edit_time_entry_path(time_entry), class: :edit do
-      %span.fi-pencil
-      = _('edit')
-    %br
-    = link_to time_entry_path(time_entry), class: :delete, method: :delete do
-      %span.fi-x
-      = _('delete')
+    - if can? :update, time_entry
+      = link_to edit_time_entry_path(time_entry), class: :edit do
+        %span.fi-pencil
+        = _('edit')
+      %br
+    - if can? :destroy, time_entry
+      = link_to time_entry_path(time_entry), class: :delete, method: :delete do
+        %span.fi-x
+        = _('delete')
   %td.date= time_entry.date
   %td.project= time_entry.project.name
   %td.description= time_entry.description
