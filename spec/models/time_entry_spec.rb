@@ -16,7 +16,19 @@ RSpec.describe TimeEntry, :type => :model do
     context 'creator' do
       let(:user) { time_entry.user }
 
-      it { should be_able_to :manage, time_entry}
+      context 'uninvoiced' do
+        it { should be_able_to :manage, time_entry}
+      end
+
+      context 'invoiced' do
+        before(:each) do
+          time_entry.invoice_id = rand(100)
+        end
+
+        it { should be_able_to :read, time_entry }
+        it { should_not be_able_to :destroy, time_entry }
+        it { should_not be_able_to :update, time_entry }
+      end
     end
 
     context 'other user' do
