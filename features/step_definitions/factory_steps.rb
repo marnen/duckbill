@@ -1,15 +1,17 @@
-Given /^I have no (.+)$/ do |association|
+include ModelNameHelpers
+
+Given /^I have no (#{model_names})$/ do |association|
   @current_user.send(remove_spaces association).destroy_all
 end
 
-Given /^I have (\d+|an?) (.*[^:])$/ do |count, association|
+Given /^I have (\d+|an?) (#{model_names})$/ do |count, association|
   count = 1 if ['a', 'an'].include? count
   count.times do
     FactoryGirl.create normalize(association), user: @current_user
   end
 end
 
-Given /^the following (.+) exists:$/ do |model, table|
+Given /^the following (#{model_names}) exists:$/ do |model, table|
   association_fields = {'client' => :name, 'user' => :email}
   params = table.hashes.first
   association_fields.each do |association, field|
@@ -19,7 +21,7 @@ Given /^the following (.+) exists:$/ do |model, table|
   memoize model, FactoryGirl.create(model, params)
 end
 
-Given /^I have the following (.+):$/ do |model, table|
+Given /^I have the following (#{model_names}):$/ do |model, table|
   table.hashes.each {|hash| create_for_current_user model, hash }
 end
 

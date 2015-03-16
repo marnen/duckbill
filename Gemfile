@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'cancancan'
+gem 'cancancan', github: 'marnen/cancancan', branch: 'negative-conditions-for-active_record-4' # https://github.com/CanCanCommunity/cancancan/pull/192
 gem 'cells'
 gem 'devise'
 gem 'draper'

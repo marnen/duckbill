@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/marnen/cancancan.git
+  revision: 9e02f1c0056eb093756cd9868bcfc6491abb8c7c
+  branch: negative-conditions-for-active_record-4
+  specs:
+    cancancan (1.10.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,7 +53,6 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
-    cancancan (1.10.1)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -336,7 +342,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  cancancan
+  cancancan!
   cells
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
