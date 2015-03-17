@@ -29,14 +29,22 @@ private
 
 def create_for_current_user(model, params)
   model = normalize model
-  parent_fields = {'time_entry' => 'project', 'project' => 'client'}
+  parent_fields = {
+    'invoice' => 'project',
+    'time_entry' => 'project',
+    'project' => 'client'
+  }
   additional_options = {'client' => :with_name_and_address}
   parent = parent_fields[model]
   if params.include? parent
-    params[parent] = @current_user.send(parent.pluralize).find_by_name params[parent]
+    parent_collection = @current_user.send(parent.pluralize)
+    parent_name = params[parent]
+    parent_object = parent_collection.find_by_name(parent_name) || create_for_current_user(parent, 'name' => parent_name)
+    params[parent] = parent_object
   else
     params['user'] = @current_user
   end
+  params.transform_keys! {|key| remove_spaces key }
   memoize model, FactoryGirl.create(*[model, additional_options[model], params].compact)
 end
 

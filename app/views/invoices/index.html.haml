@@ -1,4 +1,17 @@
 - content_for :title do
   = _ 'My Invoices'
 
+%table
+  %thead
+    %tr
+      %th= _ 'Number'
+      %th= _ 'Date'
+      %th= _ 'Project'
+  %tbody
+    - @invoices.each do |invoice|
+      %tr
+        %td= invoice.number
+        %td= cell(:formatted_date, date: invoice.created_at).call
+        %td= invoice.project.name
+
 %p= link_to _('New invoice'), new_invoice_path

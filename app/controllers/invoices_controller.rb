@@ -2,6 +2,7 @@ class InvoicesController < BaseController
   skip_authorize_resource only: :new
 
   def index
+    @invoices = Invoice.joins(:project).includes(:project).all
   end
 
   def new
