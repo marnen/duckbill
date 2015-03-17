@@ -1,0 +1,4 @@
+%tr
+  %td= invoice.number
+  %td= cell(:formatted_date, date: invoice.created_at).call
+  %td= invoice.project.name
