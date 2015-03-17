@@ -3,8 +3,10 @@ Feature: Show list of invoices
   I can see a list of invoices
   So I can review the billing I've already done
 
-Scenario Outline:
+Background:
   Given I am logged in
+
+Scenario Outline: List invoices
   And I have the following invoices:
     | project    |
     | <project1> |
@@ -16,3 +18,9 @@ Scenario Outline:
   Examples:
     | project1        | project2         |
     | Roadrunner Trap | Perpetual Motion |
+
+Scenario: Show links to invoices
+  Given I have an invoice
+  And I am on the invoices page
+  When I click on the invoice number
+  Then I should be on the invoice's page

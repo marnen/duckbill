@@ -6,8 +6,9 @@ end
 
 Given /^I have (\d+|an?) (#{model_names})$/ do |count, association|
   count = 1 if ['a', 'an'].include? count
+  model = normalize(association)
   count.times do
-    FactoryGirl.create normalize(association), user: @current_user
+    memoize model, FactoryGirl.create(model, user: @current_user)
   end
 end
 
