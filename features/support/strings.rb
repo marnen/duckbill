@@ -1,16 +1,19 @@
 module StringHelpers
   def string_for(identifier)
     case identifier
-    when 'the invoice number'
-      @invoice.number
-    when "the invoice's project's name"
-      @invoice.project.name
-    when "the project's name"
-      @project.name
-    when "the project's client's name"
-      @project.client.name
+    when nil
+      # placeholder for explicit mappings
     else
-      raise ArgumentError, "String identifier '#{identifier}' is not defined. Please add a mapping in #{__FILE__}."
+      begin
+        path = identifier.gsub(/^the\s+/, '').split.collect {|key| key.chomp "'s" }
+        result = instance_variable_get "@#{path.shift}"
+        path.each do |key|
+          result = result.send key
+        end
+        result
+      rescue NoMethodError
+        raise ArgumentError, "String identifier '#{identifier}' is not defined. Please add a mapping in #{__FILE__}."
+      end
     end
   end
 end
