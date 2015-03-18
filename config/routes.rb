@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :clients, except: [:show, :delete]
+  resources :clients, except: :delete
   resources :invoices, only: [:index, :new, :create, :show]
-  resources :projects, except: [:show, :delete]
+  resources :projects, except: :delete
   resources :time_entries, except: :show
 
   # Example of regular route:

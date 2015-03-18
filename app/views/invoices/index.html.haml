@@ -2,3 +2,11 @@
   = _ 'My Invoices'
 
 %p= link_to _('New invoice'), new_invoice_path
+
+%table
+  %thead
+    %tr
+      %th= _ 'Number'
+      %th= _ 'Date'
+      %th= _ 'Project'
+  %tbody= render @invoices

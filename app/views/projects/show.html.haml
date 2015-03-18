@@ -1,0 +1,6 @@
+- content_for :title do
+  = @project.name
+
+%table
+  %thead= render 'header'
+  %tbody= render @project
