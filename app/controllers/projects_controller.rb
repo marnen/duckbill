@@ -5,6 +5,9 @@ class ProjectsController < SimpleResourceController
     @has_clients = current_user.clients.first.present?
   end
 
+  def show
+  end
+
   def new
   end
 

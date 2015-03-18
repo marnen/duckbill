@@ -24,3 +24,9 @@ Scenario: Show links to invoices
   And I am on the invoices page
   When I click on the invoice number
   Then I should be on the invoice's page
+
+Scenario: Show links to projects
+  Given I have an invoice
+  And I am on the invoices page
+  When I click on the invoice's project name
+  Then I should be on the invoice's project's page

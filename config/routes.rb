@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :clients, except: [:show, :delete]
   resources :invoices, only: [:index, :new, :create, :show]
-  resources :projects, except: [:show, :delete]
+  resources :projects, except: :delete
   resources :time_entries, except: :show
 
   # Example of regular route:
