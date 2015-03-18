@@ -11,3 +11,7 @@ Background:
 Scenario: Project detail page
   Then I should see the project's name
   And I should see the project's client's name
+
+Scenario: Link to client
+  When I click on the project's client's name
+  Then I should be on the project's client's page

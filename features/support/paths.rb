@@ -5,6 +5,8 @@ module PathHelpers
       %r{^/invoices/[^/+]+$}
     when "the invoice's project's page"
       project_path @invoice.project
+    when "the project's client's page"
+      client_path @project.client
     when 'the user profile edit page'
       edit_user_registration_path
     when 'the user registration page'
