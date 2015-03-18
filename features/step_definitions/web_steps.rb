@@ -2,8 +2,12 @@ Given /^I am on (.+)$/ do |page_name|
   visit path_to page_name
 end
 
-When /^I click "(.*?)"$/ do |name|
-  click_on name
+When /^I click "(.*?)"$/ do |text|
+  click_on text
+end
+
+When /^I click ([^"].*)$/ do |identifier|
+  click_on string_for identifier
 end
 
 When 'I fill in the following:' do |table|
