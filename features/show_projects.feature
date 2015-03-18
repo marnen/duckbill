@@ -3,15 +3,11 @@ Feature: Show projects
   I can see a detail page for each project
   So I can review its information without having to edit it
 
-Scenario Outline:
+Background:
   Given I am logged in
-  And I have the following project:
-    | name      | client   |
-    | <project> | <client> |
-  When I go to the project's page
-  Then I should see "<project>"
-  And I should see "<client>"
+  And I have a project
+  And I am on the project's page
 
-  Examples:
-    | project          | client      |
-    | Perpetual Motion | Vlad Dracul |
+Scenario: Project detail page
+  Then I should see the project's name
+  And I should see the project's client's name
