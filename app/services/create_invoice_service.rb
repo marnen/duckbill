@@ -1,15 +1,20 @@
 class CreateInvoiceService
-  def self.call(invoice)
-    Invoice.transaction do
-      project = invoice.project
-      project.touch_with_version
-      invoice.project_version_id = project.versions.last.try :id
+  class << self
+    def call(invoice)
+      @invoice = invoice
+      Invoice.transaction do
+        [:project, :client].each {|association| capture_version association}
+        invoice.save && TimeEntry.where(project_id: invoice.project_id, invoice_id: nil).update_all(invoice_id: invoice.id)
+      end
+    end
 
-      client = invoice.client
-      client.touch_with_version
-      invoice.client_version_id = client.versions.last.try :id
+    private
 
-      invoice.save && TimeEntry.where(project_id: invoice.project_id, invoice_id: nil).update_all(invoice_id: invoice.id)
+    # TODO: move this method to Invoice
+    def capture_version(association)
+      object = @invoice.send association
+      object.touch_with_version
+      @invoice["#{association}_version_id"] = object.versions.last.id
     end
   end
 end
