@@ -1,5 +1,8 @@
 FactoryGirl.define do
   factory :invoice do
+    association :client_version, factory: :version
+    association :project_version, factory: :version
+
     transient do
       user nil
     end

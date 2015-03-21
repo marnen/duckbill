@@ -7,8 +7,13 @@ RSpec.describe Invoice, :type => :model do
   it { should have_one(:client).through :project }
   it { should have_one(:user).through :client }
   it { should have_many :time_entries }
+  [:client_version, :project_version].each do |version|
+    it { should belong_to(version).class_name PaperTrail::Version }
+  end
 
-  it { should validate_presence_of :project_id }
+  [:client_version_id, :project_id, :project_version_id].each do |field|
+    it { should validate_presence_of field }
+  end
 
   describe 'permissions' do
     subject(:ability) { Ability.new user }
