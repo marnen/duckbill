@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/airblade/paper_trail.git
+  revision: 9528e9eb0bff353d782b98a70779034cac1e6c02
+  ref: 9528e9eb0bff353d782b98a70779034cac1e6c02
+  specs:
+    paper_trail (4.0.0.beta3)
+      activerecord (>= 3.0, < 6.0)
+      activesupport (>= 3.0, < 6.0)
+      request_store (~> 1.1.0)
+
+GIT
   remote: git://github.com/marnen/cancancan.git
   revision: 9e02f1c0056eb093756cd9868bcfc6491abb8c7c
   branch: negative-conditions-for-active_record-4
@@ -197,9 +207,6 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    paper_trail (4.0.0.beta2)
-      activerecord (>= 3.0, < 6.0)
-      activesupport (>= 3.0, < 6.0)
     pg (0.18.1)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
@@ -364,7 +371,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
-  paper_trail (~> 4.0.0.beta2)
+  paper_trail!
   pg
   rails (= 4.2.0)
   rails_12factor
