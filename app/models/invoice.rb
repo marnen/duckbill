@@ -14,6 +14,17 @@ class Invoice < ActiveRecord::Base
     joins { time_entries.outer }.joins { project.client }
   end
 
+  def capture_association_versions!
+    transaction do
+      version_ids = {}
+      [:client, :project].each do |association|
+        record = self.send(association)
+        record.touch_with_version
+        self[:"#{association}_version_id"] = record.versions.last.id
+      end
+    end
+  end
+
   def number
     id
   end

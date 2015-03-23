@@ -47,6 +47,16 @@ RSpec.describe Invoice, :type => :model do
     end
   end
 
+  describe '#capture_association_versions!', versioning: true do
+    before(:each) { invoice.capture_association_versions! }
+
+    [:client, :project].each do |association|
+      it 'associates a project version with the invoice' do
+        expect(invoice["#{association}_version_id"]).to be == invoice.send(association).versions.last.id
+      end
+    end
+  end
+
   describe '#number' do
     it "returns the invoice's ID for now" do
       expect(invoice.number).to be == invoice.id

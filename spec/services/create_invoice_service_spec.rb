@@ -7,8 +7,7 @@ describe CreateInvoiceService, versioning: true do
     let(:invoice) { FactoryGirl.build :invoice }
 
     it 'saves the invoice' do
-      expect(invoice).to receive(:save).and_return true
-      call_service!
+      expect { call_service! }.to change { invoice.new_record? }.from(true).to false
     end
 
     context 'record management' do
