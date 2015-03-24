@@ -15,10 +15,10 @@ class InvoicesController < BaseController
 
   def show
     @invoice = Invoice.with_time_entries.where(id: params[:id]).first
-    @client = @invoice.client_version.reify.decorate
-    @project = @invoice.project_version.reify
-    @user = current_user.decorate
+    @client = @invoice.snapshot(:client).decorate
+    @project = @invoice.snapshot :project
     @time_entries = @invoice.time_entries
+    @user = current_user.decorate
 
     respond_to do |format|
       format.html

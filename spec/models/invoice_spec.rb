@@ -33,6 +33,33 @@ RSpec.describe Invoice, :type => :model do
     end
   end
 
+  describe 'version handling', versioning: true do
+    before(:each) { invoice.capture_association_versions! }
+
+    describe '#capture_association_versions!' do
+      [:client, :project].each do |association|
+        it 'associates a project version with the invoice' do
+          expect(invoice["#{association}_version_id"]).to be == invoice.send(association).versions.last.id
+        end
+      end
+    end
+
+    describe '#snapshot' do
+      before(:each) { invoice.save! }
+
+      [:client, :project].each do |association|
+        describe association do
+          it "returns the #{association} version associated with the invoice" do
+            record = invoice.send association
+            record.update_attributes! name: 'New name'
+            record.touch_with_version
+            expect(invoice.snapshot(association).attributes).to be == invoice.send("#{association}_version").reify.attributes
+          end
+        end
+      end
+    end
+  end
+
   describe '.with_time_entries' do
     subject { Invoice.with_time_entries.where(id: invoice.id).to_sql }
 
@@ -43,16 +70,6 @@ RSpec.describe Invoice, :type => :model do
     it 'fetches the client along with the invoice' do
       [Project, Client].each do |klass|
         expect(subject).to be =~ %r{\b(?i:join )#{Regexp::escape klass.quoted_table_name}}
-      end
-    end
-  end
-
-  describe '#capture_association_versions!', versioning: true do
-    before(:each) { invoice.capture_association_versions! }
-
-    [:client, :project].each do |association|
-      it 'associates a project version with the invoice' do
-        expect(invoice["#{association}_version_id"]).to be == invoice.send(association).versions.last.id
       end
     end
   end

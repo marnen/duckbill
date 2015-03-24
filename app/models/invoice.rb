@@ -25,6 +25,10 @@ class Invoice < ActiveRecord::Base
     end
   end
 
+  def snapshot(association)
+    self.send("#{association}_version").reify
+  end
+
   def number
     id
   end
