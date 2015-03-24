@@ -3,10 +3,11 @@ class Invoice < ActiveRecord::Base
   has_one :client, through: :project
   has_one :user, through: :client
   has_many :time_entries
-  belongs_to :project_version, class_name: 'PaperTrail::Version'
   belongs_to :client_version, class_name: 'PaperTrail::Version'
+  belongs_to :project_version, class_name: 'PaperTrail::Version'
+  belongs_to :user_version, class_name: 'PaperTrail::Version'
 
-  [:client_version_id, :project_id, :project_version_id].each do |field|
+  [:client_version_id, :project_id, :project_version_id, :user_version_id].each do |field|
     validates field, presence: true
   end
 
@@ -16,9 +17,11 @@ class Invoice < ActiveRecord::Base
 
   def capture_association_versions!
     transaction do
-      version_ids = {}
-      [:client, :project].each do |association|
-        record = self.send(association)
+      [:client, :project, :user].each do |association|
+        record = self.send association
+        if association == :user && !record # workaround for https://github.com/rails/rails/issues/16313
+          record = client.user
+        end
         record.touch_with_version
         self[:"#{association}_version_id"] = record.versions.last.id
       end

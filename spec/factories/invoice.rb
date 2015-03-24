@@ -6,6 +6,7 @@ FactoryGirl.define do
 
     association :client_version, factory: :version
     association :project_version, factory: :version
+    association :user_version, factory: :version
 
     project
 
