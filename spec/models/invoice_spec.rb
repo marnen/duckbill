@@ -34,33 +34,40 @@ RSpec.describe Invoice, :type => :model do
   end
 
   describe 'version handling', versioning: true do
-    before(:each) { invoice.capture_association_versions! }
+    describe '.versioned_associations' do
+      subject { Invoice.versioned_associations }
 
-    describe '#capture_association_versions!' do
-      [:client, :project, :user].each do |association|
-        it "associates a #{association} version with the invoice" do
-          record = invoice.send(association)
-          if association == :user && !record # workaround for https://github.com/rails/rails/issues/16313
-            record = invoice.client.user
-          end
-          expect(invoice["#{association}_version_id"]).to be == record.versions.last.id
-        end
-      end
+      it { should include :client, :project, :user }
     end
+    describe 'instance methods', versioning: true do
+      before(:each) { invoice.capture_association_versions! }
 
-    describe '#snapshot' do
-      before(:each) { invoice.save! }
-
-      [:client, :project, :user].each do |association|
-        describe association do
-          it "returns the #{association} version associated with the invoice" do
-            record = invoice.send association
+      describe '#capture_association_versions!' do
+        [:client, :project, :user].each do |association|
+          it "associates a #{association} version with the invoice" do
+            record = invoice.send(association)
             if association == :user && !record # workaround for https://github.com/rails/rails/issues/16313
               record = invoice.client.user
             end
-            record.update_attributes! name: 'New name'
-            record.touch_with_version
-            expect(invoice.snapshot(association).attributes).to be == invoice.send("#{association}_version").reify.attributes
+            expect(invoice["#{association}_version_id"]).to be == record.versions.last.id
+          end
+        end
+      end
+
+      describe '#snapshot' do
+        before(:each) { invoice.save! }
+
+        [:client, :project, :user].each do |association|
+          describe association do
+            it "returns the #{association} version associated with the invoice" do
+              record = invoice.send association
+              if association == :user && !record # workaround for https://github.com/rails/rails/issues/16313
+                record = invoice.client.user
+              end
+              record.update_attributes! name: 'New name'
+              record.touch_with_version
+              expect(invoice.snapshot(association).attributes).to be == invoice.send("#{association}_version").reify.attributes
+            end
           end
         end
       end

@@ -1,23 +1,32 @@
 class Invoice < ActiveRecord::Base
+  class << self
+    def versioned_associations
+      [:client, :project, :user]
+    end
+
+    def with_time_entries
+      joins { time_entries.outer }.joins { project.client }
+    end
+
+    private
+
+    def has_versioned(association, required: nil)
+      belongs_to :"#{association}_version", class_name: 'PaperTrail::Version'
+      validates :"#{association}_version_id", presence: true if required
+    end
+  end
+
   belongs_to :project
   has_one :client, through: :project
   has_one :user, through: :client
   has_many :time_entries
-  belongs_to :client_version, class_name: 'PaperTrail::Version'
-  belongs_to :project_version, class_name: 'PaperTrail::Version'
-  belongs_to :user_version, class_name: 'PaperTrail::Version'
+  versioned_associations.each {|association| has_versioned association, required: true }
 
-  [:client_version_id, :project_id, :project_version_id, :user_version_id].each do |field|
-    validates field, presence: true
-  end
-
-  def self.with_time_entries
-    joins { time_entries.outer }.joins { project.client }
-  end
+  validates :project_id, presence: true
 
   def capture_association_versions!
     transaction do
-      [:client, :project, :user].each do |association|
+      self.class.versioned_associations.each do |association|
         record = self.send association
         if association == :user && !record # workaround for https://github.com/rails/rails/issues/16313
           record = client.user
