@@ -26,6 +26,10 @@ Given /^I have the following (#{model_names}):$/ do |model, table|
   table.hashes.each {|hash| create_for_current_user model, hash }
 end
 
+When /^I change the (#{model_names})'s name to "(.*?)"$/ do |model, value|
+  instance_variable_get("@#{normalize model}").update_attributes! name: value
+end
+
 private
 
 def create_for_current_user(model, params)
