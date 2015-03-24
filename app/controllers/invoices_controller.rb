@@ -15,8 +15,8 @@ class InvoicesController < BaseController
 
   def show
     @invoice = Invoice.with_time_entries.where(id: params[:id]).first
-    @client = (@invoice.client_version.reify || @invoice.client).decorate
-    @project = @invoice.project_version.reify || @invoice.project
+    @client = @invoice.client_version.reify.decorate
+    @project = @invoice.project_version.reify
     @user = current_user.decorate
     @time_entries = @invoice.time_entries
 
