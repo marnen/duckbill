@@ -4,6 +4,10 @@ class Invoice < ActiveRecord::Base
       [:client, :project, :user]
     end
 
+    def with_project
+      joins { project_version.outer }
+    end
+
     def with_time_entries
       joins { time_entries.outer }.joins { project.client }
     end
