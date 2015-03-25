@@ -1,4 +1,5 @@
 class InvoicesController < BaseController
+  prepend_before_action :load_for_full_display, only: :show
   skip_authorize_resource only: :new
 
   def index
@@ -14,7 +15,6 @@ class InvoicesController < BaseController
   end
 
   def show
-    @invoice = Invoice.for_full_display.where(id: params[:id]).first
     @client = @invoice.snapshot(:client).decorate
     @project = @invoice.snapshot :project
     @user = @invoice.snapshot(:user).decorate
@@ -29,6 +29,10 @@ class InvoicesController < BaseController
   end
 
   private
+
+  def load_for_full_display
+    @invoice = Invoice.for_full_display.where(id: params[:id]).first
+  end
 
   def resource_params
     params.require(:invoice).permit :project_id
