@@ -96,8 +96,9 @@ RSpec.describe Invoice, :type => :model do
 
     it "fetches the invoice's project version along with the invoice" do
       sql = ActiveRecord::Base.connection
+      invoice_table = Regexp::escape Invoice.quoted_table_name
       version_table = Regexp::escape PaperTrail::Version.quoted_table_name
-      expect(subject).to be =~ %r{\bleft (outer )?join #{version_table}.*#{Regexp::escape sql.quote_column_name 'project_version_id'}}i
+      expect(subject).to be =~ %r{\bleft (outer )?join #{version_table} on #{version_table}\.#{Regexp::escape sql.quote_column_name :id} = #{invoice_table}\.#{Regexp::escape sql.quote_column_name 'project_version_id'}}i
     end
   end
 
