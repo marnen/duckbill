@@ -21,6 +21,19 @@ Scenario Outline: Client and project snapshots on invoice
     | old_client | new_client | old_project     | new_project |
     | Acme Inc.  | Acament    | Roadrunner Trap | RTX-5000    |
 
+Scenario Outline: User snapshot on invoice
+  Given I am logged in as the following user:
+    | name | <old_name> |
+  And I have an invoice
+  When I change my name to "<new name>"
+  And I go to the invoice's page
+  Then I should see "<old_name>" within the invoice sender
+  But I should not see "<new_name>" within the invoice sender
+
+  Examples:
+    | old_name        | new_name    |
+    | Bernie Schwartz | Tony Curtis |
+
 Scenario Outline: Project snapshot on invoice list
   Given I am logged in
   And I have the following projects:
@@ -35,16 +48,3 @@ Scenario Outline: Project snapshot on invoice list
   Examples:
     | old_project     | new_project |
     | Roadrunner Trap | RTX-5000    |
-
-Scenario Outline: User snapshot
-  Given I am logged in as the following user:
-    | name | <old_name> |
-  And I have an invoice
-  When I change my name to "<new name>"
-  And I go to the invoice's page
-  Then I should see "<old_name>" within the invoice sender
-  But I should not see "<new_name>" within the invoice sender
-
-  Examples:
-    | old_name        | new_name    |
-    | Bernie Schwartz | Tony Curtis |
