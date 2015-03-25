@@ -4,12 +4,12 @@ class Invoice < ActiveRecord::Base
       [:client, :project, :user]
     end
 
-    def with_project
-      joins { project_version.outer }
+    def for_full_display
+      joins { time_entries.outer }.joins { project.client }
     end
 
-    def with_time_entries
-      joins { time_entries.outer }.joins { project.client }
+    def with_project
+      joins { project_version.outer }
     end
 
     private

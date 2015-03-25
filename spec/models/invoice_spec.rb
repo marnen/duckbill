@@ -74,18 +74,8 @@ RSpec.describe Invoice, :type => :model do
     end
   end
 
-  describe '.with_project' do
-    subject { Invoice.with_project.where(id: invoice.id).to_sql }
-
-    it "fetches the invoice's project version along with the invoice" do
-      sql = ActiveRecord::Base.connection
-      version_table = Regexp::escape PaperTrail::Version.quoted_table_name
-      expect(subject).to be =~ %r{\bleft (outer )?join #{version_table}.*#{Regexp::escape sql.quote_column_name 'project_version_id'}}i
-    end
-  end
-
-  describe '.with_time_entries' do
-    subject { Invoice.with_time_entries.where(id: invoice.id).to_sql }
+  describe '.for_full_display' do
+    subject { Invoice.for_full_display.where(id: invoice.id).to_sql }
 
     it "fetches the invoice's time entries along with the invoice" do
       expect(subject).to be =~ %r{\b(?i:left (outer )?join )#{Regexp::escape TimeEntry.quoted_table_name}}
@@ -95,6 +85,16 @@ RSpec.describe Invoice, :type => :model do
       [Project, Client].each do |klass|
         expect(subject).to be =~ %r{\b(?i:join )#{Regexp::escape klass.quoted_table_name}}
       end
+    end
+  end
+
+  describe '.with_project' do
+    subject { Invoice.with_project.where(id: invoice.id).to_sql }
+
+    it "fetches the invoice's project version along with the invoice" do
+      sql = ActiveRecord::Base.connection
+      version_table = Regexp::escape PaperTrail::Version.quoted_table_name
+      expect(subject).to be =~ %r{\bleft (outer )?join #{version_table}.*#{Regexp::escape sql.quote_column_name 'project_version_id'}}i
     end
   end
 
