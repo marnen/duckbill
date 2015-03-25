@@ -2,7 +2,7 @@ class Client < ActiveRecord::Base
   has_many :projects
   belongs_to :user
 
-  has_paper_trail # TODO: disable automatic versioning; see https://github.com/airblade/paper_trail/issues/481
+  has_paper_trail on: []
 
   validates :user_id, presence: true
 

@@ -4,7 +4,13 @@ class TimeEntry < ActiveRecord::Base
   has_one :user, through: :project
   [:project_id, :date, :hours, :description].each {|field| validates field, presence: true }
 
-  def self.resource_params
-    [:project_id, :date, :hours, :description, :notes]
+  class << self
+    def resource_params
+      [:project_id, :date, :hours, :description, :notes]
+    end
+
+    def uninvoiced
+      where invoice_id: nil
+    end
   end
 end

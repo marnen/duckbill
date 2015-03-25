@@ -23,6 +23,13 @@ RSpec.describe User, :type => :model do
     end
   end
 
+  describe 'versions' do
+    it 'is versioned, but not automatically' do
+      expect(subject).to be_versioned
+      expect(subject.paper_trail_options).to include on: []
+    end
+  end
+
   describe '.resource_parameters' do
     subject { User.resource_parameters }
 

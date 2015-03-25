@@ -5,6 +5,8 @@ module SelectorHelpers
       '.time_entry'
     when 'the invoice date'
       '.invoice-date'
+    when 'the invoice sender'
+      '.invoice .user'
     when 'the navigation bar'
       'nav.top-bar'
     when 'the signup form'

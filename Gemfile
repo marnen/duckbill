@@ -34,7 +34,7 @@ gem 'foundation-icons-sass-rails'
 gem 'foundation-rails'
 gem 'gettext_i18n_rails'
 gem 'haml'
-gem 'paper_trail', '~> 4.0.0.beta2'
+gem 'paper_trail', github: 'airblade/paper_trail', ref: '9528e9eb0bff353d782b98a70779034cac1e6c02' # https://github.com/airblade/paper_trail/pull/500
 gem 'responders'
 gem 'simple-navigation'
 gem 'squeel', '~> 1.2.3'

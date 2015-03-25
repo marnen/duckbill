@@ -21,6 +21,10 @@ Given 'no users exist' do
   User.destroy_all
 end
 
+When /^I change my name to "(.*?)"$/ do |name|
+  @current_user.update_attributes! name: name
+end
+
 Then /^I should see my (.+)$/ do |field|
   field.downcase!
   field =~ /^e-mail\b/ ? field = 'email' : field.gsub!(/\s/, '_')

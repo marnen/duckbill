@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   composed_of :date_format, mapping: %w(date_format key), allow_nil: true, converter: ->(key) { DateFormat.new key }
 
+  has_paper_trail on: []
+
   def self.resource_parameters
     [:name, :company, :email, :time_zone, :date_format, :street, :city, :state, :zip]
   end

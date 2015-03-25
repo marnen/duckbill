@@ -4,6 +4,10 @@ FactoryGirl.define do
       user nil
     end
 
+    association :client_version, factory: :version
+    association :project_version, factory: :version
+    association :user_version, factory: :version
+
     project
 
     after(:build) do |invoice, evaluator|
@@ -11,6 +15,7 @@ FactoryGirl.define do
       if user
         invoice.project = FactoryGirl.create :project, user: user
       end
+      invoice.capture_association_versions! if PaperTrail.enabled?
     end
   end
 end

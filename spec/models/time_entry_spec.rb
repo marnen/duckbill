@@ -47,4 +47,18 @@ RSpec.describe TimeEntry, :type => :model do
       it { should include field }
     end
   end
+
+  describe '.uninvoiced' do
+    let(:ids) { TimeEntry.uninvoiced.to_a.collect &:id }
+
+    it 'returns all time entries not associated with an invoice' do
+      uninvoiced_ids = (1..3).collect { FactoryGirl.create(:time_entry, invoice: nil).id }
+      expect(ids).to include *uninvoiced_ids
+    end
+
+    it 'does not return any time entries associated with an invoice' do
+      invoiced_ids = (1..3).collect { FactoryGirl.create(:time_entry, invoice: FactoryGirl.create(:invoice)).id }
+      expect(ids).not_to include *invoiced_ids
+    end
+  end
 end
