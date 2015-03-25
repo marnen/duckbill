@@ -1,4 +1,4 @@
 %tr
   %td= link_to invoice.number, invoice
   %td= cell(:formatted_date, date: invoice.created_at).call
-  %td= link_to invoice.project.name, invoice.project
+  %td= render_cell :project_link, :show, invoice: invoice

@@ -1,11 +1,15 @@
 class Invoice < ActiveRecord::Base
   class << self
+    def for_full_display
+      with_project.joins { client_version.outer }.joins { user_version.outer }.joins { time_entries.outer }
+    end
+
     def versioned_associations
       [:client, :project, :user]
     end
 
-    def with_time_entries
-      joins { time_entries.outer }.joins { project.client }
+    def with_project
+      joins { project_version.outer }
     end
 
     private
