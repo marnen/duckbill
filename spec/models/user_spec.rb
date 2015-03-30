@@ -22,8 +22,7 @@ RSpec.describe User, :type => :model do
   end
 
   describe 'validations' do
-    it { should validate_length_of(:state).is_equal_to 2 }
-    it { should allow_value(nil, '').for :state }
+    include_examples 'state validation'
 
     [:date_format, :time_zone].each do |field|
       it { should validate_presence_of field }

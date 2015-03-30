@@ -7,8 +7,7 @@ RSpec.describe Client, :type => :model do
   end
 
   describe 'validations' do
-    it { should validate_length_of(:state).is_equal_to 2 }
-    it { should allow_value(nil, '').for :state }
+    include_examples 'state validation'
     it { should validate_presence_of :user_id }
   end
 
