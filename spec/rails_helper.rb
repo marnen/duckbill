@@ -25,6 +25,7 @@ require 'paper_trail/frameworks/rspec'
 # require only the support files necessary.
 #
 # Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/shared_examples/**/*.rb")].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.

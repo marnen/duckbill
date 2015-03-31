@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :time_entries, through: :projects
 
   validates :date_format, presence: true
+  validates :state, state: true
   validates :time_zone, presence: true
 
   composed_of :date_format, mapping: %w(date_format key), allow_nil: true, converter: ->(key) { DateFormat.new key }

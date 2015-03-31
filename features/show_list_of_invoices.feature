@@ -7,7 +7,7 @@ Background:
   Given I am logged in
 
 Scenario Outline: List invoices
-  And I have the following invoices:
+  Given I have the following invoices:
     | project    |
     | <project1> |
     | <project2> |

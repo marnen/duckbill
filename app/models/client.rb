@@ -4,6 +4,7 @@ class Client < ActiveRecord::Base
 
   has_paper_trail on: []
 
+  validates :state, state: true
   validates :user_id, presence: true
 
   def self.resource_params

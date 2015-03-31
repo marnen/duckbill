@@ -1,9 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Client, :type => :model do
-  it { should have_many :projects }
-  it { should belong_to :user }
-  it { should validate_presence_of :user_id }
+  describe 'associations' do
+    it { should have_many :projects }
+    it { should belong_to :user }
+  end
+
+  describe 'validations' do
+    include_examples 'state validation'
+    it { should validate_presence_of :user_id }
+  end
 
   describe 'permissions' do
     subject(:ability) { Ability.new user }
